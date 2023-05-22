@@ -13,7 +13,7 @@ const Hero = () => {
               Unlock Your
               <span className="inline-flex items-center">
                 <img
-                  src="/assets/intext.png"
+                  src="./assets/intext.png"
                   className="h-10 md:h-20 w-auto mr-2"
                   alt="Cardova"
                 />
@@ -46,7 +46,7 @@ const Hero = () => {
               <div className="w-full sm:w-1/2">
                 {/* Image */}
                 <img
-                  src="/assets/hero.png"
+                  src="./assets/hero.png"
                   alt="Your Image"
                   className="w-full sm:h-[480px] object-fill rounded-xl"
                 />
