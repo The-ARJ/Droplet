@@ -52,7 +52,6 @@ const CardForm = () => {
 
   const handleSave = () => {
     alert("Data Saved Successfully");
-    // Save the formData to local storage or perform any other desired actions
     localStorage.setItem("formData", JSON.stringify(formData));
   };
 
@@ -208,13 +207,13 @@ const CardForm = () => {
                   />
                 )}
               </div>
+              <button
+                className="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-green-600"
+                onClick={handleSave}
+              >
+                Save
+              </button>
             </div>
-            <button
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-6"
-              onClick={handleSave}
-            >
-              Save
-            </button>
           </div>
         </div>
       </div>

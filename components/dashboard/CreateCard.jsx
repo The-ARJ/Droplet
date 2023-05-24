@@ -4,6 +4,9 @@ import { MdAdd, MdAddCard } from "react-icons/md";
 import Link from "next/link";
 import DashInfo from "./DashInfo";
 import CardForm from "./CardForm";
+import { useLottie } from "lottie-react";
+import load from "../../public/assets/load.json";
+import Lottie from "lottie-react";
 
 const CreateCard = ({ title }) => {
   return (
@@ -13,6 +16,7 @@ const CreateCard = ({ title }) => {
         <div className="mt-6 font-bold text-xl text-purple-900">
           <div className="flex flex-wrap justify-around">
             <CardForm />
+            <Lottie animationData={load} className=" h-[300px]  "></Lottie>
             <DashCards />
           </div>
         </div>
