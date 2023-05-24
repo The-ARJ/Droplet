@@ -1,6 +1,12 @@
 import React, { useEffect, useState, useRef } from "react";
 import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaLinkedin,
+  FaGithub,
+  FaDownload,
+  FaTrash,
+} from "react-icons/fa";
 import { useRouter } from "next/navigation";
 import html2canvas from "html2canvas";
 import { v4 as uuid } from "uuid";
@@ -51,6 +57,16 @@ const CardList = () => {
       setSelectedImage(event.target.result);
     };
     reader.readAsDataURL(file);
+  };
+
+  const handleDelete = (id) => {
+    const shouldDelete = window.confirm("Are you sure you want to delete this card?");
+    if (shouldDelete) {
+      localStorage.removeItem(id);
+      setCardData((prevCardData) =>
+        prevCardData.filter((card) => card.id !== id)
+      );
+    }
   };
 
   return (
@@ -109,18 +125,16 @@ const CardList = () => {
                     <FaLinkedin className="text-white opacity-70 ml-3" />
                     <FaGithub className="text-white opacity-70 ml-3" />
                   </div>
-                  <button
-                    className="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-blue-600 mr-2"
-                    onClick={() => handleShare(card.id)}
-                  >
-                    Share
-                  </button>
-                  <button
-                    className="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-blue-600"
-                    onClick={handleDownload}
-                  >
-                    Download
-                  </button>
+                  <div>
+                    <div className=" flex">
+                      <div className="text-sm rounded-lg flex flex-shrink-0 py-2 font-bold text-red-600 cursor-pointer">
+                        <FaTrash onClick={() => handleDelete(card.id)} />
+                      </div>
+                      <div className="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-blue-600 cursor-pointer">
+                        <FaDownload onClick={handleDownload} />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
