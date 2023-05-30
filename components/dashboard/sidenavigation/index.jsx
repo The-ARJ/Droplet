@@ -25,7 +25,7 @@ export default function SideNavigation({ mobilePosition }) {
       <div className={style.container}>
         <div className={` flex items-center justify-center mb-6 pb-6 pt-10 sticky top-0 z-10 font-bold text-lg md:text-xl `}>
           <img src='./assets/logo.png' className=' h-14 mr-2' />
-          <h className={` text-white ${open ? 'block' : ' hidden text-sm font-medium'}`}> Cardova</h>
+          <h1 className={` text-white ${open ? 'block' : ' hidden text-sm font-medium'}`}> Cardova</h1>
         </div>
         <SidenavItems />
       </div>

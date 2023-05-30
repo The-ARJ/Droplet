@@ -9,11 +9,9 @@ const SignIn = () => {
       <div className="flex  justify-center px-4">
         <div className="max-w-md w-full  pt-40">
           {/* Hero */}
-          <Image
-            height={500}
-            width={500}
+          <img
             className="absolute top-20 left-0 z-0 w-full mx-auto object-cover"
-            src="/assets/bg.svg"
+            src="./assets/bg.svg"
             alt="cardova"
           />
           <div className="relative overflow-hidden border-2 border-gray-400 shadow-lg rounded-2xl ">
