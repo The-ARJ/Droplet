@@ -75,51 +75,51 @@ const CardList = () => {
         {cardData.map((card) => (
           <div className="w-full md:w-3/12" key={card.id}>
             <div className="p-2">
-              <div className="p-4 rounded-3xl bg-[#111827]" id="card-container">
+              <div className=" rounded-3xl bg-[#111827]" id="card-container">
                 <div className="flex justify-center">
                   {selectedImage ? (
                     <img
-                      className="w-32 h-32 rounded-full overflow-hidden object-cover"
-                      src={selectedImage}
+                    className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
+                    src={selectedImage}
                       alt="participant"
                     />
                   ) : (
                     <img
-                      className="w-32 h-32 rounded-full overflow-hidden object-cover"
-                      src={card.formData.image}
+                    className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
+                    src={card.formData.image}
                       alt="participant"
                     />
                   )}
                 </div>
-                <div className="mb-4 mt-5 text-white">
-                  <p className="text-base font-bold opacity-70">
+                <div className="mb-4 p-2 font-medium mt-5 text-white">
+                  <p className="text-lg  opacity-70">
                     {card.formData.fullName}
                   </p>
-                  <p className="text-sm opacity-70 mt-2">
+                  <p className="text-base  opacity-70 mt-2">
                     {card.formData.role}
                   </p>
                 </div>
                 <div>
-                  <div className="flex items-center mb-4">
+                  <div className="flex px-2 font-medium items-center mb-4">
                     <MdEmail className="text-white opacity-70 mr-2" />
-                    <p className="text-sm text-white opacity-70">
+                    <p className="text-base  text-white opacity-70">
                       {card.formData.email}
                     </p>
                   </div>
-                  <div className="flex items-center mb-4">
+                  <div className="flex px-2 font-medium items-center mb-4">
                     <MdPhone className="text-white opacity-70 mr-2" />
-                    <p className="text-sm text-white opacity-70">
+                    <p className="text-base text-white opacity-70">
                       {card.formData.phone}
                     </p>
                   </div>
-                  <div className="flex items-center mb-4">
+                  <div className="flex px-2 font-medium items-center mb-4">
                     <MdLocationOn className="text-white opacity-70 mr-2" />
-                    <p className="text-sm text-white opacity-70">
+                    <p className="text-base text-white opacity-70">
                       {card.formData.address}
                     </p>
                   </div>
                 </div>
-                <div className="flex justify-between pt-4 relative">
+                <div className="flex justify-between font-medium items-center bg-gradient-to-r from-[#0F2027] via-[#203A43] to-[#2C5364]  rounded-b-lg  py-2 relative">
                   <div className="flex items-center">
                     <FaTwitter className="text-white opacity-70 ml-3" />
                     <FaLinkedin className="text-white opacity-70 ml-3" />
@@ -127,10 +127,10 @@ const CardList = () => {
                   </div>
                   <div>
                     <div className=" flex">
-                      <div className="text-sm rounded-lg flex flex-shrink-0 py-2 font-bold text-red-600 cursor-pointer">
+                      <div className="text-base rounded-lg flex flex-shrink-0 py-2 font-bold text-red-600 cursor-pointer">
                         <FaTrash onClick={() => handleDelete(card.id)} />
                       </div>
-                      <div className="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-blue-600 cursor-pointer">
+                      <div className="text-base rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-blue-600 cursor-pointer">
                         <FaDownload onClick={handleDownload} />
                       </div>
                     </div>

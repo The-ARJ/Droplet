@@ -56,27 +56,27 @@ const DashCards = () => {
             )}
             {formData.fullName && (
               <div className="mb-4 p-2 mt-5 text-white">
-                <p className="text-base font-medium ">{formData.fullName}</p>
-                <p className="text-sm mt-2 font-medium">{formData.role}</p>
+                <p className="text-lg font-medium ">{formData.fullName}</p>
+                <p className="text-base mt-2 font-medium">{formData.role}</p>
               </div>
             )}
             {formData.email && formData.phone && formData.address && (
               <div>
                 <div className="flex px-2 font-medium items-center mb-4">
                   <MdEmail className="text-white mr-2" />
-                  <p className="text-sm text-white ">{formData.email}</p>
+                  <p className="text-base text-white ">{formData.email}</p>
                 </div>
                 <div className="flex px-2 font-medium items-center mb-4">
                   <MdPhone className="text-white mr-2" />
-                  <p className="text-sm text-white ">{formData.phone}</p>
+                  <p className="text-base text-white ">{formData.phone}</p>
                 </div>
                 <div className="flex px-2 font-medium items-center mb-4">
                   <MdLocationOn className="text-white mr-2" />
-                  <p className="text-sm text-white ">{formData.address}</p>
+                  <p className="text-base text-white ">{formData.address}</p>
                 </div>
               </div>
             )}
-            <div className="flex justify-between  pt-4 relative">
+            <div className="flex justify-between items-center bg-gradient-to-r from-[#0F2027] via-[#203A43] to-[#2C5364]  rounded-b-lg  py-2 relative">
               <div className="flex items-center">
                 <FaTwitter className="text-white ml-3" />
                 <FaLinkedin className="text-white ml-3" />
@@ -84,13 +84,13 @@ const DashCards = () => {
               </div>
               {!isPublished ? (
                 <button
-                  className="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-medium text-yellow-600"
+                  className="text-base rounded-lg flex flex-shrink-0 py-2 px-4 font-medium text-yellow-600"
                   onClick={handlePublish}
                 >
                   Publish
                 </button>
               ) : (
-                <div className="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-medium text-green-600">
+                <div className="text-base rounded-lg flex flex-shrink-0 py-2 px-4 font-medium text-green-600">
                   Published - ID: {publishedId}
                 </div>
               )}
