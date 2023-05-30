@@ -58,8 +58,8 @@ const CardForm = () => {
   return (
     <>
       <div className="w-full md:w-3/12">
-        <div className="p-2">
-          <div className="p-4 rounded-3xl bg-[#111827]">
+        <div className="">
+          <div className=" rounded-3xl bg-[#111827]">
             <div className="flex items-center justify-center">
               <input
                 type="file"
@@ -70,7 +70,7 @@ const CardForm = () => {
               />
               <label
                 htmlFor="image-upload"
-                className="w-32 h-32 rounded-full overflow-hidden object-cover cursor-pointer"
+                className="w-full rounded-t-xl h-64  overflow-hidden object-cover cursor-pointer"
               >
                 {formData.image ? (
                   <img
@@ -85,10 +85,10 @@ const CardForm = () => {
                 )}
               </label>
             </div>
-            <div className="mb-4 mt-5 text-white">
+            <div className="mb-4 mt-5 p-2  text-white">
               <input
                 type="text"
-                className="text-base font-bold opacity-70 bg-transparent border-b border-white outline-none"
+                className="text-base font-bold  bg-transparent border-b border-white outline-none"
                 placeholder="Full Name"
                 name="fullName"
                 value={formData.fullName}
@@ -96,7 +96,7 @@ const CardForm = () => {
               />
               <input
                 type="text"
-                className="text-sm opacity-70 mt-2 bg-transparent border-b border-white outline-none"
+                className="text-sm  mt-2 bg-transparent border-b border-white outline-none"
                 placeholder="Role"
                 name="role"
                 value={formData.role}
@@ -104,33 +104,33 @@ const CardForm = () => {
               />
             </div>
             <div>
-              <div className="flex items-center mb-4">
-                <MdEmail className="text-white opacity-70 mr-2" />
+              <div className="flex  px-2 items-center mb-4">
+                <MdEmail className="text-white  mr-2" />
                 <input
                   type="email"
-                  className="text-sm text-white opacity-70 bg-transparent border-b border-white outline-none"
+                  className="text-sm text-white  bg-transparent border-b border-white outline-none"
                   placeholder="Email"
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
                 />
               </div>
-              <div className="flex items-center mb-4">
-                <MdPhone className="text-white opacity-70 mr-2" />
+              <div className="flex px-2 items-center mb-4">
+                <MdPhone className="text-white  mr-2" />
                 <input
                   type="tel"
-                  className="text-sm text-white opacity-70 bg-transparent border-b border-white outline-none"
+                  className="text-sm text-white  bg-transparent border-b border-white outline-none"
                   placeholder="Phone"
                   name="phone"
                   value={formData.phone}
                   onChange={handleChange}
                 />
               </div>
-              <div className="flex items-center mb-4">
-                <MdLocationOn className="text-white opacity-70 mr-2" />
+              <div className="flex px-2 items-center mb-4">
+                <MdLocationOn className="text-white  mr-2" />
                 <input
                   type="text"
-                  className="text-sm text-white opacity-70 bg-transparent border-b border-white outline-none"
+                  className="text-sm text-white  bg-transparent border-b border-white outline-none"
                   placeholder="Address"
                   name="address"
                   value={formData.address}
@@ -138,7 +138,7 @@ const CardForm = () => {
                 />
               </div>
             </div>
-            <div className="flex justify-between pt-4 relative">
+            <div className="flex justify-between items-center bg-gradient-to-r from-[#0F2027] via-[#203A43] to-[#2C5364]  rounded-b-lg  py-2 relative">
               <div className="flex items-center">
                 <button
                   className="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"
@@ -149,7 +149,7 @@ const CardForm = () => {
                 {showTwitterInput && (
                   <input
                     type="text"
-                    className="text-sm text-white opacity-70 ml-3 bg-transparent border-b border-white outline-none"
+                    className="text-sm text-white  ml-3 bg-transparent border-b border-white outline-none"
                     placeholder="Twitter"
                     name="twitter"
                     value={formData.twitter}
@@ -158,7 +158,7 @@ const CardForm = () => {
                 )}
                 {!showTwitterInput && (
                   <FaTwitter
-                    className="text-white opacity-70 ml-3 cursor-pointer"
+                    className="text-white  ml-3 cursor-pointer"
                     onClick={handleTwitterIconClick}
                   />
                 )}
@@ -171,7 +171,7 @@ const CardForm = () => {
                 {showLinkedinInput && (
                   <input
                     type="text"
-                    className="text-sm text-white opacity-70 ml-3 bg-transparent border-b border-white outline-none"
+                    className="text-sm text-white  ml-3 bg-transparent border-b border-white outline-none"
                     placeholder="LinkedIn"
                     name="linkedin"
                     value={formData.linkedin}
@@ -180,7 +180,7 @@ const CardForm = () => {
                 )}
                 {!showLinkedinInput && (
                   <FaLinkedin
-                    className="text-white opacity-70 ml-3 cursor-pointer"
+                    className="text-white  ml-3 cursor-pointer"
                     onClick={handleLinkedinIconClick}
                   />
                 )}
@@ -193,7 +193,7 @@ const CardForm = () => {
                 {showGithubInput && (
                   <input
                     type="text"
-                    className="text-sm text-white opacity-70 ml-3 bg-transparent border-b border-white outline-none"
+                    className="text-sm text-white  ml-3 bg-transparent border-b border-white outline-none"
                     placeholder="GitHub"
                     name="github"
                     value={formData.github}
@@ -202,7 +202,7 @@ const CardForm = () => {
                 )}
                 {!showGithubInput && (
                   <FaGithub
-                    className="text-white opacity-70 ml-3 cursor-pointer"
+                    className="text-white  ml-3 cursor-pointer"
                     onClick={handleGithubIconClick}
                   />
                 )}

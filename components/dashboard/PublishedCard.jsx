@@ -60,7 +60,9 @@ const CardList = () => {
   };
 
   const handleDelete = (id) => {
-    const shouldDelete = window.confirm("Are you sure you want to delete this card?");
+    const shouldDelete = window.confirm(
+      "Are you sure you want to delete this card?"
+    );
     if (shouldDelete) {
       localStorage.removeItem(id);
       setCardData((prevCardData) =>
@@ -79,14 +81,14 @@ const CardList = () => {
                 <div className="flex justify-center">
                   {selectedImage ? (
                     <img
-                    className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
-                    src={selectedImage}
+                      className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
+                      src={selectedImage}
                       alt="participant"
                     />
                   ) : (
                     <img
-                    className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
-                    src={card.formData.image}
+                      className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
+                      src={card.formData.image}
                       alt="participant"
                     />
                   )}
