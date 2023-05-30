@@ -5,7 +5,7 @@ export default function CardPage() {
     return (
         <>
             <DashboardLayout>
-                <CardContent  />
+                <CardContent />
             </DashboardLayout></>
     )
 
