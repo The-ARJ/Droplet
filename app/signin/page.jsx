@@ -15,7 +15,7 @@ export default function SignIn() {
       .then((res) => {
         alert("Login Successful");
         window.localStorage.setItem(`token`, res.data.token);
-        router.push("/dashboard");
+        router.push("/home");
       })
       .catch((err) => alert("Something went wrong"));
   };
@@ -52,7 +52,7 @@ export default function SignIn() {
                     </label>
                     <input
                       type="email"
-                      id="hs-hero-email-2"
+                      id="email"
                       className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
                       placeholder="Email address"
                       onChange={(e) => setEmail(e.target.value)}

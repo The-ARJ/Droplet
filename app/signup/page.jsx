@@ -14,7 +14,8 @@ export default function Signup() {
   const [confirmpassword, setConfirmpassword] = useState("");
   const [message, setMessage] = useState("");
   const handleRegister = (e) => {
-    UserService.register({ email, password, firstName, lastName, phoneNumber })
+    e.preventDefault();
+    UserService.register({ email, password, firstName, lastName })
       .then((res) => {
         alert("SignUp Successfull");
         router.push("/");
@@ -60,18 +61,18 @@ export default function Signup() {
                   presence.
                 </p>
                 {/* End Title */}
-                <form className="mt-8">
+                <form onSubmit={handleRegister} className="mt-8">
                   <div className=" flex gap-2">
                     <div className="mb-4">
                       <label
                         htmlFor="hs-hero-name-2"
                         className="block text-sm font-medium"
                       >
-                        <span className="sr-only">Full name</span>
+                        <span className="sr-only">First name</span>
                       </label>
                       <input
                         type="text"
-                        id="hs-hero-name-2"
+                        id="fname"
                         className="py-3 px-4 block w-full  border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
                         placeholder="First name"
                         onChange={(e) => setFname(e.target.value)}
@@ -86,7 +87,7 @@ export default function Signup() {
                       </label>
                       <input
                         type="text"
-                        id="hs-hero-name-2"
+                        id="lname"
                         className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
                         placeholder="Last name"
                         onChange={(e) => setLname(e.target.value)}
@@ -102,7 +103,7 @@ export default function Signup() {
                     </label>
                     <input
                       type="email"
-                      id="hs-hero-email-2"
+                      id="email"
                       className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
                       placeholder="Email address"
                       onChange={(e) => setEmail(e.target.value)}
