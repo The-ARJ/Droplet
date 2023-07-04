@@ -33,11 +33,11 @@ export default function SignIn() {
           <div className="relative overflow-hidden border-2 border-purple-400 shadow-lg rounded-2xl ">
             <div className="py-12 px-4 sm:px-6">
               <div className="mx-auto">
-                <h1 className="text-3xl text-purple-800 font-bold md:text-4xl md:leading-tight lg:text-4xl lg:leading-tight">
+                <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-4xl lg:leading-tight">
                   Sign In to
                   <span className="text-purple-900"> Cardova!</span>
                 </h1>
-                <p className="mt-3 text-base text-purple-500">
+                <p className="mt-3 text-base text-gray-500">
                   Create your digital business card and unlock your professional
                   presence.
                 </p>
@@ -75,7 +75,7 @@ export default function SignIn() {
                   </div>
                   <button
                     type="submit"
-                    className="py-3 px-4 w-full bg-purple-500 text-white font-semibold rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all text-sm"
+                    className="py-3 px-4 w-full bg-purple-500 text-white font-semibold rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all text-sm"
                   >
                     Sign In
                   </button>

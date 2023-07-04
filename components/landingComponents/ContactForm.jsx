@@ -1,5 +1,7 @@
-import React from "react";
-
+"use client";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import UserService from "../../utils/UserServices";
 const ContactForm = () => {
   return (
     <>
@@ -23,9 +25,6 @@ const ContactForm = () => {
               {/* Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="hs-firstname-contacts-1" className="sr-only">
-                    First Name
-                  </label>
                   <input
                     type="text"
                     name="hs-firstname-contacts-1"
@@ -35,9 +34,6 @@ const ContactForm = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="hs-lastname-contacts-1" className="sr-only">
-                    Last Name
-                  </label>
                   <input
                     type="text"
                     name="hs-lastname-contacts-1"
@@ -62,21 +58,14 @@ const ContactForm = () => {
                 />
               </div>
               <div>
-                <label htmlFor="hs-phone-number-1" className="sr-only">
-                  Phone Number
-                </label>
                 <input
                   type="text"
-                  name="hs-phone-number-1"
-                  id="hs-phone-number-1"
+                  name="subject"
                   className="py-3 px-4 block w-full border  border-purple-900 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 purple "
-                  placeholder="Phone Number"
+                  placeholder="Subject"
                 />
               </div>
               <div>
-                <label htmlFor="hs-about-contacts-1" className="sr-only">
-                  Message
-                </label>
                 <textarea
                   id="hs-about-contacts-1"
                   name="hs-about-contacts-1"

@@ -1,8 +1,39 @@
-import React from "react";
+"use client";
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Header from "@/components/landingComponents/Header";
+import UserService from "../../utils/UserServices";
 
 export default function Signup() {
+  const router = useRouter();
+  const [firstName, setFname] = useState("");
+  const [lastName, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmpassword, setConfirmpassword] = useState("");
+  const [message, setMessage] = useState("");
+  const handleRegister = (e) => {
+    UserService.register({ email, password, firstName, lastName, phoneNumber })
+      .then((res) => {
+        alert("SignUp Successfull");
+        router.push("/");
+      })
+      .catch((err) => alert("Something went wrong"));
+  };
+  useEffect(() => {
+    if (password && confirmpassword && password !== confirmpassword) {
+      setMessage("Incorrect Password");
+      return;
+    }
+    if (password && confirmpassword && password === confirmpassword) {
+      setMessage("");
+      return;
+    }
+    setMessage("");
+  }, [confirmpassword, password]);
+
+  const messageColor = message === "Password Matched" ? "teal" : "red";
   return (
     <>
       <Header />
@@ -42,7 +73,8 @@ export default function Signup() {
                         type="text"
                         id="hs-hero-name-2"
                         className="py-3 px-4 block w-full  border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
-                        placeholder="Full name"
+                        placeholder="First name"
+                        onChange={(e) => setFname(e.target.value)}
                       />
                     </div>
                     <div className="mb-4">
@@ -57,6 +89,7 @@ export default function Signup() {
                         id="hs-hero-name-2"
                         className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
                         placeholder="Last name"
+                        onChange={(e) => setLname(e.target.value)}
                       />
                     </div>
                   </div>
@@ -72,6 +105,7 @@ export default function Signup() {
                       id="hs-hero-email-2"
                       className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
                       placeholder="Email address"
+                      onChange={(e) => setEmail(e.target.value)}
                     />
                   </div>
                   <div className="mb-4">
@@ -83,11 +117,26 @@ export default function Signup() {
                     </label>
                     <input
                       type="password"
-                      id="hs-hero-password-2"
                       className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
                       placeholder="Password"
+                      onChange={(e) => setPassword(e.target.value)}
                     />
                   </div>
+                  <div className="mb-4">
+                    <label
+                      htmlFor="hs-hero-password-2"
+                      className="block text-sm font-medium"
+                    >
+                      <span className="sr-only">Confirm Password</span>
+                    </label>
+                    <input
+                      type="password"
+                      className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                      placeholder="Confirm Password"
+                      onChange={(e) => setConfirmpassword(e.target.value)}
+                    />
+                  </div>
+                  <div style={{ color: messageColor }}>{message}</div>
                   <button
                     type="submit"
                     className="py-3 px-4 w-full bg-purple-500 text-white font-semibold rounded-md hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition-all text-sm"
