@@ -10,12 +10,14 @@ import Boost from "@/components/landingComponents/Boost";
 export default function Home() {
   return (
     <main>
+      <Header />
       <Hero />
       <ProductSection />
       <Boost />
       <Features />
       <FAQ />
       <Contact />
+      <Footer />
     </main>
   )
 }
