@@ -1,4 +1,6 @@
+import Header from '@/components/landingComponents/Header'
 import './globals.css'
+import Footer from '@/components/landingComponents/Footer'
 
 export const metadata = {
   title: 'Cardova - Revolutionizing Networking Connection',
@@ -11,7 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+        <Footer />
+      </body>
     </html>
   )
 }

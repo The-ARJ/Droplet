@@ -12,20 +12,22 @@ const Header = () => {
   return (
     <>
       {/* Header */}
-      <header className="flex bg-white fixed flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0">
+      <header className="flex shadow rounded-md bg-white fixed flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0">
         <nav
           className="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8"
           aria-label="Global"
         >
           <div className="relative md:flex md:items-center md:justify-between">
             <div className="flex items-center justify-between">
-              <div
-                onClick={scrollToTop}
-                className="text-2xl cursor-pointer hover:scale-105  transition-all flex items-center gap-2 justify-center font-semibold text-violet-900"
-              >
-                <img src="../assets/logo.png" className="h-10" />
-                <div className="">Cardova</div>
-              </div>
+              <Link href="/">
+                <div
+                  onClick={scrollToTop}
+                  className="text-2xl cursor-pointer hover:scale-105  transition-all flex items-center gap-2 justify-center font-semibold text-violet-900"
+                >
+                  <img src="../assets/logo.png" className="h-10" />
+                  <div className="">Cardova</div>
+                </div>
+              </Link>
               <div className="md:hidden">
                 <button
                   type="button"

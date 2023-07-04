@@ -6,9 +6,9 @@ const Hero = () => {
   return (
     <>
       <section className="relative overflow-hidden">
-        <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10  mt-10">
+        <div className="max-w-[85rem] mx-auto px-4 sm:px-6 lg:px-8 py-10  mt-10  z-50">
           <div className="max-w-4xl text-center mx-auto">
-            <h className="block text-2xl sm:text-3xl md:text-5xl font-bold text-gray-800">
+            <h1 className="block text-2xl sm:text-3xl md:text-5xl font-bold text-gray-800">
               Unlock Your
               <span className="inline-flex items-center">
                 <img
@@ -22,7 +22,7 @@ const Hero = () => {
                 {" "}
                 Professional Business Cards
               </span>
-            </h>
+            </h1>
 
             <p className="mt-6  text-sm md:text-lg text-gray-800">
               Make a Lasting Impression with Modern, Customizable, and
@@ -30,14 +30,14 @@ const Hero = () => {
             </p>
           </div>
           <div className="mt-10 bg-center relative max-w-6xl mx-auto">
-            <div className="flex flex-col sm:flex-row items-center justify-center">
+            <div className="flex flex-col  sm:flex-row items-center justify-center">
               <div className="mb-6 sm:mb-0 sm:mr-20">
                 {/* Content on the left side */}
-                <h className="text-xl sm:text-2xl font-bold">1M+ </h>
+                <h2 className="text-xl sm:text-2xl font-bold">1M+ </h2>
                 <p className="mb-2">users and counting</p>
                 <Link
-                  href="/"
-                  className="flex items-center border-2 border-purple-900 py-2 px-2 rounded-lg"
+                  href="/signup"
+                  className="flex cursor-pointer items-center border-2 border-purple-900 py-2 px-2 rounded-lg"
                 >
                   Give it a Try <BsArrowRight className="ml-2" />
                 </Link>
