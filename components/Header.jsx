@@ -1,23 +1,31 @@
+"use client";
 import Link from "next/link";
 import React from "react";
 
 const Header = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       {/* Header */}
-      <header className="flex bg-white fixed flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0 ">
+      <header className="flex bg-white fixed flex-wrap md:justify-start md:flex-nowrap z-50 w-full text-sm py-3 md:py-0">
         <nav
           className="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8"
           aria-label="Global"
         >
           <div className="relative md:flex md:items-center md:justify-between">
             <div className="flex items-center justify-between">
-              <Link
-                href="/"
-                className=" text-2xl font-semibold text-violet-900"
+              <div
+                onClick={scrollToTop}
+                className="text-2xl cursor-pointer hover:scale-105  transition-all flex items-center gap-2 justify-center font-semibold text-violet-900"
               >
-                Cardova
-              </Link>
+                <img src="../assets/logo.png" className="h-10" />
+                <div className="">Cardova</div>
+              </div>
               <div className="md:hidden">
                 <button
                   type="button"
@@ -54,42 +62,42 @@ const Header = () => {
               id="navbar-collapse-with-animation"
               className="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow md:block"
             >
-              <div className="overflow-hidden overflow-y-auto max-h-[75vh] scrollbar-y">
-                <div className="flex text-base flex-col gap- mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-10 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid ">
+              <div className="overflow-hidden max-h-[75vh]">
+                <div className="flex text-base flex-col gap- mt-5 divide-y divide-dashed divide-gray-200 md:flex-row md:items-center md:justify-end md:gap-x-10 md:mt-0 md:pl-7 md:divide-y-0 md:divide-solid">
                   <Link
-                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6  "
+                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6 transform transition-all duration-300 hover:scale-105"
                     href="/"
                     aria-current="page"
                   >
                     Home
                   </Link>
                   <Link
-                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6  "
+                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6 transform transition-all duration-300 hover:scale-105"
                     href="#about"
                   >
                     About
                   </Link>
                   <Link
-                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6  "
+                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6 transform transition-all duration-300 hover:scale-105"
                     href="/#services"
                   >
                     Services
                   </Link>
                   <Link
-                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6  "
+                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6 transform transition-all duration-300 hover:scale-105"
                     href="/#contact"
                   >
                     Contact
                   </Link>
                   <Link
-                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6  "
+                    className="font-medium text-gray-600 hover:text-gray-500 py-3 md:py-6 transform transition-all duration-300 hover:scale-105"
                     href="/signin"
                   >
                     Sign In
                   </Link>
                   <div className="pt-3 md:pt-0">
                     <Link
-                      className="inline-flex justify-center rounded-xl items-center gap-x-2 text-center bg-violet-900 hover:bg-violet-700 border border-transparent text-white text-sm focus:outline-none focus:ring-2 focus:ring-violet-900 focus:ring-offset-2 focus:ring-offset-white transition py-2.5 px-3 "
+                      className="inline-flex justify-center rounded-xl items-center gap-x-2 text-center bg-violet-900 hover:bg-violet-700 border border-transparent text-white text-sm focus:outline-none focus:ring-2 focus:ring-violet-900 focus:ring-offset-2 focus:ring-offset-white  py-2.5 px-3 transform transition-all duration-300 hover:scale-105"
                       href="/signup"
                     >
                       Sign Up

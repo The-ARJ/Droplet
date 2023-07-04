@@ -1,24 +1,32 @@
+"use client"
 import React from "react";
 
 const Footer = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   return (
     <>
       <footer className="bg-gray-900">
         <div className="max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
           {/* Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
-            <div className="col-span-full lg:col-span-1">
-              <a
+            <div className=" flex justify-start items-center gap-2 col-span-full lg:col-span-1">
+              <img src="../assets/logo.png" className=" h-10" />
+              <div
                 className="flex-none text-xl font-semibold text-white"
-                href="#"
                 aria-label="Cardova"
+                onClick={scrollToTop}
               >
                 Cardova
-              </a>
+              </div>
             </div>
             {/* End Col */}
             <div className="col-span-1">
-              <h4 className="font-semibold text-gray-100">Product</h4>
+              <h4 className="font-semibold text-gray-100">Service</h4>
               <div className="mt-3 grid space-y-3">
                 <p>
                   <a

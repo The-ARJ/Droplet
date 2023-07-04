@@ -1,7 +1,7 @@
 import './globals.css'
 
 export const metadata = {
-  title: 'Cardova',
+  title: 'Cardova - Revolutionizing Networking Connection',
   description: 'Unlock Your Digital Presence with Professional Business Cards',
   icons: {
     icon: '/assets/logo.png',

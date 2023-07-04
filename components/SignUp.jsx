@@ -41,7 +41,7 @@ const Signup = () => {
                       <input
                         type="text"
                         id="hs-hero-name-2"
-                        className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
+                        className="py-3 px-4 block w-full  border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
                         placeholder="Full name"
                       />
                     </div>
@@ -55,7 +55,7 @@ const Signup = () => {
                       <input
                         type="text"
                         id="hs-hero-name-2"
-                        className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
+                        className="py-3 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
                         placeholder="Last name"
                       />
                     </div>
@@ -70,7 +70,7 @@ const Signup = () => {
                     <input
                       type="email"
                       id="hs-hero-email-2"
-                      className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="py-3 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
                       placeholder="Email address"
                     />
                   </div>
@@ -84,7 +84,7 @@ const Signup = () => {
                     <input
                       type="password"
                       id="hs-hero-password-2"
-                      className="py-3 px-4 block w-full border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="py-3 px-4 block w-full border border-gray-200 rounded-md text-sm focus:border-blue-500 focus:ring-blue-500"
                       placeholder="Password"
                     />
                   </div>

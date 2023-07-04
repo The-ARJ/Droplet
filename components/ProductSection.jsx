@@ -5,13 +5,13 @@ import ProductSection2 from "./ProductSection2";
 const ProductSection = () => {
   return (
     <>
-      <section>
+      <section id="about">
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
           <div className="text-center mb-10 text-xl md:text-4xl font-bold">
-            Meet Our Product
+            Meet Our Service
           </div>
           <ProductSection1 />
-          <ProductSection2/>
+          <ProductSection2 />
         </div>
       </section>
     </>
