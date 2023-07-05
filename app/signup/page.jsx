@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Header from "@/components/landingComponents/Header";
 import UserService from "../../utils/Services/UserServices";
+import { toast } from "react-toastify";
 
 export default function Signup() {
   const router = useRouter();
@@ -29,7 +30,7 @@ export default function Signup() {
         });
         router.push("/");
       })
-      .catch((err) => alert("Something went wrong"));
+      .catch((err) => alert(err));
   };
   useEffect(() => {
     if (password && confirmpassword && password !== confirmpassword) {

@@ -10,6 +10,9 @@ const nextConfig = {
     reactStrictMode: true,
     basePath: "",
     assetPrefix: "",
+    images: {
+      domains: ['localhost'],
+    },
   };
    
   module.exports = nextConfig;

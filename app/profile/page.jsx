@@ -1,10 +1,11 @@
 "use client";
-import DashboardLayout from "@/components/dashboard/layout";
+import DashboardLayout from "@/components/dashboard/dashboardprovider";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../utils/Context/UserContext";
 import Image from "next/image";
 import UserService from "../../utils/Services/UserServices";
+import { imgURL } from "../../utils/Services/UserServices";
 import { toast } from "react-toastify";
 export default function Profile() {
   const { user, loading, error, dispatch } = useContext(UserContext);
@@ -12,6 +13,7 @@ export default function Profile() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [profession, setProfession] = useState("");
   const [userImage, setImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
 
@@ -31,6 +33,7 @@ export default function Profile() {
     formData.append("firstName", firstName);
     formData.append("lastName", lastName);
     formData.append("email", email);
+    formData.append("profession", profession);
     if (userImage) {
       formData.append("userImage", userImage);
     }
@@ -71,10 +74,10 @@ export default function Profile() {
   }
   return (
     <DashboardLayout>
-      <div className="flex flex-wrap justify-center items-center">
+      <div className="flex flex-wrap justify-center items-center ">
         <form onSubmit={handleSave}>
-          <div className="space-y-12">
-            <div className="border-b border-gray-900/10 pb-12">
+          <div className="space-y-12 bg-white px-10  py-10 border shadow-sm rounded-md">
+            <div className="border-b border-gray-900/10 pb-12 ">
               <h2 className="text-2xl font-semibold leading-2 text-gray-900">
                 Profile
               </h2>
@@ -215,7 +218,7 @@ export default function Profile() {
                   </div>
                 </div>
 
-                <div className="sm:col-span-4">
+                <div className="sm:col-span-6">
                   <label
                     htmlFor="email"
                     className="block text-sm font-medium leading-6 text-gray-900"
@@ -231,6 +234,25 @@ export default function Profile() {
                       placeholder={user && user.email}
                       className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       onChange={(e) => setEmail(e.target.value)}
+                    />
+                  </div>
+                </div>
+                <div className="sm:col-span-6">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium leading-6 text-gray-900"
+                  >
+                    Profession
+                  </label>
+                  <div className="mt-2">
+                    <input
+                      id="profession"
+                      name="profession"
+                      type="text"
+                      autoComplete="profession"
+                      placeholder={user && user.profession}
+                      className="block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      onChange={(e) => setProfession(e.target.value)}
                     />
                   </div>
                 </div>

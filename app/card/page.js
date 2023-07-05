@@ -1,6 +1,6 @@
 "use client"
 import CardContent from '@/components/dashboard/CardContent';
-import DashboardLayout from '../../components/dashboard/layout';
+import DashboardLayout from '../../components/dashboard/dashboardprovider';
 import ProtectedRoute from '../../utils/Context/ProtectedRoute';
 
 const Card = () => {
