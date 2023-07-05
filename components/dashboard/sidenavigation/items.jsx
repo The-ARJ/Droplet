@@ -30,8 +30,8 @@ export default function SidenavItems() {
       .fire({
         text: "Are you sure you want to logout?",
         showCancelButton: true,
-        cancelButtonColor: "#008080",
-        confirmButtonColor: "#7e22ce",
+        cancelButtonColor: "#7e22ce",
+        confirmButtonColor: "#ef4444",
         confirmButtonText: "Log Out",
         position: "top",
       })
@@ -87,12 +87,11 @@ export default function SidenavItems() {
 
       {/* Logout Button */}
       {open ? (
-        <div className={`${style.logoutButton}`}>
+        <div onClick={handleLogout} className={`${style.logoutButton}`}>
           <button
             className={`p-1 flex gap-6 ${style.title} ${
               open ? style.open : style.close
             }`}
-            onClick={handleLogout}
           >
             <MdLogout size={20} />
             <span className="">Logout</span>

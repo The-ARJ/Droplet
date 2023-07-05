@@ -5,16 +5,48 @@ import { imgURL } from "../../../utils/Services/UserServices";
 import { UserContext } from "../../../utils/Context/UserContext";
 import NoUser from "../../../public/assets/nouser.jpg";
 import Link from "next/link";
+import swal from "sweetalert2";
+import { toast } from "react-toastify";
 export default function DropdownMenu() {
-  const { user, loading } = useContext(UserContext);
+  const { user, loading, logout } = useContext(UserContext);
+  const handleLogout = () => {
+    swal
+      .fire({
+        text: "Are you sure you want to logout?",
+        showCancelButton: true,
+        cancelButtonColor: "#7e22ce",
+        confirmButtonColor: "#ef4444",
+        confirmButtonText: "Log Out",
+        position: "top",
+      })
+      .then((result) => {
+        if (result.isConfirmed) {
+          logout();
+          router.push("/");
+          toast.success("Logged out successfully", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
+        }
+      });
+  };
   return (
-    <div className="">
+    <div className=" w-10 md:w-max ">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex items-center gap-4 w-full justify-center ">
-            <p className="">
-              {user && user.firstName} {user && user.lastName}
-            </p>
+            <div className=" md:block hidden ">
+              <p className=" text-sm ">
+                {user && user.firstName} {user && user.lastName}
+              </p>
+              <p className=" text-xs">{user && user.profession}</p>
+            </div>
             <Image
               height={200}
               width={200}
@@ -131,22 +163,23 @@ export default function DropdownMenu() {
               <Menu.Item>
                 {({ active }) => (
                   <button
+                    onClick={handleLogout}
                     className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                      active ? "bg-red-500 text-white" : "text-gray-900"
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                   >
                     {active ? (
-                      <DeleteActiveIcon
+                      <LogoutActiveIcon
                         className="mr-2 h-5 w-5 text-violet-400"
                         aria-hidden="true"
                       />
                     ) : (
-                      <DeleteInactiveIcon
+                      <LogoutInactiveIcon
                         className="mr-2 h-5 w-5 text-violet-400"
                         aria-hidden="true"
                       />
                     )}
-                    Delete
+                    Log Out
                   </button>
                 )}
               </Menu.Item>
@@ -334,7 +367,7 @@ function MoveActiveIcon(props) {
   );
 }
 
-function DeleteInactiveIcon(props) {
+function LogoutInactiveIcon(props) {
   return (
     <svg
       {...props}
@@ -357,7 +390,7 @@ function DeleteInactiveIcon(props) {
   );
 }
 
-function DeleteActiveIcon(props) {
+function LogoutActiveIcon(props) {
   return (
     <svg
       {...props}

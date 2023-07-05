@@ -48,9 +48,9 @@ export default function TopNavigation() {
             <a href="#" className="block pr-5 relative">
               <MdOutlineNotifications className="h-6 w-6" />
             </a>
-            <a href="#" className="block pr-5 relative">
+            <div href="#" className="block pr-5 relative">
               <DropdownMenu />
-            </a>
+            </div>
           </div>
         </div>
       </div>
