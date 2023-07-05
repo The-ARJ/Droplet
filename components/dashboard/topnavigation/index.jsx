@@ -1,16 +1,18 @@
 "use client";
 import { useToggle } from "../provider/context";
-import { useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { FiSearch, FiShare2 } from "react-icons/fi";
 import { MdAddCard, MdOutlineNotifications } from "react-icons/md";
 import { UserContext } from "../../../utils/Context/UserContext";
 import { imgURL } from "../../../utils/Services/UserServices";
 import NoUser from "../../../public/assets/nouser.jpg";
 import Image from "next/image";
+import DropdownMenu from "./DropDown";
 
 export default function TopNavigation() {
   const { toggle } = useToggle();
   const { user, loading } = useContext(UserContext);
+
   return (
     <header className="h-20 items-center relative z-10 border-b-2 border-gray-200 bg-[#8b5cf6]">
       <div className="flex flex-center flex-col h-full justify-center mx-auto relative px-3 text-black z-10">
@@ -46,14 +48,8 @@ export default function TopNavigation() {
             <a href="#" className="block pr-5 relative">
               <MdOutlineNotifications className="h-6 w-6" />
             </a>
-            <a href="#" className="block relative">
-              <Image
-                height={200}
-                width={200}
-                alt="cardova"
-                src={user.image ? `${imgURL}/${user.image}` : NoUser}
-                className="h-10 mx-auto object-cover rounded-full w-10"
-              />
+            <a href="#" className="block pr-5 relative">
+              <DropdownMenu />
             </a>
           </div>
         </div>
