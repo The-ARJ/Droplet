@@ -2,20 +2,22 @@ import { useEffect, useContext } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import styles from "../../app/loading.module.css";
 import { UserContext } from "./UserContext";
-import { toast } from "react-toastify";
 const ProtectedRoute = (WrappedComponent) => {
     const Wrapper = (props) => {
         const router = useRouter();
         const pathname = usePathname();
         const { user, loading } = useContext(UserContext);
         useEffect(() => {
-            if (!user && !loading) { // Check both user and loading state
+            if (!user && !loading) {
                 router.push("/");
+            } else if (user) {
+                router.replace("/home");
+                // const allowedPages = ["/home", "/card", "/create-card"];
+                // if (!allowedPages.includes(pathname)) {
+                //     router.push("/");
+                // }
             } else {
-                const allowedPages = ["/home", "/card", "/create-card"];
-                if (!allowedPages.includes(pathname)) {
-                    router.push("/");
-                }
+                console.log("User is not available. Loading...");
             }
         }, [user, loading, pathname, router]);
 
