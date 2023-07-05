@@ -4,8 +4,9 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import UserService from "../../utils/Services/UserServices";
 import { toast } from "react-toastify";
+import ProtectedRoute from "@/utils/Context/ProtectedRoute";
 
-export default function SignIn() {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
@@ -99,4 +100,5 @@ export default function SignIn() {
       </div>
     </>
   );
-}
+};
+export default ProtectedRoute(SignIn);

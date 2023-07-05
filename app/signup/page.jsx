@@ -5,8 +5,9 @@ import Image from "next/image";
 import Header from "@/components/landingComponents/Header";
 import UserService from "../../utils/Services/UserServices";
 import { toast } from "react-toastify";
+import ProtectedRoute from "@/utils/Context/ProtectedRoute";
 
-export default function Signup() {
+const SignUp = () => {
   const router = useRouter();
   const [firstName, setFname] = useState("");
   const [lastName, setLname] = useState("");
@@ -164,4 +165,5 @@ export default function Signup() {
       </div>
     </>
   );
-}
+};
+export default ProtectedRoute(SignUp);
