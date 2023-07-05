@@ -29,21 +29,7 @@ export default function SideNavigation({ mobilePosition }) {
         </div>
         <SidenavItems />
       </div>
-      <div className=" bottom-0">
-      <div className={` rounded-lg   ${open ? '' : style.smallProfile}`}>
-        <div className="flex items-center justify-center">
-          <img
-            src="./assets/user1.png"
-            alt="User Profile"
-            className={`rounded-full h-20 w-20 ${open ? '' : 'h-8 w-8'}`}
-          />
-        </div>
-        <div className="text-center mt-4">
-          <h3 className={`text-xl font-semibold text-white ${open ? '' : 'text-xs'}`}>John Doe</h3>
-          <p className={`text-gray-200 text-sm ${open ? '' : 'text-[9px]'}`}>UX Designer</p>
-        </div>
-      </div>
-      </div>
+
     </aside>
   );
 }

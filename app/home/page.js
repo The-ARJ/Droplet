@@ -1,12 +1,16 @@
+"use client"
 import Content from '../../components/dashboard/DashContent';
 import DashboardLayout from '../../components/dashboard/layout';
+import ProtectedRoute from '../../utils/Context/ProtectedRoute';
 
-export default function HomePage() {
+const HomePage = () => {
     return (
         <>
             <DashboardLayout>
                 <Content title="Home" />
-            </DashboardLayout></>
-    )
+            </DashboardLayout>
+        </>
+    );
+};
 
-}
+export default ProtectedRoute(HomePage);

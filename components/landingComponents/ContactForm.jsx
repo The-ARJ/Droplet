@@ -1,8 +1,47 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-import UserService from "../../utils/UserServices";
+import ContactService from "../../utils/Services/ContactServices";
 const ContactForm = () => {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setlastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+  const MAX_MESSAGE_LENGTH = 400;
+  function handleChange(event) {
+    const { value } = event.target;
+    if (value.length <= MAX_MESSAGE_LENGTH) {
+      setMessage(value);
+    }
+  }
+  const remainingChars = MAX_MESSAGE_LENGTH - message.length;
+  const charsLeftClass =
+    remainingChars >= 0 ? "text-green-600" : "text-red-500";
+
+  const submitForm = async () => {
+    const formData = new FormData();
+    formData.append("subject", subject);
+    formData.append("message", message);
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    try {
+      const response = await ContactService.createContact(formData);
+      alert("Contact sent successfully", response);
+      setEmail(""),
+        setFirstName(""),
+        setlastName(""),
+        setMessage(""),
+        setSubject("");
+    } catch (err) {
+      alert(err);
+      err;
+    }
+  };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    submitForm();
+  };
   return (
     <>
       {/* Contact Us */}
@@ -20,26 +59,28 @@ const ContactForm = () => {
           <h2 className="mb-8 text-xl font-semibold text-gray-800 ">
             Fill in the form
           </h2>
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="grid gap-4">
               {/* Grid */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <input
                     type="text"
-                    name="hs-firstname-contacts-1"
-                    id="hs-firstname-contacts-1"
+                    name="firstName"
+                    id="firstName"
                     className="py-3 px-4 block w-full border  border-purple-900 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 purple "
                     placeholder="First Name"
+                    onChange={(e) => setFirstName(e.target.value)}
                   />
                 </div>
                 <div>
                   <input
                     type="text"
-                    name="hs-lastname-contacts-1"
-                    id="hs-lastname-contacts-1"
+                    name="lastName"
+                    id="lastName"
                     className="py-3 px-4 block w-full border  border-purple-900 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 purple "
                     placeholder="Last Name"
+                    onChange={(e) => setlastName(e.target.value)}
                   />
                 </div>
               </div>
@@ -50,11 +91,12 @@ const ContactForm = () => {
                 </label>
                 <input
                   type="email"
-                  name="hs-email-contacts-1"
-                  id="hs-email-contacts-1"
+                  name="email"
+                  id="email"
                   autoComplete="email"
                   className="py-3 px-4 block w-full border  border-purple-900 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 purple "
                   placeholder="Email"
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div>
@@ -63,17 +105,26 @@ const ContactForm = () => {
                   name="subject"
                   className="py-3 px-4 block w-full border  border-purple-900 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 purple "
                   placeholder="Subject"
+                  onChange={(e) => setSubject(e.target.value)}
                 />
               </div>
               <div>
+                <span className={` text-xs md:text-base ${charsLeftClass}`}>
+                  {remainingChars} characters left
+                </span>
                 <textarea
-                  id="hs-about-contacts-1"
-                  name="hs-about-contacts-1"
+                  name="message"
                   rows={4}
-                  className="py-3 px-4 block w-full border  border-purple-900 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 purple "
+                  className="py-3 px-4 block w-full border  border-purple-900 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 purple"
                   placeholder="Message"
-                  defaultValue={""}
+                  value={message}
+                  onChange={handleChange}
                 />
+                {remainingChars < 0 && (
+                  <p className="text-red-500">
+                    Please limit your message to 200 characters.
+                  </p>
+                )}
               </div>
             </div>
             {/* End Grid */}

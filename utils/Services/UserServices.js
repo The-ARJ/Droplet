@@ -19,10 +19,18 @@ const updateUser = (userId, updatedUserDetails) => {
     };
     return axios.put(`${baseURL}/${userId}`, updatedUserDetails, config);
 };
-
+const getCurrentUser = (token) => {
+    const config = {
+        headers: {
+            Authorization: `bearer ${token}`,
+        },
+    };
+    return axios.get(`${baseURL}/current/user`, config);
+};
 const auth = {
     login,
     register,
+    getCurrentUser,
     updateUser
 };
 

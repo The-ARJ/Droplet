@@ -2,7 +2,8 @@
 import Header from "@/components/landingComponents/Header";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import UserService from "../../utils/UserServices";
+import UserService from "../../utils/Services/UserServices";
+import { toast } from "react-toastify";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -13,7 +14,16 @@ export default function SignIn() {
     e.preventDefault();
     UserService.login({ email, password })
       .then((res) => {
-        alert("Login Successful");
+        toast.success("Signed In Successfully", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         window.localStorage.setItem(`token`, res.data.token);
         router.push("/home");
       })

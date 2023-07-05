@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import Header from "@/components/landingComponents/Header";
-import UserService from "../../utils/UserServices";
+import UserService from "../../utils/Services/UserServices";
 
 export default function Signup() {
   const router = useRouter();
@@ -17,7 +17,16 @@ export default function Signup() {
     e.preventDefault();
     UserService.register({ email, password, firstName, lastName })
       .then((res) => {
-        alert("SignUp Successfull");
+        toast.success("Signed Up Successfully", {
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
         router.push("/");
       })
       .catch((err) => alert("Something went wrong"));

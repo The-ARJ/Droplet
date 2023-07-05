@@ -1,7 +1,9 @@
+"use client"
 import CardContent from '@/components/dashboard/CardContent';
 import DashboardLayout from '../../components/dashboard/layout';
+import ProtectedRoute from '../../utils/Context/ProtectedRoute';
 
-export default function CardPage() {
+const Card = () => {
     return (
         <>
             <DashboardLayout>
@@ -10,3 +12,5 @@ export default function CardPage() {
     )
 
 }
+
+export default ProtectedRoute(Card);

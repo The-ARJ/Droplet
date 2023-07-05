@@ -3,6 +3,7 @@ import StatusIcon from './icons/status';
 import CreditsIcon from './icons/credits';
 import ArchivesIcon from './icons/archives';
 import SettingsIcon from './icons/settings';
+import { MdLogout } from 'react-icons/md';
 const data = [
   {
     title: 'Home',
@@ -28,7 +29,8 @@ const data = [
     title: 'Settings',
     icon: <SettingsIcon />,
     link: '/settings',
-  }
+  },
+
 ];
 
 export default data;

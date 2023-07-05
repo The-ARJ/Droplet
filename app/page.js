@@ -1,3 +1,4 @@
+"use client"
 import ProductSection from "@/components/landingComponents/ProductSection";
 import Footer from "@/components/landingComponents/Footer";
 import Header from "@/components/landingComponents/Header";
@@ -6,8 +7,11 @@ import Features from "@/components/landingComponents/Features";
 import FAQ from "@/components/landingComponents/FAQ";
 import Contact from "@/components/landingComponents/Contact";
 import Boost from "@/components/landingComponents/Boost";
+import React from 'react';
+import ProtectedRoute from "@/utils/Context/ProtectedRoute";
 
-export default function Home() {
+const Landing = () => {
+
   return (
     <main>
       <Header />
@@ -19,5 +23,8 @@ export default function Home() {
       <Contact />
       <Footer />
     </main>
-  )
+  );
 }
+
+export default ProtectedRoute(Landing);
+
