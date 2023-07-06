@@ -1,5 +1,5 @@
 "use client";
-import DashCards from "./DashCards";
+import DashCards from "./PreviewCard";
 import DashInfo from "./DashInfo";
 import CardForm from "./CardForm";
 import load from "../../public/assets/load.json";

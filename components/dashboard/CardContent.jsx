@@ -3,6 +3,7 @@ import { MdAddCard } from "react-icons/md";
 import Link from "next/link";
 import DashInfo from "./DashInfo";
 import PublishedCard from "./PublishedCard";
+import AllCards from "./AllCards";
 
 const CardContent = ({ title }) => {
   return (
@@ -19,7 +20,7 @@ const CardContent = ({ title }) => {
         </Link>
         <div className="mt-6 font-bold text-xl text-purple-900">
           <h>All Cards</h>
-          <PublishedCard />
+          <AllCards />
         </div>
       </div>
     </div>

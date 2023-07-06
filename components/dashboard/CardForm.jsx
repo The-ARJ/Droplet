@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdAdd, MdEmail, MdPhone, MdLocationOn, MdImage } from "react-icons/md";
 import CardService from "../../utils/Services/CardServices";
-const CardForm = () => {
+const CardForm = ({ updateCardData }) => {
   const [cardImage, setCardImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [firstName, setFirstName] = useState("");

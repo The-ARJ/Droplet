@@ -1,5 +1,5 @@
 "use client";
-import DashCards from "./DashCards";
+import DashCards from "./PreviewCard";
 import DashInfo from "./DashInfo";
 
 const Content = ({ title }) => {
