@@ -10,10 +10,10 @@ const CreateCard = ({ title }) => {
     <div className="flex flex-wrap justify-center items-center">
       <div className="w-full ml-6 ">
         <DashInfo title="Create Card" />
-        <div className="mt-6 font-bold text-xl text-purple-900">
-          <div className="flex flex-wrap items-center justify-around">
+        <div className="mt-6">
+          <div className="flex flex-wrap  justify-between">
             <CardForm />
-            <Lottie animationData={load} className=" h-[100px]  "></Lottie>
+            {/* <Lottie animationData={load} className=" h-[100px]  "></Lottie> */}
             <DashCards />
           </div>
         </div>

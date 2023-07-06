@@ -2,6 +2,7 @@ import { useEffect, useContext } from "react";
 import { usePathname, useRouter } from "next/navigation";
 import styles from "../../app/loading.module.css";
 import { UserContext } from "./UserContext";
+
 const ProtectedRoute = (WrappedComponent) => {
     const Wrapper = (props) => {
         const router = useRouter();
@@ -10,15 +11,18 @@ const ProtectedRoute = (WrappedComponent) => {
 
         useEffect(() => {
             if (!user && !loading) {
-                router.push("/");
-            } else if (user) {
-                const allowedPages = ["/home", "/card", "/create-card"];
-                const notallowedPages = ["/home", "/card", "/create-card"];
-                if (!allowedPages.includes(pathname)) {
+                const unauthenticatedPages = ["/", "/signin", "/signup"];
+                if (!unauthenticatedPages.includes(pathname)) {
                     router.push("/");
                 }
+            } else if (user) {
+                const authenticatedPages = ["/home", "/card", "/create-card"];
+                if (!authenticatedPages.includes(pathname)) {
+                    router.push("/home");
+                    return <div className={styles.loader}></div>;
+                }
             } else {
-                console.log("User is not available. Loading...");
+                return
             }
         }, [user, loading, pathname, router]);
 
@@ -27,6 +31,9 @@ const ProtectedRoute = (WrappedComponent) => {
         } else if (user && (pathname === "/" || pathname === "/signin" || pathname === "/signup")) {
             router.push("/home");
             return <div className={styles.loader}></div>;
+        } else if (!user && (pathname === "/home" || pathname === "/card" || pathname === "/create-card" || pathname === "/profile")) {
+            router.push("/");
+            return <div className={styles.loader}></div>;
         } else {
             return <WrappedComponent {...props} />;
         }
@@ -34,6 +41,5 @@ const ProtectedRoute = (WrappedComponent) => {
 
     return Wrapper;
 };
-
 
 export default ProtectedRoute;

@@ -7,8 +7,11 @@ import NoUser from "../../../public/assets/nouser.jpg";
 import Link from "next/link";
 import swal from "sweetalert2";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
+
 export default function DropdownMenu() {
   const { user, loading, logout } = useContext(UserContext);
+  const router = useRouter();
   const handleLogout = () => {
     swal
       .fire({

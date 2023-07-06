@@ -1,219 +1,190 @@
 import React, { useState } from "react";
-import { MdAdd, MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
-import { FaTwitter, FaLinkedin, FaGithub } from "react-icons/fa";
-
+import { MdAdd, MdEmail, MdPhone, MdLocationOn, MdImage } from "react-icons/md";
+import CardService from "../../utils/Services/CardServices";
 const CardForm = () => {
-  const [showTwitterInput, setShowTwitterInput] = useState(false);
-  const [showLinkedinInput, setShowLinkedinInput] = useState(false);
-  const [showGithubInput, setShowGithubInput] = useState(false);
-  const [formData, setFormData] = useState({
-    fullName: "",
-    role: "",
-    email: "",
-    phone: "",
-    address: "",
-    twitter: "",
-    linkedin: "",
-    github: "",
-    image: null,
-  });
+  const [cardImage, setCardImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState(null);
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [jobTitle, setJobTitle] = useState("");
+  const [company, setCompany] = useState("");
+  const [address, setAddress] = useState("");
+  const [website, setWebsite] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [github, setGithub] = useState("");
+  const [bio, setBio] = useState("");
+  const [template, setTemplate] = useState("");
 
-  const handleTwitterIconClick = () => {
-    setShowTwitterInput((prevShowTwitterInput) => !prevShowTwitterInput);
+  const submitForm = async () => {
+    const formData = new FormData();
+    formData.append("cardImage", cardImage);
+    formData.append("firstName", firstName);
+    formData.append("lastName", lastName);
+    formData.append("email", email);
+    formData.append("phone", phone);
+    formData.append("jobTitle", jobTitle);
+    formData.append("company", company);
+    formData.append("address", address);
+    formData.append("website", website);
+    formData.append("socialMedia.linkedin", linkedin);
+    formData.append("socialMedia.twitter", twitter);
+    formData.append("socialMedia.github", github);
+    formData.append("bio", bio);
+    formData.append("template", template);
+
+    try {
+      const response = await CardService.createCard(formData);
+      alert("Card Created Successfully");
+    } catch (err) {
+      alert(err);
+    }
   };
 
-  const handleLinkedinIconClick = () => {
-    setShowLinkedinInput((prevShowLinkedinInput) => !prevShowLinkedinInput);
-  };
-
-  const handleGithubIconClick = () => {
-    setShowGithubInput((prevShowGithubInput) => !prevShowGithubInput);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    submitForm();
   };
 
   const handleImageChange = (e) => {
     const file = e.target.files[0];
+    setCardImage(file);
     const reader = new FileReader();
     reader.onload = function (event) {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        image: event.target.result,
-      }));
+      setPreviewImage(event.target.result);
     };
     reader.readAsDataURL(file);
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value,
-    }));
-  };
-
-  const handleSave = () => {
-    alert("Data Saved Successfully");
-    localStorage.setItem("formData", JSON.stringify(formData));
-  };
-
   return (
     <>
-      <div className="w-full md:w-3/12">
-        <div className="">
-          <div className=" rounded-3xl bg-[#111827]">
-            <div className="flex items-center justify-center">
-              <input
-                type="file"
-                accept="image/*"
-                className="hidden"
-                id="image-upload"
-                onChange={handleImageChange}
-              />
-              <label
-                htmlFor="image-upload"
-                className="w-full rounded-t-xl h-64  overflow-hidden object-cover cursor-pointer"
-              >
-                {formData.image ? (
-                  <img
-                    className="w-full h-full"
-                    src={formData.image}
-                    alt="participant"
-                  />
-                ) : (
-                  <div className="w-full h-full flex justify-center items-center">
-                    <MdAdd className="text-white opacity-50 text-4xl" />
-                  </div>
-                )}
-              </label>
-            </div>
-            <div className="mb-4 mt-5 p-2  text-white">
-              <input
-                type="text"
-                className="text-base font-bold  bg-transparent border-b border-white outline-none"
-                placeholder="Full Name"
-                name="fullName"
-                value={formData.fullName}
-                onChange={handleChange}
-              />
+      <div className="w-full md:w-2/6">
+        <div className="bg-gray-800 rounded-lg p-6">
+          <div className="flex items-center justify-center">
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              id="image-upload"
+              onChange={handleImageChange}
+            />
+            <label
+              htmlFor="image-upload"
+              className="w-full rounded-lg h-64 overflow-hidden object-cover cursor-pointer"
+            >
+              {previewImage ? (
+                <img
+                  className="w-full h-full"
+                  src={previewImage}
+                  alt="participant"
+                />
+              ) : (
+                <div className="w-full text-white h-full flex justify-center items-center">
+                  <MdAdd className=" opacity-50 text-4xl" />
+                  <p>Upload Your Image</p>
+                </div>
+              )}
+            </label>
+          </div>
+          <div className="mt-6">
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">First Name</label>
               <input
                 type="text"
-                className="text-sm  mt-2 bg-transparent border-b border-white outline-none"
-                placeholder="Role"
-                name="role"
-                value={formData.role}
-                onChange={handleChange}
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your first name"
+                name="firstName"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
-            <div>
-              <div className="flex  px-2 items-center mb-4">
-                <MdEmail className="text-white  mr-2" />
-                <input
-                  type="email"
-                  className="text-sm text-white  bg-transparent border-b border-white outline-none"
-                  placeholder="Email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="flex px-2 items-center mb-4">
-                <MdPhone className="text-white  mr-2" />
-                <input
-                  type="tel"
-                  className="text-sm text-white  bg-transparent border-b border-white outline-none"
-                  placeholder="Phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="flex px-2 items-center mb-4">
-                <MdLocationOn className="text-white  mr-2" />
-                <input
-                  type="text"
-                  className="text-sm text-white  bg-transparent border-b border-white outline-none"
-                  placeholder="Address"
-                  name="address"
-                  value={formData.address}
-                  onChange={handleChange}
-                />
-              </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Last Name</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your last name"
+                name="lastName"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+              />
             </div>
-            <div className="flex justify-between items-center bg-gradient-to-r from-[#0F2027] via-[#203A43] to-[#2C5364]  rounded-b-lg  py-2 relative">
-              <div className="flex items-center">
-                <button
-                  className="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"
-                  onClick={handleTwitterIconClick}
-                >
-                  <MdAdd />
-                </button>
-                {showTwitterInput && (
-                  <input
-                    type="text"
-                    className="text-sm text-white  ml-3 bg-transparent border-b border-white outline-none"
-                    placeholder="Twitter"
-                    name="twitter"
-                    value={formData.twitter}
-                    onChange={handleChange}
-                  />
-                )}
-                {!showTwitterInput && (
-                  <FaTwitter
-                    className="text-white  ml-3 cursor-pointer"
-                    onClick={handleTwitterIconClick}
-                  />
-                )}
-                <button
-                  className="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"
-                  onClick={handleLinkedinIconClick}
-                >
-                  <MdAdd />
-                </button>
-                {showLinkedinInput && (
-                  <input
-                    type="text"
-                    className="text-sm text-white  ml-3 bg-transparent border-b border-white outline-none"
-                    placeholder="LinkedIn"
-                    name="linkedin"
-                    value={formData.linkedin}
-                    onChange={handleChange}
-                  />
-                )}
-                {!showLinkedinInput && (
-                  <FaLinkedin
-                    className="text-white  ml-3 cursor-pointer"
-                    onClick={handleLinkedinIconClick}
-                  />
-                )}
-                <button
-                  className="w-5 h-5 rounded-full border-none ml-3 p-0 flex justify-center items-center bg-white"
-                  onClick={handleGithubIconClick}
-                >
-                  <MdAdd />
-                </button>
-                {showGithubInput && (
-                  <input
-                    type="text"
-                    className="text-sm text-white  ml-3 bg-transparent border-b border-white outline-none"
-                    placeholder="GitHub"
-                    name="github"
-                    value={formData.github}
-                    onChange={handleChange}
-                  />
-                )}
-                {!showGithubInput && (
-                  <FaGithub
-                    className="text-white  ml-3 cursor-pointer"
-                    onClick={handleGithubIconClick}
-                  />
-                )}
-              </div>
-              <button
-                className="text-sm rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-green-600"
-                onClick={handleSave}
-              >
-                Save
-              </button>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Job Title</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your job title"
+                name="jobTitle"
+                value={jobTitle}
+                onChange={(e) => setJobTitle(e.target.value)}
+              />
             </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Company</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your company name"
+                name="company"
+                value={company}
+                onChange={(e) => setCompany(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Email</label>
+              <input
+                type="email"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your email address"
+                name="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Phone</label>
+              <input
+                type="tel"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your phone number"
+                name="phone"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Address</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your address"
+                name="address"
+                value={address}
+                onChange={(e) => setAddress(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Website</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your website URL"
+                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="flex justify-end">
+            <button
+              className="text-sm rounded-lg py-2 px-4 font-bold bg-purple-600 text-white"
+              onClick={handleSubmit}
+            >
+              Create
+            </button>
           </div>
         </div>
       </div>
