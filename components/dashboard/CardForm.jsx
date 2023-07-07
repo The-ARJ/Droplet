@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { MdAdd, MdEmail, MdPhone, MdLocationOn, MdImage } from "react-icons/md";
 import CardService from "../../utils/Services/CardServices";
+
 const CardForm = ({ updateCardData }) => {
   const [cardImage, setCardImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
@@ -14,9 +15,9 @@ const CardForm = ({ updateCardData }) => {
   const [website, setWebsite] = useState("");
   const [linkedin, setLinkedin] = useState("");
   const [twitter, setTwitter] = useState("");
-  const [github, setGithub] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [instagram, setInstagram] = useState("");
   const [bio, setBio] = useState("");
-  const [template, setTemplate] = useState("");
 
   const submitForm = async () => {
     const formData = new FormData();
@@ -29,11 +30,11 @@ const CardForm = ({ updateCardData }) => {
     formData.append("company", company);
     formData.append("address", address);
     formData.append("website", website);
-    formData.append("socialMedia.linkedin", linkedin);
+    formData.append("socialMedia.linkediIn", linkedin);
     formData.append("socialMedia.twitter", twitter);
-    formData.append("socialMedia.github", github);
+    formData.append("socialMedia.facebook", facebook);
+    formData.append("socialMedia.instagram", instagram);
     formData.append("bio", bio);
-    formData.append("template", template);
 
     try {
       const response = await CardService.createCard(formData);
@@ -175,6 +176,50 @@ const CardForm = ({ updateCardData }) => {
                 name="website"
                 value={website}
                 onChange={(e) => setWebsite(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">LinkedIn</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your LinkedIn profile URL"
+                name="linkedin"
+                value={linkedin}
+                onChange={(e) => setLinkedin(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Twitter</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your Twitter profile URL"
+                name="twitter"
+                value={twitter}
+                onChange={(e) => setTwitter(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Facebook</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your Facebook profile URL"
+                name="facebook"
+                value={facebook}
+                onChange={(e) => setFacebook(e.target.value)}
+              />
+            </div>
+            <div className="mb-4">
+              <label className="text-white font-bold mb-2">Instagram</label>
+              <input
+                type="text"
+                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                placeholder="Enter your Instagram profile URL"
+                name="instagram"
+                value={instagram}
+                onChange={(e) => setInstagram(e.target.value)}
               />
             </div>
           </div>

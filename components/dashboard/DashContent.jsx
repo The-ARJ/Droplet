@@ -1,6 +1,6 @@
 "use client";
-import DashCards from "./PreviewCard";
 import DashInfo from "./DashInfo";
+import PublishedCards from "./PublishedCard";
 
 const Content = ({ title }) => {
   return (
@@ -9,7 +9,7 @@ const Content = ({ title }) => {
         <DashInfo title="Home" />
         <div className="mt-6 font-bold text-xl text-purple-900">
           <h>Active Cards</h>
-          <DashCards />
+          <PublishedCards />
         </div>
       </div>
     </div>

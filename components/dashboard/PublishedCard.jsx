@@ -1,163 +1,182 @@
-import React, { useEffect, useState, useRef } from "react";
-import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
-import {
-  FaTwitter,
-  FaLinkedin,
-  FaGithub,
-  FaDownload,
-  FaTrash,
-} from "react-icons/fa";
-import { useRouter } from "next/navigation";
-import html2canvas from "html2canvas";
-import { v4 as uuid } from "uuid";
+import React, { useEffect, useState } from "react";
+import { FaTwitter, FaFacebook, FaInstagram, FaGlobe } from "react-icons/fa";
+import CardService from "../../utils/Services/CardServices";
+import { imgURL } from "../../utils/Services/UserServices";
+import TemplateService from "../../utils/Services/TemplateServices";
 
-const CardList = () => {
-  const [cardData, setCardData] = useState([]);
-  const [selectedImage, setSelectedImage] = useState("");
-  const router = useRouter();
-  const downloadLinkRef = useRef(null);
+import {
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Tooltip,
+} from "@material-tailwind/react";
+const PublishedCards = () => {
+  const [cardsData, setCardsData] = useState([]);
+
+  const getPublishedCards = () => {
+    const token = localStorage.getItem("token");
+    CardService.getAllCards(token)
+      .then((res) => {
+        const publishedCards = res.data.data.filter(
+          (card) => card.isPublished === true
+        );
+
+        // Create an array of promises to fetch template data for each card
+        const templatePromises = publishedCards.map((card) => {
+          return TemplateService.getTemplateById(card.template, token);
+        });
+
+        // Execute all promises and wait for the results
+        Promise.all(templatePromises)
+          .then((templateResponses) => {
+            // Map the template data to respective cards
+            const cardsWithTemplateData = publishedCards.map((card, index) => {
+              return {
+                ...card,
+                templateData: templateResponses[index].data,
+              };
+            });
+
+            setCardsData(cardsWithTemplateData);
+            console.log(cardsWithTemplateData);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
-    const retrievedData = [];
-    for (let i = 0; i < localStorage.length; i++) {
-      const key = localStorage.key(i);
-      if (!isNaN(parseInt(key))) {
-        const storedData = localStorage.getItem(key);
-        if (storedData) {
-          retrievedData.push(JSON.parse(storedData));
-        }
-      }
-    }
-    setCardData(retrievedData);
+    getPublishedCards();
   }, []);
 
-  const handleShare = (id) => {
-    const uniqueId = uuid();
-    const shareableURL = `/card/${uniqueId}`;
-    localStorage.setItem(uniqueId, localStorage.getItem(id));
-    router.push(shareableURL);
-    console.log("Shareable URL:", shareableURL);
-  };
-
-  const handleDownload = () => {
-    const cardElement = document.getElementById("card-container");
-
-    html2canvas(cardElement).then((canvas) => {
-      const cardImage = canvas.toDataURL("image/png");
-      downloadLinkRef.current.href = cardImage;
-      downloadLinkRef.current.download = "card.png";
-      downloadLinkRef.current.click();
-    });
-  };
-
-  const handleImageChange = (e) => {
-    const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = function (event) {
-      setSelectedImage(event.target.result);
-    };
-    reader.readAsDataURL(file);
-  };
-
-  const handleDelete = (id) => {
-    const shouldDelete = window.confirm(
-      "Are you sure you want to delete this card?"
-    );
-    if (shouldDelete) {
-      localStorage.removeItem(id);
-      setCardData((prevCardData) =>
-        prevCardData.filter((card) => card.id !== id)
-      );
-    }
-  };
-
   return (
-    <>
-      <div className="flex flex-wrap">
-        {cardData.map((card) => (
-          <div className="w-full md:w-3/12" key={card.id}>
-            <div className="p-2">
-              <div className=" rounded-3xl bg-[#111827]" id="card-container">
-                <div className="flex justify-center">
-                  {selectedImage ? (
-                    <img
-                      className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
-                      src={selectedImage}
-                      alt="participant"
-                    />
-                  ) : (
-                    <img
-                      className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
-                      src={card.formData.image}
-                      alt="participant"
-                    />
-                  )}
-                </div>
-                <div className="mb-4 p-2 font-medium mt-5 text-white">
-                  <p className="text-lg  opacity-70">
-                    {card.formData.fullName}
-                  </p>
-                  <p className="text-base  opacity-70 mt-2">
-                    {card.formData.role}
-                  </p>
-                </div>
-                <div>
-                  <div className="flex px-2 font-medium items-center mb-4">
-                    <MdEmail className="text-white opacity-70 mr-2" />
-                    <p className="text-base  text-white opacity-70">
-                      {card.formData.email}
-                    </p>
-                  </div>
-                  <div className="flex px-2 font-medium items-center mb-4">
-                    <MdPhone className="text-white opacity-70 mr-2" />
-                    <p className="text-base text-white opacity-70">
-                      {card.formData.phone}
-                    </p>
-                  </div>
-                  <div className="flex px-2 font-medium items-center mb-4">
-                    <MdLocationOn className="text-white opacity-70 mr-2" />
-                    <p className="text-base text-white opacity-70">
-                      {card.formData.address}
-                    </p>
-                  </div>
-                </div>
-                <div className="flex justify-between font-medium items-center bg-gradient-to-r from-[#0F2027] via-[#203A43] to-[#2C5364]  rounded-b-lg  py-2 relative">
-                  <div className="flex items-center">
-                    <FaTwitter className="text-white opacity-70 ml-3" />
-                    <FaLinkedin className="text-white opacity-70 ml-3" />
-                    <FaGithub className="text-white opacity-70 ml-3" />
-                  </div>
-                  <div>
-                    <div className=" flex">
-                      <div className="text-base rounded-lg flex flex-shrink-0 py-2 font-bold text-red-600 cursor-pointer">
-                        <FaTrash onClick={() => handleDelete(card.id)} />
-                      </div>
-                      <div className="text-base rounded-lg flex flex-shrink-0 py-2 px-4 font-bold text-blue-600 cursor-pointer">
-                        <FaDownload onClick={handleDownload} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-      <input
-        type="file"
-        accept="image/*"
-        className="hidden"
-        id="image-upload"
-        onChange={handleImageChange}
-      />
-      <a
-        href="#"
-        ref={downloadLinkRef}
-        style={{ display: "none" }}
-        download
-      ></a>
-    </>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {cardsData.map((card) => (
+        <>
+          <Card
+            key={card.id}
+            className={`rounded-3xl w-full md:w-96 ${
+              card.templateData
+                ? `bg-[${card.templateData.data.color}]`
+                : "bg-[#fffff]"
+            }`}
+          >
+            <CardHeader floated={false} className="h-80">
+              {card.image ? (
+                <img
+                  className="w-full rounded-t-xl  overflow-hidden object-cover"
+                  src={`${imgURL}/${card.image}`}
+                  alt="participant"
+                />
+              ) : (
+                <img
+                  className="w-full rounded-t-xl h-auto overflow-hidden object-cover"
+                  src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
+                  alt="participant"
+                />
+              )}
+              {/* <img src="/img/team-3.jpg" alt="profile-picture" /> */}
+            </CardHeader>
+            <CardBody className="text-center">
+              <Typography
+                variant="h4"
+                color="blue-gray"
+                className="mb-2 text-black "
+              >
+                {card.firstName} {card.lastName}
+              </Typography>
+              <Typography
+                color="blue"
+                className="font-medium mb-2 text-blue-500"
+                textGradient
+              >
+                {card.jobTitle} @ {card.company}
+              </Typography>
+              <Typography
+                color="blue"
+                className="font-medium text-blue-500"
+                textGradient
+              >
+                {card.email}
+              </Typography>
+              <Typography
+                color="blue"
+                className="font-medium text-blue-500"
+                textGradient
+              >
+                {card.phone}
+              </Typography>
+            </CardBody>
+            <CardFooter className="flex justify-center gap-7 pt-2">
+              {card.socialMedia.facebook && (
+                <Tooltip content="Like">
+                  <Typography
+                    as="a"
+                    href={card.socialMedia.facebook}
+                    target="_blank"
+                    variant="lead"
+                    color="blue"
+                    textGradient
+                    className=" text-blue-500"
+                  >
+                    <FaFacebook />
+                  </Typography>
+                </Tooltip>
+              )}
+              {card.socialMedia.twitter && (
+                <Tooltip content="Follow">
+                  <Typography
+                    as="a"
+                    href={card.socialMedia.twitter}
+                    target="_blank"
+                    variant="lead"
+                    className=" text-blue-400"
+                    textGradient
+                  >
+                    <FaTwitter />
+                  </Typography>
+                </Tooltip>
+              )}
+              {card.socialMedia.instagram && (
+                <Tooltip content="Follow">
+                  <Typography
+                    as="a"
+                    href={card.socialMedia.instagram}
+                    target="_blank"
+                    variant="lead"
+                    className=" text-purple-500"
+                    textGradient
+                  >
+                    <FaInstagram />
+                  </Typography>
+                </Tooltip>
+              )}
+              {card.website && (
+                <Tooltip content="Web">
+                  <Typography
+                    as="a"
+                    href={card.website}
+                    target="_blank"
+                    variant="lead"
+                    className=" text-purple-500"
+                    textGradient
+                  >
+                    <FaGlobe />
+                  </Typography>
+                </Tooltip>
+              )}
+            </CardFooter>
+          </Card>
+        </>
+      ))}
+    </div>
   );
 };
 
-export default CardList;
+export default PublishedCards;
