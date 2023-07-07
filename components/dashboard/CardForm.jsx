@@ -38,9 +38,31 @@ const CardForm = ({ updateCardData }) => {
 
     try {
       const response = await CardService.createCard(formData);
-      alert("Card Created Successfully");
+      toast.success("Card Created Successfully", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
     } catch (err) {
-      alert(err);
+      toast.error(
+        "Error Creating Card",
+        {
+          position: "top-center",
+          autoClose: 1000,
+          hideProgressBar: true,
+          closeOnClick: false,
+          pauseOnHover: false,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        },
+        err
+      );
     }
   };
 

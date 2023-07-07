@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { MdEmail, MdPhone, MdLocationOn } from "react-icons/md";
 import { FaTwitter, FaFacebook, FaInstagram, FaGlobe } from "react-icons/fa";
 import CardService from "../../utils/Services/CardServices";
 import { imgURL } from "../../utils/Services/UserServices";
@@ -12,6 +11,7 @@ import {
   Typography,
   Tooltip,
 } from "@material-tailwind/react";
+import { toast } from "react-toastify";
 
 const PreviewCard = () => {
   const [latestCard, setLatestCard] = useState(null);
@@ -43,7 +43,16 @@ const PreviewCard = () => {
 
   const handlePublishClick = () => {
     if (!selectedTemplate) {
-      alert("Please select a template.");
+      toast.error("Please select a template.", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       return;
     }
 
@@ -56,17 +65,37 @@ const PreviewCard = () => {
 
       CardService.updateCard(latestCard._id, requestBody, token)
         .then((res) => {
-          alert("Card template published successfully:", res.data);
+          toast.success("Card template published successfully", {
+            position: toast.POSITION.TOP_CENTER,
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         })
         .catch((err) => {
-          console.error("Error publishing card template:", err);
+          toast.error(
+            "Error publishing card template:",
+            {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            },
+            err
+          );
         });
     }
   };
   return (
     <>
-      <TemplateList handleTemplateClick={handleTemplateClick} />{" "}
-      {/* Passed the function as prop here */}
       {latestCard && (
         <div className="w-full md:w-96">
           <Card
@@ -183,13 +212,14 @@ const PreviewCard = () => {
             </CardFooter>
           </Card>
           <button
-            className="bg-blue-500 px-2 py-2 rounded-md"
-            onClick={handlePublishClick} // Added onClick event handler
+            className="bg-purple-500 hover:bg-purple-600 mt-10 text-white font-bold py-2 px-4 rounded-md shadow-md transition-colors transition-delay-200 w-full flex items-center justify-center"
+            onClick={handlePublishClick}
           >
-            Publish
+            Publish Card
           </button>
         </div>
       )}
+      <TemplateList handleTemplateClick={handleTemplateClick} />
     </>
   );
 };

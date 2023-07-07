@@ -1,9 +1,9 @@
 "use client";
 import React, { useState } from "react";
-import { ChromePicker } from "react-color"; // Import the color picker
+import { ChromePicker } from "react-color";
 import TemplateService from "../../utils/Services/TemplateServices";
 import DashboardLayout from "@/components/dashboard/dashboardprovider";
-
+import { toast } from "react-toastify";
 const Template = () => {
   const [templateData, setTemplateData] = useState({
     name: "",
@@ -55,7 +55,16 @@ const Template = () => {
 
     try {
       const response = await TemplateService.createTemplate(formData);
-      alert("Template Created Successfully");
+      toast.success("Template Created Successfully", {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: false,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+      });
       setTemplateData({
         name: "",
         layout: [],
