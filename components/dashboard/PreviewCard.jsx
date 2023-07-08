@@ -13,10 +13,8 @@ import {
 } from "@material-tailwind/react";
 import { toast } from "react-toastify";
 
-const PreviewCard = () => {
+const PreviewCard = ({ handleTemplateClick, selectedTemplate }) => {
   const [latestCard, setLatestCard] = useState(null);
-  const [selectedTemplate, setSelectedTemplate] = useState(null);
-
   const getLatestCard = () => {
     const token = localStorage.getItem("token");
     CardService.getAllCards(token)
@@ -35,11 +33,6 @@ const PreviewCard = () => {
   useEffect(() => {
     getLatestCard();
   }, []);
-
-  const handleTemplateClick = (template) => {
-    console.log("Selected Template:", template);
-    setSelectedTemplate(template);
-  };
 
   const handlePublishClick = () => {
     if (!selectedTemplate) {
@@ -97,7 +90,7 @@ const PreviewCard = () => {
   return (
     <>
       {latestCard && (
-        <div className="w-full md:w-96">
+        <div className="w-full">
           <Card
             className={`rounded-3xl ${
               selectedTemplate
@@ -105,21 +98,20 @@ const PreviewCard = () => {
                 : "dark:bg-[#27272a] bg-white"
             }`}
           >
-            <CardHeader floated={false} className="h-80">
+            <CardHeader floated={false} className=" h-60 lg:h-56 xl:h-80">
               {latestCard.image ? (
                 <img
-                  className="w-full rounded-t-xl overflow-hidden object-cover"
+                  className="w-full rounded-t-xl overflow-hidden object-contain"
                   src={`${imgURL}/${latestCard.image}`}
                   alt="participant"
                 />
               ) : (
                 <img
-                  className="w-full rounded-t-xl h-auto overflow-hidden object-cover"
+                  className="w-full rounded-t-xl h-auto overflow-hidden object-contain"
                   src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2550&q=80"
                   alt="participant"
                 />
               )}
-              {/* <img src="/img/team-3.jpg" alt="profile-picture" /> */}
             </CardHeader>
             <CardBody className="text-center dark:text-gray-100">
               <Typography variant="h4" className="mb-2">
@@ -215,7 +207,6 @@ const PreviewCard = () => {
           </button>
         </div>
       )}
-      <TemplateList handleTemplateClick={handleTemplateClick} />
     </>
   );
 };

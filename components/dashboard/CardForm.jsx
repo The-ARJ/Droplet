@@ -83,7 +83,7 @@ const CardForm = ({ updateCardData }) => {
 
   return (
     <>
-      <div className="w-full md:w-2/6">
+      <div className="w-full">
         <div className="bg-white dark:bg-[#27272a] border dark:border-gray-900/5 shadow-xl rounded-xl p-6">
           <div className="flex items-center justify-center">
             <input
@@ -95,7 +95,7 @@ const CardForm = ({ updateCardData }) => {
             />
             <label
               htmlFor="image-upload"
-              className="w-full rounded-lg h-64 overflow-hidden object-cover cursor-pointer"
+              className="w-full rounded-lg h-48 sm:h-52 md:h-64 overflow-hidden object-cover cursor-pointer"
             >
               {previewImage ? (
                 <img
@@ -112,39 +112,42 @@ const CardForm = ({ updateCardData }) => {
             </label>
           </div>
           <div className="mt-6">
-            <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
-                First Name
-              </label>
-              <input
-                type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
-                placeholder="Enter your first name"
-                name="firstName"
-                value={firstName}
-                onChange={(e) => setFirstName(e.target.value)}
-              />
+            <div className="grid md:grid-cols-2 gap-4 mb-4">
+              <div>
+                <label className="text-gray-800 dark:text-white font-bold mb-2 text-xs sm:text-sm md:text-base">
+                  First Name
+                </label>
+                <input
+                  type="text"
+                  className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
+                  placeholder="Enter your first name"
+                  name="firstName"
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
+                />
+              </div>
+              <div>
+                <label className="text-gray-800 dark:text-white font-bold mb-2 text-xs sm:text-sm md:text-base">
+                  Last Name
+                </label>
+                <input
+                  type="text"
+                  className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
+                  placeholder="Enter your last name"
+                  name="lastName"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
+                />
+              </div>
             </div>
+
             <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
-                Last Name
-              </label>
-              <input
-                type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
-                placeholder="Enter your last name"
-                name="lastName"
-                value={lastName}
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </div>
-            <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
+              <label className="text-gray-800 dark:text-white font-bold mb-2 text-xs sm:text-sm md:text-base">
                 Job Title
               </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
+                className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your job title"
                 name="jobTitle"
                 value={jobTitle}
@@ -152,12 +155,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
+              <label className="text-gray-800 dark:text-white font-bold mb-2 text-xs sm:text-sm md:text-base">
                 Company
               </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
+                className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your company name"
                 name="company"
                 value={company}
@@ -165,12 +168,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
+              <label className="text-gray-800 dark:text-white font-bold mb-2 text-xs sm:text-sm md:text-base">
                 Email
               </label>
               <input
                 type="email"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
+                className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your email address"
                 name="email"
                 value={email}
@@ -178,12 +181,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
+              <label className="text-gray-800 dark:text-white font-bold mb-2 text-xs sm:text-sm md:text-base">
                 Phone
               </label>
               <input
                 type="tel"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
+                className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your phone number"
                 name="phone"
                 value={phone}
@@ -191,91 +194,26 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
+              <label className="text-gray-800 dark:text-white font-bold mb-2 text-xs sm:text-sm md:text-base">
                 Address
               </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
+                className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your address"
                 name="address"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
-            <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
-                Website
-              </label>
-              <input
-                type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
-                placeholder="Enter your website URL"
-                name="website"
-                value={website}
-                onChange={(e) => setWebsite(e.target.value)}
-              />
+            <div className="flex justify-end">
+              <button
+                className="text-sm rounded-lg py-2 px-4 font-bold bg-[#27272a] text-white  dark:text-gray-700 dark:bg-gray-100 hover:bg-gray-600 dark:hover:bg-gray-300 "
+                onClick={handleSubmit}
+              >
+                Create
+              </button>
             </div>
-            <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
-                LinkedIn
-              </label>
-              <input
-                type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
-                placeholder="Enter your LinkedIn profile URL"
-                name="linkedin"
-                value={linkedin}
-                onChange={(e) => setLinkedin(e.target.value)}
-              />
-            </div>
-            <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
-                Twitter
-              </label>
-              <input
-                type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
-                placeholder="Enter your Twitter profile URL"
-                name="twitter"
-                value={twitter}
-                onChange={(e) => setTwitter(e.target.value)}
-              />
-            </div>
-            <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
-                Facebook
-              </label>
-              <input
-                type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
-                placeholder="Enter your Facebook profile URL"
-                name="facebook"
-                value={facebook}
-                onChange={(e) => setFacebook(e.target.value)}
-              />
-            </div>
-            <div className="mb-4">
-              <label className="text-gray-800 dark:text-white font-bold mb-2">
-                Instagram
-              </label>
-              <input
-                type="text"
-                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
-                placeholder="Enter your Instagram profile URL"
-                name="instagram"
-                value={instagram}
-                onChange={(e) => setInstagram(e.target.value)}
-              />
-            </div>
-          </div>
-          <div className="flex justify-end">
-            <button
-              className="text-sm rounded-lg py-2 px-4 font-bold bg-[#27272a] text-white  dark:text-gray-700 dark:bg-gray-100 hover:bg-gray-600 dark:hover:bg-gray-300 "
-              onClick={handleSubmit}
-            >
-              Create
-            </button>
           </div>
         </div>
       </div>

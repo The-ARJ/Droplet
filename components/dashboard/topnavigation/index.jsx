@@ -32,10 +32,10 @@ export default function TopNavigation() {
 
           <div className="container flex left-36 relative w-3/4">
             <div className="group hidden items-center ml-8 relative w-full md:flex lg:w-72">
-              <FiSearch className="absolute fill-current h-4 hidden left-0 ml-4 pointer-events-none text-gray-100 dark:text-gray-400 w-4 group-hover:text-gray-400 sm:block" />
+              <FiSearch className="absolute fill-current h-4 hidden left-0 ml-4 pointer-events-none text-gray-400 dark:text-gray-400 w-4 group-hover:text-gray-400 sm:block" />
               <input
                 type="text"
-                className="bg-gray-700 dark:bg-[#3d3d40] block leading-normal pl-10 py-1.5 pr-4 ring-opacity-90 rounded-2xl text-gray-600 dark:text-white w-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white"
+                className="bg-blue-500/10 dark:bg-[#3d3d40] block leading-normal pl-10 py-1.5 pr-4 ring-opacity-90 rounded-2xl text-gray-600 dark:text-white w-full focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white"
                 placeholder="Search"
               />
             </div>
