@@ -33,22 +33,25 @@ const SignIn = () => {
   return (
     <>
       <Header />
-      <div className="flex  justify-center px-4">
-        <div className="max-w-md w-full  pt-40">
+      <div className="flex justify-center px-4">
+        <div className="max-w-md w-full pt-40">
           {/* Hero */}
-          <img
+          {/* <img
             className="absolute top-16 left-0 z-0 w-full mx-auto object-cover"
             src="./assets/bg.svg"
             alt="cardova"
-          />
-          <div className="relative overflow-hidden border-2 border-purple-400 shadow-lg rounded-2xl ">
+          /> */}
+          <div className="relative overflow-hidden border-2 border-purple-400 dark:border-gray-700 shadow-lg rounded-2xl bg-white dark:bg-[#27272a]">
             <div className="py-12 px-4 sm:px-6">
               <div className="mx-auto">
-                <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-4xl lg:leading-tight">
+                <h1 className="text-3xl text-gray-800 dark:text-gray-100 font-bold md:text-4xl md:leading-tight lg:text-4xl lg:leading-tight">
                   Sign In to
-                  <span className="text-purple-900"> Cardova!</span>
+                  <span className="text-purple-900 dark:text-purple-600">
+                    {" "}
+                    Cardova!
+                  </span>
                 </h1>
-                <p className="mt-3 text-base text-gray-500">
+                <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
                   Create your digital business card and unlock your professional
                   presence.
                 </p>
@@ -64,7 +67,7 @@ const SignIn = () => {
                     <input
                       type="email"
                       id="email"
-                      className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                      className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Email address"
                       onChange={(e) => setEmail(e.target.value)}
                     />
@@ -79,7 +82,7 @@ const SignIn = () => {
                     <input
                       type="password"
                       id="hs-hero-password-2"
-                      className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                      className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Password"
                       onChange={(e) => setPassword(e.target.value)}
                     />
