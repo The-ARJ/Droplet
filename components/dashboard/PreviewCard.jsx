@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { FaTwitter, FaFacebook, FaInstagram, FaGlobe } from "react-icons/fa";
 import CardService from "../../utils/Services/CardServices";
 import { imgURL } from "../../utils/Services/UserServices";
-import TemplateList from "./Templates";
 import {
   Card,
   CardHeader,
@@ -12,27 +11,8 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 import { toast } from "react-toastify";
-
-const PreviewCard = ({ handleTemplateClick, selectedTemplate }) => {
-  const [latestCard, setLatestCard] = useState(null);
-  const getLatestCard = () => {
-    const token = localStorage.getItem("token");
-    CardService.getAllCards(token)
-      .then((res) => {
-        const cards = res.data.data;
-        if (cards.length > 0) {
-          const latestCard = cards[cards.length - 1];
-          setLatestCard(latestCard);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
-  useEffect(() => {
-    getLatestCard();
-  }, []);
+ 
+const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
 
   const handlePublishClick = () => {
     if (!selectedTemplate) {
