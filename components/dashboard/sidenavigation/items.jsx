@@ -16,7 +16,7 @@ const style = {
     "lg:duration-700 lg:ease-out lg:invisible lg:opacity-0 lg:transition-all",
   open: "lg:duration-500 lg:ease-in lg:h-auto lg:opacity-100 lg:transition-all lg:w-auto",
   activeDiv:
-    "dark:bg-white bg-gray-700 text-white dark:text-[#111827] rounded-3xl",
+    "dark:bg-white bg-gray-700 text-white dark:text-[#111827] rounded-2xl",
   logoutButton:
     "flex items-center cursor-pointer justify-start my-1 p-3  bg-red-500 w-full bottom-20 absolute",
   icon: "mr-2 text-gray-700 dark:text-gray-100",
@@ -110,7 +110,7 @@ export default function SidenavItems() {
           className="flex items-center text-red-500 cursor-pointer justify-center py-4 font-bold"
         >
           <div className="fixed bottom-20">
-            <MdLogout size={20} />
+            <MdLogout size={20}  />
           </div>
         </div>
       )}

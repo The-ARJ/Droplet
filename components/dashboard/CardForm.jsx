@@ -271,7 +271,7 @@ const CardForm = ({ updateCardData }) => {
           </div>
           <div className="flex justify-end">
             <button
-              className="text-sm rounded-lg py-2 px-4 font-bold bg-purple-600 text-white"
+              className="text-sm rounded-lg py-2 px-4 font-bold bg-[#27272a] text-white  dark:text-gray-700 dark:bg-gray-100 hover:bg-gray-600 dark:hover:bg-gray-300 "
               onClick={handleSubmit}
             >
               Create

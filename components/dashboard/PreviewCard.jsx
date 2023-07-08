@@ -208,7 +208,7 @@ const PreviewCard = () => {
             </CardFooter>
           </Card>
           <button
-            className="bg-purple-500 hover:bg-purple-600 mt-10 text-white font-bold py-2 px-4 rounded-md shadow-md transition-colors transition-delay-200 w-full flex items-center justify-center"
+            className="bg-[#27272a] text-white  dark:text-gray-700 dark:bg-gray-100 hover:bg-gray-600 dark:hover:bg-gray-300 mt-10 font-bold py-2 px-4 rounded-md shadow-md transition-colors transition-delay-200 w-full flex items-center justify-center"
             onClick={handlePublishClick}
           >
             Publish Card

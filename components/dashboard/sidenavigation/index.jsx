@@ -25,13 +25,15 @@ export default function SideNavigation({ mobilePosition }) {
     >
       <div className={style.container}>
         <div
-          className={`flex items-center justify-start ml-4 mb-6 pb-6 pt-10 sticky top-0 z-10 font-bold text-lg md:text-xl text-gray-700 dark:text-white`}
+          className={`flex items-center justify-start ml-4  mb-6 pb-6 pt-10 sticky top-0 z-10 font-bold text-lg md:text-xl text-gray-700 dark:text-white`}
         >
           <img src="./assets/logo.png" className="h-14 mr-2" />
           <h1
             className={`${
-              open ? "block" : "hidden"
-            } text-sm md:text-xl font-medium `}
+              open
+                ? " transition-opacity duration-1000 ease-in-out block"
+                : "hidden"
+            } `}
           >
             Cardova
           </h1>

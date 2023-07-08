@@ -269,7 +269,7 @@ export default function Profile() {
             </button>
             <button
               type="submit"
-              className="rounded-md bg-[#27272a] text-white dark:bg-gray-100 px-3 py-2 text-sm font-semibold dark:text-gray-700   shadow-sm hover:bg-gray-200 dark:hover:bg-gray-300 focus-visible:outline focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-offset-2 focus-visible:ring-indigo-600"
+              className="rounded-md bg-[#27272a] text-white  dark:text-gray-700 dark:bg-gray-100 px-3 py-2 text-sm font-semibold   shadow-sm hover:bg-gray-200 dark:hover:bg-gray-300 focus-visible:outline focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-offset-2 focus-visible:ring-indigo-600"
             >
               Save
             </button>
