@@ -15,6 +15,7 @@ import {
 } from "@material-tailwind/react";
 import DropdownMenu from "./DropDown";
 import Link from "next/link";
+import NoData from "../NoData";
 const PublishedCards = () => {
   const [cardsData, setCardsData] = useState([]);
 
@@ -216,13 +217,7 @@ const PublishedCards = () => {
           </div>
         ))
       ) : (
-        <div className="flex items-center justify-center ">
-          <img
-            src="../assets/nodata.png"
-            alt="No data"
-            className=" h-40 w-40 lg:h-96 lg:w-96 object-contain"
-          />
-        </div>
+        <NoData />
       )}
     </>
   );

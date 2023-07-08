@@ -10,14 +10,14 @@ const Footer = () => {
   };
   return (
     <>
-      <footer className="bg-gray-900">
+      <footer className="  bg-white dark:bg-[#18181b]">
         <div className="max-w-[85rem] py-10 px-4 sm:px-6 lg:px-8 lg:pt-20 mx-auto">
           {/* Grid */}
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
             <div className=" cursor-pointer flex justify-start items-center gap-2 col-span-full lg:col-span-1">
               <img src="../assets/logo.png" className=" h-10" />
               <div
-                className="flex-none text-xl font-semibold text-white"
+                className="flex-none text-xl font-semibold   text-gray-700 dark:text-gray-100 dark:text-gray-100e"
                 aria-label="Cardova"
                 onClick={scrollToTop}
               >
@@ -26,11 +26,13 @@ const Footer = () => {
             </div>
             {/* End Col */}
             <div className="col-span-1">
-              <h4 className="font-semibold text-gray-100">Service</h4>
+              <h4 className="font-semibold  text-gray-700 dark:text-gray-100">
+                Service
+              </h4>
               <div className="mt-3 grid space-y-3">
                 <p>
                   <a
-                    className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
+                    className="inline-flex gap-x-2 text-gray-400 hover: text-gray-700 dark:text-gray-100"
                     href="#"
                   >
                     Pricing
@@ -38,7 +40,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <a
-                    className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
+                    className="inline-flex gap-x-2 text-gray-400 hover: text-gray-700 dark:text-gray-100"
                     href="#"
                   >
                     Contact us
@@ -46,7 +48,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <a
-                    className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
+                    className="inline-flex gap-x-2 text-gray-400 hover: text-gray-700 dark:text-gray-100"
                     href="#"
                   >
                     Services
@@ -56,11 +58,13 @@ const Footer = () => {
             </div>
             {/* End Col */}
             <div className="col-span-1">
-              <h4 className="font-semibold text-gray-100">Company</h4>
+              <h4 className="font-semibold  text-gray-700 dark:text-gray-100">
+                Company
+              </h4>
               <div className="mt-3 grid space-y-3">
                 <p>
                   <a
-                    className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
+                    className="inline-flex gap-x-2 text-gray-400 hover: text-gray-700 dark:text-gray-100"
                     href="#"
                   >
                     About us
@@ -68,7 +72,7 @@ const Footer = () => {
                 </p>
                 <p>
                   <a
-                    className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
+                    className="inline-flex gap-x-2 text-gray-400 hover: text-gray-700 dark:text-gray-100"
                     href="#"
                   >
                     Blog
@@ -76,18 +80,18 @@ const Footer = () => {
                 </p>
                 <p>
                   <a
-                    className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
+                    className="inline-flex gap-x-2 hover: text-gray-700 dark:text-gray-100"
                     href="#"
                   >
                     Careers
                   </a>{" "}
-                  <span className="inline ml-1 text-xs bg-purple-700 text-white py-1 px-2 rounded-md">
+                  <span className="inline ml-1 text-xs bg-purple-700   text-gray-700 dark:text-gray-100 dark:text-gray-100e py-1 px-2 rounded-md">
                     We are hiring
                   </span>
                 </p>
                 <p>
                   <a
-                    className="inline-flex gap-x-2 text-gray-400 hover:text-gray-200"
+                    className="inline-flex gap-x-2  hover: text-gray-700 dark:text-gray-100"
                     href="#"
                   >
                     Customers
@@ -97,7 +101,9 @@ const Footer = () => {
             </div>
             {/* End Col */}
             <div className="col-span-2">
-              <h4 className="font-semibold text-gray-100">Stay up to date</h4>
+              <h4 className="font-semibold  text-gray-700 dark:text-gray-100">
+                Stay up to date
+              </h4>
               <form>
                 <div className="mt-4 flex flex-col items-center gap-2 sm:flex-row sm:gap-3 rounded-md p-2">
                   <div className="w-full sm:w-auto">
@@ -113,7 +119,7 @@ const Footer = () => {
                         placeholder="Enter your email"
                       />
                       <a
-                        className="whitespace-nowrap inline-flex justify-center items-center gap-x-3 text-center bg-purple-600 hover:bg-purple-700 border border-transparent text-white font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4"
+                        className="whitespace-nowrap inline-flex justify-center items-center gap-x-3 text-center bg-purple-600 hover:bg-purple-700 border border-transparent  text-gray-700 dark: text-gray-700 dark:text-gray-100e font-medium rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-white transition py-3 px-4"
                         href="#"
                       >
                         Subscribe
@@ -139,7 +145,7 @@ const Footer = () => {
             {/* Social Cardovas */}
             <div>
               <a
-                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
+                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center  text-gray-700 dark:text-gray-100 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
                 href="#"
               >
                 <svg
@@ -154,7 +160,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
+                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center  text-gray-700 dark:text-gray-100 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
                 href="#"
               >
                 <svg
@@ -169,7 +175,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
+                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center  text-gray-700 dark:text-gray-100 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
                 href="#"
               >
                 <svg
@@ -184,7 +190,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
+                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center  text-gray-700 dark:text-gray-100 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
                 href="#"
               >
                 <svg
@@ -199,7 +205,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a
-                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center text-gray-200 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
+                className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center  text-gray-700 dark:text-gray-100 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
                 href="#"
               >
                 <svg

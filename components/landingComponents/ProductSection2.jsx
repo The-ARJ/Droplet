@@ -3,9 +3,7 @@ import React from "react";
 const ProductSection2 = () => {
   return (
     <>
-      {/* Features */}
-      <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        {/* Grid */}
+      <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
         <div className="md:grid md:grid-cols-2 md:items-center md:gap-12 xl:gap-32">
           <div>
             <img
@@ -14,15 +12,13 @@ const ProductSection2 = () => {
               alt="Image Description"
             />
           </div>
-          {/* End Col */}
-          <div className="mt-5 sm:mt-10 lg:mt-0">
+          <div className="mt-5 sm:mt-10 lg:mt-0 dark:text-gray-300">
             <div className="space-y-6 sm:space-y-8">
-              {/* Title */}
               <div className="space-y-2 md:space-y-4">
-                <h2 className="font-bold text-3xl lg:text-4xl text-gray-800">
+                <h2 className="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-white">
                   Cardova: The Ultimate Card Management Solution
                 </h2>
-                <p className="text-gray-500">
+                <p className="text-gray-500 dark:text-gray-400">
                   Cardova takes care of the challenges faced by start-ups and
                   provides enterprise-grade solutions for common pain points
                   encountered in various products and projects. With Cardova,
@@ -30,13 +26,10 @@ const ProductSection2 = () => {
                   cards, saving you time and effort.
                 </p>
               </div>
-              {/* End Title */}
-              {/* List */}
               <ul role="list" className="space-y-2 sm:space-y-4">
-                <li className="flex space-x-3">
-                  {/* Solid Check */}
+                <li className="flex space-x-3 dark:text-gray-400">
                   <svg
-                    className="flex-shrink-0 h-6 w-6 text-purple-600"
+                    className="flex-shrink-0 h-6 w-6 text-purple-600 dark:text-purple-400"
                     width={16}
                     height={16}
                     viewBox="0 0 16 16"
@@ -53,10 +46,11 @@ const ProductSection2 = () => {
                       fill="currentColor"
                     />
                   </svg>
-                  {/* End Solid Check */}
-                  <span className="text-sm sm:text-base text-gray-500">
-                    <span className="font-bold">Easy &amp; fast</span>{" "}
-                    designing: Design and customize your digital business cards
+                  <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                    <span className="font-bold text-gray-800 dark:text-white">
+                      Easy &amp; fast designing
+                    </span>{" "}
+                    : Design and customize your digital business cards
                     effortlessly with Cardova&apos;s intuitive and user-friendly
                     interface.
                   </span>
@@ -82,11 +76,13 @@ const ProductSection2 = () => {
                     />
                   </svg>
                   {/* End Solid Check */}
-                  <span className="text-sm sm:text-base text-gray-500">
-                    Powerful <span className="font-bold">features</span>: Enjoy
-                    a wide range of features that enhance the functionality of
-                    your digital business cards, such as contact syncing,
-                    analytics, and customizable templates.
+                  <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                    <span className="font-bold text-gray-800 dark:text-white">
+                      Powerful features
+                    </span>
+                    : Enjoy a wide range of features that enhance the
+                    functionality of your digital business cards, such as
+                    contact syncing, analytics, and customizable templates.
                   </span>
                 </li>
                 <li className="flex space-x-3">
@@ -110,23 +106,20 @@ const ProductSection2 = () => {
                     />
                   </svg>
                   {/* End Solid Check */}
-                  <span className="text-sm sm:text-base text-gray-500">
-                    User Experience Design: Cardova provides a seamless user
-                    experience, allowing you to create stunning digital business
-                    card designs that leave a lasting impression on your
-                    contacts.
+                  <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
+                    <span className="font-bold text-gray-800 dark:text-white">
+                      User Experience Design
+                    </span>
+                    : Cardova provides a seamless user experience, allowing you
+                    to create stunning digital business card designs that leave
+                    a lasting impression on your contacts.
                   </span>
                 </li>
-                {/* Add more points about Cardova's features and benefits */}
               </ul>
-              {/* End List */}
             </div>
           </div>
-          {/* End Col */}
         </div>
-        {/* End Grid */}
       </div>
-      {/* End Features */}
     </>
   );
 };

@@ -3,15 +3,15 @@ import React from "react";
 const Features = () => {
   return (
     <>
-      <section id="services">
+      <section id="services" className="">
         {/* Features */}
         <div className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
           {/* Title */}
           <div className="mx-auto max-w-2xl mb-8 lg:mb-14 text-center">
-            <h2 className="text-3xl lg:text-4xl text-gray-800 font-bold ">
+            <h2 className="text-3xl lg:text-4xl text-gray-800 dark:text-white font-bold">
               Explore the Power of Cardova
             </h2>
-            <p className="mt-3 text-gray-800 ">
+            <p className="mt-3 text-gray-800 dark:text-white">
               Unlock the full potential of Cardova with our feature-packed
               platform.
             </p>
@@ -22,7 +22,7 @@ const Features = () => {
             {/* Icon Block */}
             <div className="col-span-6 sm:col-span-4 text-center">
               <svg
-                className="mx-auto h-auto w-7 md:w-9 text-gray-800 "
+                className="mx-auto h-auto w-7 md:w-9 text-gray-800 dark:text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 width={16}
                 height={16}
@@ -33,7 +33,7 @@ const Features = () => {
                 <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z" />
               </svg>
               <div className="mt-2 sm:mt-6">
-                <h3 className="text-lg font-semibold text-gray-800 ">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
                   Unlimited Templates
                 </h3>
               </div>
@@ -42,7 +42,7 @@ const Features = () => {
             {/* Icon Block */}
             <div className="col-span-6 sm:col-span-4 text-center">
               <svg
-                className="mx-auto h-auto w-7 md:w-9 text-gray-800 0"
+                className="mx-auto h-auto w-7 md:w-9 text-gray-800 dark:text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 width={16}
                 height={16}
@@ -54,7 +54,7 @@ const Features = () => {
                 <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
               </svg>
               <div className="mt-2 sm:mt-6">
-                <h3 className="text-lg font-semibold text-gray-800">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
                   User-Friendly Dashboard
                 </h3>
               </div>
@@ -63,7 +63,7 @@ const Features = () => {
             {/* Icon Block */}
             <div className="col-span-6 col-start-4 sm:col-span-4 text-center">
               <svg
-                className="mx-auto h-auto w-7 md:w-9 text-gray-800 "
+                className="mx-auto h-auto w-7 md:w-9 text-gray-800 dark:text-white"
                 xmlns="http://www.w3.org/2000/svg"
                 width={16}
                 height={16}
@@ -74,7 +74,7 @@ const Features = () => {
                 <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
               </svg>
               <div className="mt-2 sm:mt-6">
-                <h3 className="text-lg font-semibold text-gray-800 ">
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white">
                   24/7 Support
                 </h3>
               </div>
