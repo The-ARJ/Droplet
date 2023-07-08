@@ -54,7 +54,7 @@ export default function CardTabs() {
         indicatorProps={{
           className: "bg-blue-500/10 shadow-none text-blue-500",
         }}
-        className="bg-white dark:bg-[#27272a] py-4 px-4 sm:py-2 sm:px-2 lg:py-4 lg:px-4"
+        className="bg-white dark:bg-[#27272a] py-2 px-2 sm:py-2 sm:px-2 lg:py-2 lg:px-2"
       >
         {data.map(({ label, value, icon }) => (
           <Tab
@@ -62,9 +62,9 @@ export default function CardTabs() {
             value={value}
             className="dark:text-gray-100 text-xs sm:text-sm md:text-base"
           >
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 py-2">
               {React.createElement(icon, { className: "w-5 h-5" })}
-              {label}
+              <div className="hidden lg:block">{label}</div>
             </div>
           </Tab>
         ))}
@@ -80,7 +80,7 @@ export default function CardTabs() {
           <TabPanel
             key={value}
             value={value}
-            className="text-xs sm:text-sm md:text-base"
+            className="text-xs sm:text-sm md:text-base "
           >
             {desc}
           </TabPanel>
