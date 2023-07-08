@@ -13,7 +13,7 @@ export default function DashboardLayout({ children }) {
   return (
     <DashboardProvider>
       <div className={style.container}>
-        <div className="flex items-start">
+        <div className="flex items-start ">
           <Overlay />
           <SideNavigation mobilePosition="left" />
           <div className={style.mainContainer}>
