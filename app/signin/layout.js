@@ -7,7 +7,6 @@ export default function SignInLayout({
 }) {
     return (
         <section >
-            <Header />
             {children}
         </section>
     )

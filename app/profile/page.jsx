@@ -7,7 +7,9 @@ import Image from "next/image";
 import UserService from "../../utils/Services/UserServices";
 import { imgURL } from "../../utils/Services/UserServices";
 import { toast } from "react-toastify";
-export default function Profile() {
+import ProtectedRoute from "@/utils/Context/ProtectedRoute";
+
+const Profile = () => {
   const { user, loading, error, dispatch } = useContext(UserContext);
 
   const [firstName, setFirstName] = useState("");
@@ -278,4 +280,5 @@ export default function Profile() {
       </div>
     </DashboardLayout>
   );
-}
+};
+export default ProtectedRoute(Profile);

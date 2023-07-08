@@ -65,14 +65,14 @@ export const useUser = () => {
       fetchUser();
       setFetched(true); // Set fetched to true once user data is fetched
     }
-  }, [fetched]); // Add fetched to the dependency array
+  }, [fetched]);
 
   const logout = () => {
     dispatch({ type: 'LOGOUT' });
     localStorage.removeItem('token');
   };
 
-  return { ...state, dispatch, logout };
+  return { ...state, dispatch, logout, fetchUser }; // add fetchUser here
 };
 
 

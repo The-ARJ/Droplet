@@ -1,35 +1,81 @@
 "use client";
 import Header from "@/components/landingComponents/Header";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import UserService from "../../utils/Services/UserServices";
 import { toast } from "react-toastify";
 import ProtectedRoute from "@/utils/Context/ProtectedRoute";
+import { UserContext } from "../../utils/Context/UserContext";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const { fetchUser } = useContext(UserContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
     UserService.login({ email, password })
       .then((res) => {
-        toast.success("Signed In Successfully", {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 1000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
         window.localStorage.setItem(`token`, res.data.token);
-        router.push("/home");
+        fetchUser()
+          .then(() => {
+            toast.success("Signed In Successfully", {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 1000,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+            router.push("/home");
+          })
+          .catch((err) => {
+            toast.error(err.message, {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
+          });
       })
-      .catch((err) => alert("Something went wrong"));
+      .catch((err) => {
+        if (err.response && err.response.status === 401) {
+          toast.error(
+            "Email or password incorrect",
+            {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            },
+            err
+          );
+        } else {
+          toast.error(err.message, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+      });
   };
+
   return (
     <>
       <Header />
@@ -70,6 +116,7 @@ const SignIn = () => {
                       className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Email address"
                       onChange={(e) => setEmail(e.target.value)}
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -85,6 +132,7 @@ const SignIn = () => {
                       className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Password"
                       onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
                   </div>
                   <button

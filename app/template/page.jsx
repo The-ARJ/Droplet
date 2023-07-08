@@ -4,6 +4,7 @@ import { ChromePicker } from "react-color";
 import TemplateService from "../../utils/Services/TemplateServices";
 import DashboardLayout from "@/components/dashboard/Dashboard";
 import { toast } from "react-toastify";
+import ProtectedRoute from "@/utils/Context/ProtectedRoute";
 const Template = () => {
   const [templateData, setTemplateData] = useState({
     name: "",
@@ -179,4 +180,4 @@ const Template = () => {
   );
 };
 
-export default Template;
+export default ProtectedRoute(Template);
