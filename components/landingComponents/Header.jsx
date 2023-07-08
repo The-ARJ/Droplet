@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import React from "react";
+import ThemeButton from "../dashboard/ThemeButton";
 
 const Header = () => {
   const scrollToTop = () => {
@@ -105,6 +106,7 @@ const Header = () => {
                       Sign Up
                     </Link>
                   </div>
+                  <ThemeButton />
                 </div>
               </div>
             </div>

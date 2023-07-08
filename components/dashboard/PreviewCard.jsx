@@ -100,15 +100,13 @@ const PreviewCard = () => {
         <div className="w-full md:w-96">
           <Card
             className={`rounded-3xl ${
-              selectedTemplate
-                ? `bg-[${selectedTemplate.color}]`
-                : "bg-[#fffff]"
+              selectedTemplate ? `bg-${selectedTemplate.color}` : "dark:bg-gray-700 bg-gray-100"
             }`}
           >
             <CardHeader floated={false} className="h-80">
               {latestCard.image ? (
                 <img
-                  className="w-full rounded-t-xl  overflow-hidden object-cover"
+                  className="w-full rounded-t-xl overflow-hidden object-cover"
                   src={`${imgURL}/${latestCard.image}`}
                   alt="participant"
                 />
@@ -122,30 +120,26 @@ const PreviewCard = () => {
               {/* <img src="/img/team-3.jpg" alt="profile-picture" /> */}
             </CardHeader>
             <CardBody className="text-center">
-              <Typography
-                variant="h4"
-                color="blue-gray"
-                className="mb-2 text-black "
-              >
+              <Typography variant="h4" color="gray-800" className="mb-2">
                 {latestCard.firstName} {latestCard.lastName}
               </Typography>
               <Typography
                 color="blue"
-                className="font-medium mb-2 text-blue-500"
+                className="font-medium mb-2 text-blue-500 dark:text-blue-400"
                 textGradient
               >
                 {latestCard.jobTitle} @ {latestCard.company}
               </Typography>
               <Typography
                 color="blue"
-                className="font-medium text-blue-500"
+                className="font-medium text-blue-500 dark:text-blue-400"
                 textGradient
               >
                 {latestCard.email}
               </Typography>
               <Typography
                 color="blue"
-                className="font-medium text-blue-500"
+                className="font-medium text-blue-500 dark:text-blue-400"
                 textGradient
               >
                 {latestCard.phone}
@@ -161,7 +155,7 @@ const PreviewCard = () => {
                     variant="lead"
                     color="blue"
                     textGradient
-                    className=" text-blue-500"
+                    className="text-blue-500 dark:text-blue-400"
                   >
                     <FaFacebook />
                   </Typography>
@@ -174,7 +168,7 @@ const PreviewCard = () => {
                     href={latestCard.socialMedia.twitter}
                     target="_blank"
                     variant="lead"
-                    className=" text-blue-400"
+                    className="text-blue-400 dark:text-blue-400"
                     textGradient
                   >
                     <FaTwitter />
@@ -188,7 +182,7 @@ const PreviewCard = () => {
                     href={latestCard.socialMedia.instagram}
                     target="_blank"
                     variant="lead"
-                    className=" text-purple-500"
+                    className="text-purple-500 dark:text-purple-500"
                     textGradient
                   >
                     <FaInstagram />
@@ -202,7 +196,7 @@ const PreviewCard = () => {
                     href={latestCard.website}
                     target="_blank"
                     variant="lead"
-                    className=" text-purple-500"
+                    className="text-purple-500 dark:text-purple-500"
                     textGradient
                   >
                     <FaGlobe />

@@ -8,6 +8,7 @@ import { imgURL } from "../../../utils/Services/UserServices";
 import NoUser from "../../../public/assets/nouser.jpg";
 import Image from "next/image";
 import DropdownMenu from "./DropDown";
+import ThemeButton from "../ThemeButton";
 
 export default function TopNavigation() {
   const { toggle } = useToggle();
@@ -28,6 +29,7 @@ export default function TopNavigation() {
               &#8801;
             </button>
           </div>
+
           <div className="container flex left-36 relative w-3/4">
             <div className="group hidden items-center ml-8 relative w-full md:flex lg:w-72">
               <FiSearch className="absolute fill-current h-4 hidden left-0 ml-4 pointer-events-none text-gray-500 w-4 group-hover:text-gray-400 sm:block" />
@@ -37,6 +39,7 @@ export default function TopNavigation() {
                 placeholder="Search"
               />
             </div>
+            <ThemeButton />
           </div>
           <div className="flex text-[#e5e7eb] items-center justify-end ml-5 p-1 relative w-full sm:mr-0 sm:right-auto">
             <a href="#" className="block pr-5">

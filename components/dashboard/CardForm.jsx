@@ -84,7 +84,7 @@ const CardForm = ({ updateCardData }) => {
   return (
     <>
       <div className="w-full md:w-2/6">
-        <div className="bg-gray-800 rounded-lg p-6">
+        <div className="bg-white dark:bg-[#27272a] border dark:border-gray-900/5 shadow-xl rounded-xl p-6">
           <div className="flex items-center justify-center">
             <input
               type="file"
@@ -104,7 +104,7 @@ const CardForm = ({ updateCardData }) => {
                   alt="participant"
                 />
               ) : (
-                <div className="w-full text-white h-full flex justify-center items-center">
+                <div className="w-full text-gray-800 dark:text-white h-full flex justify-center items-center">
                   <MdAdd className=" opacity-50 text-4xl" />
                   <p>Upload Your Image</p>
                 </div>
@@ -113,10 +113,12 @@ const CardForm = ({ updateCardData }) => {
           </div>
           <div className="mt-6">
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">First Name</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                First Name
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your first name"
                 name="firstName"
                 value={firstName}
@@ -124,10 +126,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Last Name</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Last Name
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your last name"
                 name="lastName"
                 value={lastName}
@@ -135,10 +139,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Job Title</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Job Title
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your job title"
                 name="jobTitle"
                 value={jobTitle}
@@ -146,10 +152,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Company</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Company
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your company name"
                 name="company"
                 value={company}
@@ -157,10 +165,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Email</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Email
+              </label>
               <input
                 type="email"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your email address"
                 name="email"
                 value={email}
@@ -168,10 +178,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Phone</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Phone
+              </label>
               <input
                 type="tel"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your phone number"
                 name="phone"
                 value={phone}
@@ -179,10 +191,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Address</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Address
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your address"
                 name="address"
                 value={address}
@@ -190,10 +204,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Website</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Website
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your website URL"
                 name="website"
                 value={website}
@@ -201,10 +217,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">LinkedIn</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                LinkedIn
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your LinkedIn profile URL"
                 name="linkedin"
                 value={linkedin}
@@ -212,10 +230,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Twitter</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Twitter
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your Twitter profile URL"
                 name="twitter"
                 value={twitter}
@@ -223,10 +243,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Facebook</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Facebook
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your Facebook profile URL"
                 name="facebook"
                 value={facebook}
@@ -234,10 +256,12 @@ const CardForm = ({ updateCardData }) => {
               />
             </div>
             <div className="mb-4">
-              <label className="text-white font-bold mb-2">Instagram</label>
+              <label className="text-gray-800 dark:text-white font-bold mb-2">
+                Instagram
+              </label>
               <input
                 type="text"
-                className="text-sm bg-transparent border-b border-white outline-none w-full text-white py-2"
+                className="text-sm bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 dark:text-white py-2"
                 placeholder="Enter your Instagram profile URL"
                 name="instagram"
                 value={instagram}

@@ -1,4 +1,4 @@
-import { UserProvider } from '@/utils/Context/UserProvider'
+import { CommonProvider } from '@/utils/Context/CommonProvider'
 import './globals.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
@@ -14,10 +14,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
-        <UserProvider>{children}
+      <body className=' bg-gray-100 dark:bg-[#18181b]'>
+        <CommonProvider>
+          {children}
           <ToastContainer />
-        </UserProvider>
+        </CommonProvider>
       </body>
     </html>
   )
