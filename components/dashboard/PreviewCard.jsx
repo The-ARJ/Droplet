@@ -100,7 +100,9 @@ const PreviewCard = () => {
         <div className="w-full md:w-96">
           <Card
             className={`rounded-3xl ${
-              selectedTemplate ? `bg-${selectedTemplate.color}` : "dark:bg-gray-700 bg-gray-100"
+              selectedTemplate
+                ? `bg-${selectedTemplate.color}`
+                : "dark:bg-[#27272a] bg-white"
             }`}
           >
             <CardHeader floated={false} className="h-80">
@@ -119,8 +121,8 @@ const PreviewCard = () => {
               )}
               {/* <img src="/img/team-3.jpg" alt="profile-picture" /> */}
             </CardHeader>
-            <CardBody className="text-center">
-              <Typography variant="h4" color="gray-800" className="mb-2">
+            <CardBody className="text-center dark:text-gray-100">
+              <Typography variant="h4" className="mb-2">
                 {latestCard.firstName} {latestCard.lastName}
               </Typography>
               <Typography

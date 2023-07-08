@@ -21,7 +21,7 @@ const TemplateList = ({ handleTemplateClick }) => {
         Choose a Template
       </h2>
       <div
-        className="grid grid-cols-1 shadow-xl border  dark:dark:bg-[#27272a] dark:border-gray-900 px-6 py-8 rounded-xl sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
+        className="grid grid-cols-1 shadow-xl border bg-white  dark:dark:bg-[#27272a] dark:border-gray-900 px-6 py-8 rounded-xl sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4"
         style={{ maxHeight: "400px", overflowY: "auto" }}
       >
         {templates.map((template) => (

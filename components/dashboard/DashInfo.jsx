@@ -23,7 +23,7 @@ const DashInfo = ({ title }) => {
 
   return (
     <>
-      <div className="bg-white dark:bg-gray-700 border dark:border-gray-900/5 shadow-xl rounded-3xl py-6 px-6">
+      <div className="bg-white dark:bg-[#27272a] border dark:border-gray-900/5 shadow-xl rounded-3xl py-6 px-6">
         <div className="flex justify-between text-gray-700 dark:text-white items-center mb-8">
           <p className="md:text-2xl font-bold">{title}</p>
           <p className="text-xs md:text-base">{currentDateTime}</p>
