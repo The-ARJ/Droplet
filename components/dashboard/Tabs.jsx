@@ -17,7 +17,7 @@ import {
   EyeIcon,
 } from "@heroicons/react/24/solid";
 import AllCards from "./AllCards";
-import PublishedCards from "./PublishedCard";
+import PublishedCards from "./publishedcards/PublishedCard";
 export default function CardTabs() {
   const data = [
     {
@@ -58,7 +58,7 @@ export default function CardTabs() {
   ];
 
   return (
-    <Tabs value="html" className="shadow-xl  sm:py-4 sm:px-4 lg:py-6 lg:px-6">
+    <Tabs value="html" className="sm:py-4 sm:px-4 lg:py-6 lg:px-6">
       <TabsHeader
         indicatorProps={{
           className: "bg-blue-500/10 shadow-none text-blue-500",

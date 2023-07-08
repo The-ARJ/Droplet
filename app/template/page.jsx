@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { ChromePicker } from "react-color";
 import TemplateService from "../../utils/Services/TemplateServices";
-import DashboardLayout from "@/components/dashboard/dashboardprovider";
+import DashboardLayout from "@/components/dashboard/Dashboard";
 import { toast } from "react-toastify";
 const Template = () => {
   const [templateData, setTemplateData] = useState({

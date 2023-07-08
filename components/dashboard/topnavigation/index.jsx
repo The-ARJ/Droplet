@@ -9,6 +9,7 @@ import NoUser from "../../../public/assets/nouser.jpg";
 import Image from "next/image";
 import DropdownMenu from "./DropDown";
 import ThemeButton from "../ThemeButton";
+import Link from "next/link";
 
 export default function TopNavigation() {
   const { toggle } = useToggle();
@@ -30,7 +31,7 @@ export default function TopNavigation() {
             </button>
           </div>
 
-          <div className="container flex left-36 relative w-3/4">
+          <div className="container flex space-x-10 left-36 relative w-3/4">
             <div className="group hidden items-center ml-8 relative w-full md:flex lg:w-72">
               <FiSearch className="absolute fill-current h-4 hidden left-0 ml-4 pointer-events-none text-gray-400 dark:text-gray-400 w-4 group-hover:text-gray-400 sm:block" />
               <input
@@ -45,9 +46,9 @@ export default function TopNavigation() {
             <a href="#" className="block pr-5">
               <FiShare2 className="h-6 w-6" />
             </a>
-            <a href="#" className="block pr-5">
+            <Link href="/card" className="block pr-5">
               <MdAddCard className="h-6 w-6" />
-            </a>
+            </Link>
             <a href="#" className="block pr-5 relative">
               <MdOutlineNotifications className="h-6 w-6" />
             </a>

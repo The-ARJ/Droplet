@@ -1,5 +1,5 @@
 "use client";
-import DashboardLayout from "@/components/dashboard/dashboardprovider";
+import DashboardLayout from "@/components/dashboard/Dashboard";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
 import { useContext, useState, useEffect } from "react";
 import { UserContext } from "../../utils/Context/UserContext";

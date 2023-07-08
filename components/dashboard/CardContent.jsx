@@ -2,7 +2,7 @@
 import { MdAddCard } from "react-icons/md";
 import Link from "next/link";
 import DashInfo from "./DashInfo";
-import PublishedCard from "./PublishedCard";
+import PublishedCard from "./publishedcards/PublishedCard";
 import AllCards from "./AllCards";
 
 const CardContent = ({ title }) => {
