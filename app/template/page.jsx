@@ -78,15 +78,15 @@ const Template = () => {
 
   return (
     <DashboardLayout>
-      <div className="my-6 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-semibold text-gray-900">
+      <div className="my-6 max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 bg-white dark:bg-[#27272a]  py-10 border dark:border-gray-700 shadow-sm rounded-md">
+        <h2 className="text-2xl font-semibold text-gray-900 dark:text-white">
           Create Template
         </h2>
         <form onSubmit={handleSubmit} className="mt-5 space-y-6">
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-white"
             >
               Name
             </label>
@@ -96,13 +96,13 @@ const Template = () => {
               name="name"
               value={templateData.name}
               onChange={handleChange}
-              className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-[#27272a] dark:text-white"
             />
           </div>
           <div>
             <label
               htmlFor="layout"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-white"
             >
               Layout
             </label>
@@ -115,7 +115,7 @@ const Template = () => {
                   type="text"
                   value={field}
                   onChange={(e) => handleLayoutChange(e, index)}
-                  className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-[#27272a] dark:text-white"
                 />
                 <button
                   type="button"
@@ -137,7 +137,7 @@ const Template = () => {
           <div>
             <label
               htmlFor="color"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-white"
             >
               Color
             </label>
@@ -152,7 +152,7 @@ const Template = () => {
           <div>
             <label
               htmlFor="image"
-              className="block text-sm font-medium text-gray-700"
+              className="block text-sm font-medium text-gray-700 dark:text-white"
             >
               Image
             </label>
@@ -162,12 +162,12 @@ const Template = () => {
               accept="image/*"
               name="image"
               onChange={handleImageChange}
-              className="mt-1 w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+              className="mt-1 w-full py-2 px-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm dark:bg-[#27272a] dark:text-white"
             />
           </div>
           <div>
             <button
-              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+              className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium bg-[#27272a] text-white  dark:text-gray-700 dark:bg-gray-100  hover:bg-gray-200 dark:hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               type="submit"
             >
               Create Template

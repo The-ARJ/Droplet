@@ -74,7 +74,7 @@ export default function Profile() {
   }
   return (
     <DashboardLayout>
-      <div className="flex flex-wrap justify-center items-center">
+      <div className=" max-w-2xl mx-auto ">
         <form onSubmit={handleSave}>
           <div className="space-y-12 bg-white dark:bg-[#27272a] px-10 py-10 border dark:border-gray-700 shadow-sm rounded-md">
             <div className="border-b border-gray-900/10 pb-12">

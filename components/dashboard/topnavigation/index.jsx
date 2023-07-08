@@ -31,7 +31,7 @@ export default function TopNavigation() {
             </button>
           </div>
 
-          <div className="container flex space-x-10 left-36 relative w-3/4">
+          <div className="container flex md:space-x-10 lg:left-36 relative w-3/4">
             <div className="group hidden items-center ml-8 relative w-full md:flex lg:w-72">
               <FiSearch className="absolute fill-current h-4 hidden left-0 ml-4 pointer-events-none text-gray-400 dark:text-gray-400 w-4 group-hover:text-gray-400 sm:block" />
               <input
