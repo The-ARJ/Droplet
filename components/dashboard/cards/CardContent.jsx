@@ -1,8 +1,8 @@
 "use client";
 import { MdAddCard } from "react-icons/md";
 import Link from "next/link";
-import DashInfo from "./DashInfo";
-import PublishedCard from "./publishedcards/PublishedCard";
+import DashInfo from "../DashInfo";
+import PublishedCard from "./PublishedCard";
 import AllCards from "./AllCards";
 
 const CardContent = ({ title }) => {

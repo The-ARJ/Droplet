@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import PreviewCard from "./PreviewCard";
 import CardForm from "./CardForm";
-import TemplateList from "./Templates";
-import CardService from "../../utils/Services/CardServices";
+import TemplateList from "../Templates";
+import CardService from "../../../utils/Services/CardServices";
 
 const CreateCard = () => {
   const [selectedTemplate, setSelectedTemplate] = useState(null);

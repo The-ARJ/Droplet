@@ -7,7 +7,7 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
-import CreateCard from "./CreateCard";
+import CreateCard from "./cards/CreateCard";
 import {
   Square3Stack3DIcon,
   UserCircleIcon,
@@ -16,8 +16,8 @@ import {
   WalletIcon,
   EyeIcon,
 } from "@heroicons/react/24/solid";
-import AllCards from "./AllCards";
-import PublishedCards from "./publishedcards/PublishedCard";
+import AllCards from "./cards/AllCards";
+import PublishedCards from "./cards/PublishedCard";
 export default function CardTabs() {
   const data = [
     {

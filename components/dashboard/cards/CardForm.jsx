@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdAdd, MdEmail, MdPhone, MdLocationOn, MdImage } from "react-icons/md";
-import CardService from "../../utils/Services/CardServices";
+import CardService from "../../../utils/Services/CardServices";
 import { toast } from "react-toastify";
 
 const CardForm = ({ updateCardData }) => {

@@ -45,7 +45,7 @@ export default function DropdownMenu({ onDelete }) {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex items-center gap-4 w-full justify-center text-gray-700 dark:text-white">
-            <EllipsisVerticalIcon className=" h-4 md:h-8" />
+            <EllipsisVerticalIcon className=" h-6 md:h-8" />
           </Menu.Button>
         </div>
         <Transition

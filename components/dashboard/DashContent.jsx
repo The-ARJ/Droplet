@@ -1,6 +1,6 @@
 "use client";
 import DashInfo from "./DashInfo";
-import PublishedCards from "./publishedcards/PublishedCard";
+import PublishedCards from "./cards/PublishedCard";
 
 const Content = () => {
   return (

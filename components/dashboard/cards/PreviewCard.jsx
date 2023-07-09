@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { FaTwitter, FaFacebook, FaInstagram, FaGlobe } from "react-icons/fa";
-import CardService from "../../utils/Services/CardServices";
-import { imgURL } from "../../utils/Services/UserServices";
+import CardService from "../../../utils/Services/CardServices";
+import { imgURL } from "../../../utils/Services/UserServices";
 import {
   Card,
   CardHeader,
