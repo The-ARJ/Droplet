@@ -8,7 +8,7 @@ export default function Pagination({
   totalCards,
 }) {
   const [active, setActive] = useState(currentPage);
-  const pageSize = 8; // Number of cards per page
+  const pageSize = 4; // Number of cards per page
   const totalPages = Math.ceil(totalCards / pageSize);
 
   const next = () => {

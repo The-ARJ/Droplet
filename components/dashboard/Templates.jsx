@@ -10,7 +10,6 @@ const TemplateList = ({ handleTemplateClick }) => {
     TemplateService.getAllTemplates(token)
       .then((res) => {
         setTemplates(res.data.data);
-        console.log(res.data.data);
       })
       .catch((err) => console.log(err));
   }, []);

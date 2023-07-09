@@ -1,45 +1,9 @@
 import { Menu, Transition } from "@headlessui/react";
-import Image from "next/image";
-import { Fragment, useContext } from "react";
-import { imgURL } from "../../../utils/Services/UserServices";
-import { UserContext } from "../../../utils/Context/UserContext";
-import NoUser from "../../../public/assets/nouser.jpg";
+import { Fragment } from "react";
 import Link from "next/link";
-import swal from "sweetalert2";
-import { toast } from "react-toastify";
-import { useRouter } from "next/navigation";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/solid";
 
 export default function DropdownMenu({ onDelete }) {
-  const { user, loading, logout } = useContext(UserContext);
-  const router = useRouter();
-  const handleLogout = () => {
-    swal
-      .fire({
-        text: "Are you sure you want to logout?",
-        showCancelButton: true,
-        cancelButtonColor: "#7e22ce",
-        confirmButtonColor: "#ef4444",
-        confirmButtonText: "Log Out",
-        position: "top",
-      })
-      .then((result) => {
-        if (result.isConfirmed) {
-          logout();
-          router.push("/");
-          toast.success("Logged out successfully", {
-            position: toast.POSITION.TOP_CENTER,
-            autoClose: 1000,
-            hideProgressBar: true,
-            closeOnClick: false,
-            pauseOnHover: false,
-            draggable: true,
-            progress: undefined,
-            theme: "light",
-          });
-        }
-      });
-  };
   return (
     <div className="  w-10 md:w-max ">
       <Menu as="div" className="relative inline-block text-left">
