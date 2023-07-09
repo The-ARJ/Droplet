@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { FaTwitter, FaFacebook, FaInstagram, FaGlobe } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaFacebook,
+  FaInstagram,
+  FaGlobe,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import CardService from "../../../utils/Services/CardServices";
 import { imgURL } from "../../../utils/Services/UserServices";
 import {
@@ -10,6 +16,13 @@ import {
   Typography,
   Tooltip,
 } from "@material-tailwind/react";
+import {
+  EnvelopeIcon,
+  BriefcaseIcon,
+  BuildingOffice2Icon,
+  DevicePhoneMobileIcon,
+  MapPinIcon,
+} from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
 
 const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
@@ -103,37 +116,73 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                 />
               )}
             </CardHeader>
-            <CardBody className="text-center dark:text-gray-100">
-              <Typography variant="h4" className="mb-2">
+            <CardBody className={`space-y-2`}>
+              <Typography
+                variant="h4"
+                className={`mb-2 flex items-center gap-2  ${
+                  selectedTemplate
+                    ? `${selectedTemplate.textcolor} ${selectedTemplate.textalignment}`
+                    : "text-center dark:text-gray-100 "
+                }`}
+              >
                 {latestCard.firstName} {latestCard.lastName}
               </Typography>
               <Typography
-                color="blue"
-                className={`"font-medium mb-2 " ${
+                variant="h6"
+                className={` flex items-center gap-2   ${
                   selectedTemplate
-                    ? `${selectedTemplate.textcolor}`
-                    : "text-purple-500 dark:text-purple-400"
+                    ? `${selectedTemplate.textcolor} ${selectedTemplate.textalignment}  `
+                    : "text-center dark:text-gray-100  "
                 }`}
-                textGradient
               >
-                {latestCard.jobTitle} @ {latestCard.company}
+                <BriefcaseIcon className=" h-4 w-4" />
+                {latestCard.jobTitle}
               </Typography>
               <Typography
-                color="blue"
-                className="font-medium text-blue-500 dark:text-blue-400"
-                textGradient
+                className={`  flex items-center gap-2
+                 ${
+                   selectedTemplate
+                     ? `${selectedTemplate.textcolor} ${selectedTemplate.textalignment} `
+                     : "text-center dark:text-gray-100 "
+                 }`}
               >
+                <BuildingOffice2Icon className=" h-4 w-4 " />
+                {latestCard.company}
+              </Typography>
+              <Typography
+                className={` flex items-center gap-2 ${
+                  selectedTemplate
+                    ? `${selectedTemplate.textcolor} ${selectedTemplate.textalignment}`
+                    : "text-center dark:text-gray-100 "
+                }`}
+              >
+                <EnvelopeIcon className=" h-4 w-4" />
                 {latestCard.email}
               </Typography>
               <Typography
-                color="blue"
-                className="font-medium text-blue-500 dark:text-blue-400"
-                textGradient
+                className={` flex items-center gap-2 ${
+                  selectedTemplate
+                    ? `${selectedTemplate.textcolor} ${selectedTemplate.textalignment}`
+                    : "text-center dark:text-gray-100 "
+                }`}
               >
+                <DevicePhoneMobileIcon className=" h-4 w-4" />
+
                 {latestCard.phone}
               </Typography>
+              <Typography
+                className={`  flex items-center gap-2 ${
+                  selectedTemplate
+                    ? `${selectedTemplate.textcolor} ${selectedTemplate.textalignment}`
+                    : "text-center dark:text-gray-100 "
+                }`}
+              >
+                <MapPinIcon className=" h-4 w-4" />
+
+                {latestCard.address}
+              </Typography>
             </CardBody>
-            <CardFooter className="flex justify-center gap-7 pt-2">
+            <CardFooter className={`flex gap-7 pt-2  justify-center `}>
               {latestCard.socialMedia.facebook && (
                 <Tooltip content="Like">
                   <Typography
@@ -160,6 +209,20 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                     textGradient
                   >
                     <FaTwitter />
+                  </Typography>
+                </Tooltip>
+              )}
+              {latestCard.socialMedia.linkedIn && (
+                <Tooltip content="Follow">
+                  <Typography
+                    as="a"
+                    href={latestCard.socialMedia.linkedIn}
+                    target="_blank"
+                    variant="lead"
+                    className="text-blue-500 dark:text-blue-500"
+                    textGradient
+                  >
+                    <FaLinkedinIn />
                   </Typography>
                 </Tooltip>
               )}

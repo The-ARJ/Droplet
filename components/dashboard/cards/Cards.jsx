@@ -15,13 +15,20 @@ import {
   Typography,
   Tooltip,
 } from "@material-tailwind/react";
+import {
+  EnvelopeIcon,
+  BriefcaseIcon,
+  BuildingOffice2Icon,
+  DevicePhoneMobileIcon,
+  MapPinIcon,
+} from "@heroicons/react/24/solid";
 import DropdownMenu from "./DropDown";
 
 const CardComponent = ({ card, deleteCard }) => {
   return (
     <div key={card.id}>
       <div className="flex flex-row-reverse">
-        <div className=" w-0 md:w-10 z-50">
+        <div className=" w-0  z-50">
           <DropdownMenu onDelete={() => deleteCard(card._id)} />
         </div>
         <Card
@@ -32,14 +39,18 @@ const CardComponent = ({ card, deleteCard }) => {
           }`}
         >
           <CardHeader
-            className="flex items-center justify-center dark:bg-[#27272a] bg-white shadow-none"
+            className={`flex items-center shadow-none justify-center ${
+              card.templateData
+                ? `${card.templateData.data.color}`
+                : "dark:bg-[#27272a] bg-white"
+            }shadow-none`}
             floated={false}
           >
             {card.image ? (
               <img
                 className={` ${
                   card.templateData
-                    ? `${card.templateData.data.borderRadius} ${card.templateData.data.width} ${card.templateData.data.height}`
+                    ? `${card.templateData.data.borderRadius} ${card.templateData.data.width} ${card.templateData.data.height} `
                     : "rounded-xl h-64 w-full"
                 }  object-cover `}
                 src={`${imgURL}/${card.image}`}
@@ -53,36 +64,73 @@ const CardComponent = ({ card, deleteCard }) => {
               />
             )}
           </CardHeader>
-          <CardBody className="text-center dark:text-gray-100">
-            <Typography variant="h4" className="mb-2">
+          <CardBody className={`space-y-2`}>
+            <Typography
+              variant="h4"
+              className={`mb-2 flex items-center gap-2  ${
+                card.templateData
+                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}`
+                  : "text-center dark:text-gray-100 "
+              }`}
+            >
               {card.firstName} {card.lastName}
             </Typography>
             <Typography
-              className={`"font-medium mb-2 " ${
+              variant="h6"
+              className={` flex items-center gap-2   ${
                 card.templateData
-                  ? `${card.templateData.data.textcolor}`
-                  : "text-purple-500 dark:text-purple-400"
+                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}  `
+                  : "text-center dark:text-gray-100  "
               }`}
-              textGradient
             >
-              {card.jobTitle} @ {card.company}
+              <BriefcaseIcon className=" h-4 w-4" />
+              {card.jobTitle}
             </Typography>
             <Typography
-              color="blue"
-              className="font-medium text-blue-500 dark:text-blue-400"
-              textGradient
+              className={`  flex items-center gap-2
+                 ${
+                   card.templateData
+                     ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment} `
+                     : "text-center dark:text-gray-100 "
+                 }`}
             >
+              <BuildingOffice2Icon className=" h-4 w-4 " />
+              {card.company}
+            </Typography>
+            <Typography
+              className={` flex items-center gap-2 ${
+                card.templateData
+                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}`
+                  : "text-center dark:text-gray-100 "
+              }`}
+            >
+              <EnvelopeIcon className=" h-4 w-4" />
               {card.email}
             </Typography>
             <Typography
-              color="blue"
-              className="font-medium text-blue-500 dark:text-blue-400"
-              textGradient
+              className={` flex items-center gap-2 ${
+                card.templateData
+                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}`
+                  : "text-center dark:text-gray-100 "
+              }`}
             >
+              <DevicePhoneMobileIcon className=" h-4 w-4" />
+
               {card.phone}
             </Typography>
+            <Typography
+              className={`  flex items-center gap-2 ${
+                card.templateData
+                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}`
+                  : "text-center dark:text-gray-100 "
+              }`}
+            >
+              <MapPinIcon className=" h-4 w-4" />
+
+              {card.address}
+            </Typography>
           </CardBody>
-          <CardFooter className="flex justify-center gap-7 pt-2">
+          <CardFooter className={`flex gap-7 pt-2 justify-center`}>
             {card.socialMedia.facebook && (
               <Tooltip content="Like">
                 <Typography
