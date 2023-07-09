@@ -35,6 +35,7 @@ const PublishedCards = () => {
               };
             });
 
+            console.log(cardsWithTemplateData[0].templateData.data.color);
             setCardsData(cardsWithTemplateData);
           })
           .catch((err) => {
@@ -53,7 +54,10 @@ const PublishedCards = () => {
   return (
     <>
       {cardsData.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div
+          key={cardsData._id}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"
+        >
           {cardsData.slice(startIndex, endIndex).map((card) => (
             <CardComponent
               key={card.id}

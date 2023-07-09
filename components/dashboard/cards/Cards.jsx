@@ -1,5 +1,11 @@
 import React from "react";
-import { FaTwitter, FaFacebook, FaInstagram, FaGlobe } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaFacebook,
+  FaInstagram,
+  FaGlobe,
+  FaLinkedinIn,
+} from "react-icons/fa";
 import { imgURL } from "../../../utils/Services/UserServices";
 import {
   Card,
@@ -15,20 +21,27 @@ const CardComponent = ({ card, deleteCard }) => {
   return (
     <div key={card.id}>
       <div className="flex flex-row-reverse">
-        <div className="w-10 z-50">
+        <div className=" w-0 md:w-10 z-50">
           <DropdownMenu onDelete={() => deleteCard(card._id)} />
         </div>
         <Card
-          className={`w-full ${
+          className={`w-full  ${
             card.templateData
-              ? `bg-${card.templateData.data.color}`
+              ? `${card.templateData.data.color} `
               : "dark:bg-[#27272a] bg-white"
           }`}
         >
-          <CardHeader floated={false}>
+          <CardHeader
+            className="flex items-center justify-center dark:bg-[#27272a] bg-white shadow-none"
+            floated={false}
+          >
             {card.image ? (
               <img
-                className="w-full rounded-t-xl h-64 overflow-hidden object-cover"
+                className={` ${
+                  card.templateData
+                    ? `${card.templateData.data.borderRadius} ${card.templateData.data.width} ${card.templateData.data.height}`
+                    : "rounded-xl h-64 w-full"
+                }  object-cover `}
                 src={`${imgURL}/${card.image}`}
                 alt="participant"
               />
@@ -45,8 +58,11 @@ const CardComponent = ({ card, deleteCard }) => {
               {card.firstName} {card.lastName}
             </Typography>
             <Typography
-              color="blue-gray"
-              className="font-medium mb-2 text-gray-100"
+              className={`"font-medium mb-2 " ${
+                card.templateData
+                  ? `${card.templateData.data.textcolor}`
+                  : "text-purple-500 dark:text-purple-400"
+              }`}
               textGradient
             >
               {card.jobTitle} @ {card.company}
@@ -96,6 +112,20 @@ const CardComponent = ({ card, deleteCard }) => {
                 </Typography>
               </Tooltip>
             )}
+            {card.socialMedia.linkedIn && (
+              <Tooltip content="Follow">
+                <Typography
+                  as="a"
+                  href={card.socialMedia.linkedIn}
+                  target="_blank"
+                  variant="lead"
+                  className="text-blue-500 dark:text-blue-500"
+                  textGradient
+                >
+                  <FaLinkedinIn />
+                </Typography>
+              </Tooltip>
+            )}
             {card.socialMedia.instagram && (
               <Tooltip content="Follow">
                 <Typography
@@ -117,7 +147,7 @@ const CardComponent = ({ card, deleteCard }) => {
                   href={card.website}
                   target="_blank"
                   variant="lead"
-                  className="text-purple-500 dark:text-purple-500"
+                  className="text-indigo-500 dark:text-indigo-500"
                   textGradient
                 >
                   <FaGlobe />

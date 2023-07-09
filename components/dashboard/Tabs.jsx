@@ -49,7 +49,7 @@ export default function CardTabs() {
   ];
 
   return (
-    <Tabs value="html" className="sm:py-4 sm:px-4 lg:py-6 lg:px-6">
+    <Tabs value="html" className=" sm:px-4 lg:px-6">
       <TabsHeader
         indicatorProps={{
           className: "bg-blue-500/10 shadow-none text-blue-500",

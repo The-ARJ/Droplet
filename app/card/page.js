@@ -1,5 +1,4 @@
 "use client"
-import CardContent from '@/components/dashboard/cards/CardContent';
 import DashboardLayout from '../../components/dashboard/Dashboard';
 import ProtectedRoute from '../../utils/Context/ProtectedRoute';
 import CardTabs from '@/components/dashboard/Tabs';

@@ -2,7 +2,21 @@ import React, { useState } from "react";
 import { MdAdd, MdEmail, MdPhone, MdLocationOn, MdImage } from "react-icons/md";
 import CardService from "../../../utils/Services/CardServices";
 import { toast } from "react-toastify";
-
+import {
+  Popover,
+  PopoverHandler,
+  PopoverContent,
+  Button,
+  Textarea,
+} from "@material-tailwind/react";
+import {
+  FaFacebook,
+  FaGithub,
+  FaGlobe,
+  FaInstagram,
+  FaLinkedinIn,
+  FaTwitter,
+} from "react-icons/fa";
 const CardForm = ({ updateCardData }) => {
   const [cardImage, setCardImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
@@ -31,7 +45,7 @@ const CardForm = ({ updateCardData }) => {
     formData.append("company", company);
     formData.append("address", address);
     formData.append("website", website);
-    formData.append("socialMedia.linkediIn", linkedin);
+    formData.append("socialMedia.linkedIn", linkedin);
     formData.append("socialMedia.twitter", twitter);
     formData.append("socialMedia.facebook", facebook);
     formData.append("socialMedia.instagram", instagram);
@@ -86,7 +100,7 @@ const CardForm = ({ updateCardData }) => {
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full ">
         <div className="bg-white dark:bg-[#27272a] border dark:border-gray-900/5 shadow-xl rounded-xl p-6">
           <div className="flex items-center justify-center">
             <input
@@ -102,7 +116,7 @@ const CardForm = ({ updateCardData }) => {
             >
               {previewImage ? (
                 <img
-                  className="w-full h-full"
+                  className="w-full h-full object-cover"
                   src={previewImage}
                   alt="participant"
                 />
@@ -209,7 +223,130 @@ const CardForm = ({ updateCardData }) => {
                 onChange={(e) => setAddress(e.target.value)}
               />
             </div>
-            <div className="flex justify-end">
+
+            <div className="flex flex-wrap gap-2 sm:gap-4">
+              <Popover
+                placement="top-start"
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0, y: 25 },
+                }}
+              >
+                <PopoverHandler>
+                  <Button className="bg-purple-400 dark:bg-[#3d3d40]">
+                    <FaTwitter className="text-sm md:text-xl" />
+                  </Button>
+                </PopoverHandler>
+                <PopoverContent className="z-50">
+                  <input
+                    type="text"
+                    className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800  py-2"
+                    placeholder="Enter your Twitter url"
+                    name="twitter"
+                    value={twitter}
+                    onChange={(e) => setTwitter(e.target.value)}
+                  />
+                </PopoverContent>
+              </Popover>
+
+              <Popover
+                placement="top-start"
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0, y: 25 },
+                }}
+              >
+                <PopoverHandler>
+                  <Button className="bg-purple-400 dark:bg-[#3d3d40]">
+                    <FaFacebook className="text-sm md:text-xl" />
+                  </Button>
+                </PopoverHandler>
+                <PopoverContent className="z-50">
+                  <input
+                    type="text"
+                    className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 py-2"
+                    placeholder="Enter your Facebook url"
+                    name="facebook"
+                    value={facebook}
+                    onChange={(e) => setFacebook(e.target.value)}
+                  />
+                </PopoverContent>
+              </Popover>
+
+              <Popover
+                placement="top-start"
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0, y: 25 },
+                }}
+              >
+                <PopoverHandler>
+                  <Button className="bg-purple-400 dark:bg-[#3d3d40]">
+                    <FaInstagram className="text-sm md:text-xl" />
+                  </Button>
+                </PopoverHandler>
+                <PopoverContent className="z-50">
+                  <input
+                    type="text"
+                    className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 py-2"
+                    placeholder="Enter your Instagram url"
+                    name="instagram"
+                    value={instagram}
+                    onChange={(e) => setInstagram(e.target.value)}
+                  />
+                </PopoverContent>
+              </Popover>
+
+              <Popover
+                placement="top-start"
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0, y: 25 },
+                }}
+              >
+                <PopoverHandler>
+                  <Button className="bg-purple-400 dark:bg-[#3d3d40]">
+                    <FaLinkedinIn className="text-sm md:text-xl" />
+                  </Button>
+                </PopoverHandler>
+                <PopoverContent className="z-50">
+                  <input
+                    type="text"
+                    className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 py-2"
+                    placeholder="Enter your LinkedIn url"
+                    name="linkedin"
+                    value={linkedin}
+                    onChange={(e) => setLinkedin(e.target.value)}
+                  />
+                </PopoverContent>
+              </Popover>
+
+              <Popover
+                placement="top-start"
+                animate={{
+                  mount: { scale: 1, y: 0 },
+                  unmount: { scale: 0, y: 25 },
+                }}
+              >
+                <PopoverHandler>
+                  <Button className="bg-purple-400 dark:bg-[#3d3d40]">
+                    <FaGlobe className="text-sm md:text-xl" />
+                  </Button>
+                </PopoverHandler>
+                <PopoverContent className="z-50">
+                  <input
+                    type="text"
+                    className="text-xs sm:text-sm md:text-base bg-transparent border-b border-gray-400 dark:border-gray-200 outline-none w-full text-gray-800 py-2"
+                    placeholder="Enter your Website url"
+                    name="website"
+                    value={website}
+                    onChange={(e) => setWebsite(e.target.value)}
+                  />
+                </PopoverContent>
+              </Popover>
+            </div>
+
+            <div className="flex mt-4 justify-end">
               <button
                 className="text-sm rounded-lg py-2 px-4 font-bold bg-[#27272a] text-white  dark:text-gray-700 dark:bg-gray-100 hover:bg-gray-600 dark:hover:bg-gray-300 "
                 onClick={handleSubmit}

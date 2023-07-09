@@ -11,9 +11,8 @@ import {
   Tooltip,
 } from "@material-tailwind/react";
 import { toast } from "react-toastify";
- 
-const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
 
+const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
   const handlePublishClick = () => {
     if (!selectedTemplate) {
       toast.error("Please select a template.", {
@@ -70,18 +69,29 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
   return (
     <>
       {latestCard && (
-        <div className="w-full">
+        <div className="">
           <Card
-            className={`rounded-3xl ${
+            className={`w-full ${
               selectedTemplate
-                ? `bg-${selectedTemplate.color}`
+                ? `${selectedTemplate.color}`
                 : "dark:bg-[#27272a] bg-white"
             }`}
           >
-            <CardHeader floated={false} className=" h-60 lg:h-56 xl:h-80">
+            <CardHeader
+              floated={false}
+              className={`flex items-center shadow-none justify-center ${
+                selectedTemplate
+                  ? `${selectedTemplate.color}`
+                  : "dark:bg-[#27272a] bg-white"
+              }shadow-none`}
+            >
               {latestCard.image ? (
                 <img
-                  className="w-full rounded-t-xl overflow-hidden object-contain"
+                  className={` ${
+                    selectedTemplate
+                      ? `${selectedTemplate.borderRadius} ${selectedTemplate.width} ${selectedTemplate.height}`
+                      : "rounded-xl h-64 w-full"
+                  }  object-cover `}
                   src={`${imgURL}/${latestCard.image}`}
                   alt="participant"
                 />
@@ -99,7 +109,11 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
               </Typography>
               <Typography
                 color="blue"
-                className="font-medium mb-2 text-blue-500 dark:text-blue-400"
+                className={`"font-medium mb-2 " ${
+                  selectedTemplate
+                    ? `${selectedTemplate.textcolor}`
+                    : "text-purple-500 dark:text-purple-400"
+                }`}
                 textGradient
               >
                 {latestCard.jobTitle} @ {latestCard.company}
