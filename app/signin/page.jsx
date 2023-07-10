@@ -85,7 +85,7 @@ const SignIn = () => {
           {/* <img
             className="absolute top-16 left-0 z-0 w-full mx-auto object-cover"
             src="./assets/bg.svg"
-            alt="cardova"
+            alt="Droplet"
           /> */}
           <div className="relative overflow-hidden border-2 border-purple-400 dark:border-gray-700 shadow-lg rounded-2xl bg-white dark:bg-[#27272a]">
             <div className="py-12 px-4 sm:px-6">
@@ -94,7 +94,7 @@ const SignIn = () => {
                   Sign In to
                   <span className="text-purple-900 dark:text-purple-600">
                     {" "}
-                    Cardova!
+                    Droplet!
                   </span>
                 </h1>
                 <p className="mt-3 text-base text-gray-500 dark:text-gray-400">

@@ -18,10 +18,10 @@ const Footer = () => {
               <img src="../assets/logo.png" className=" h-10" />
               <div
                 className="flex-none text-xl font-semibold   text-gray-700 dark:text-gray-100 dark:text-gray-100e"
-                aria-label="Cardova"
+                aria-label="Droplet"
                 onClick={scrollToTop}
               >
-                Cardova
+                Droplet
               </div>
             </div>
             {/* End Col */}
@@ -138,11 +138,11 @@ const Footer = () => {
           <div className="mt-5 sm:mt-12 grid gap-y-2 sm:gap-y-0 sm:flex sm:justify-between sm:items-center">
             <div className="flex justify-between items-center">
               <p className="text-sm text-gray-400">
-                © 2023 Cardova. All rights reserved.
+                © 2023 Droplet. All rights reserved.
               </p>
             </div>
             {/* End Col */}
-            {/* Social Cardovas */}
+            {/* Social Droplets */}
             <div>
               <a
                 className="inline-flex justify-center items-center gap-x-3.5 w-10 h-10 text-center  text-gray-700 dark:text-gray-100 hover:bg-white/[.1] rounded-md focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 focus:ring-offset-gray-900 transition"
@@ -220,7 +220,7 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-            {/* End Social Cardovas */}
+            {/* End Social Droplets */}
           </div>
         </div>
       </footer>

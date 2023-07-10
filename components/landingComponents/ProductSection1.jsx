@@ -40,10 +40,10 @@ const ProductSection1 = () => {
             {/* Title */}
             <div className="space-y-2 md:space-y-4">
               <h2 className="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-white">
-                Cardova: Your Digital Business Card Solution
+                Droplet: Your Digital Business Card Solution
               </h2>
               <p className="text-gray-500 dark:text-gray-400">
-                Unlock the potential of your business networking with Cardova.
+                Unlock the potential of your business networking with Droplet.
                 Our digital business card platform empowers you to design and
                 share personalized, interactive business cards effortlessly.
               </p>
@@ -129,7 +129,7 @@ const ProductSection1 = () => {
                 {/* End Solid Check */}
                 <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400">
                   Scale budgets <span className="font-bold">efficiently</span>.
-                  Cardova allows you to easily manage and distribute your
+                  Droplet allows you to easily manage and distribute your
                   digital business cards, making it cost-effective to reach a
                   wider audience and expand your business network.
                 </span>

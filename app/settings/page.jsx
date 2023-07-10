@@ -94,7 +94,7 @@ const Settings = () => {
                           Offers
                         </label>
                         <p className="text-gray-500">
-                          Get notified when cardova sends an offer.
+                          Get notified when droplet sends an offer.
                         </p>
                       </div>
                     </div>

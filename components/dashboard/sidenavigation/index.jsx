@@ -35,7 +35,7 @@ export default function SideNavigation({ mobilePosition }) {
                 : "hidden"
             } `}
           >
-            Cardova
+            Droplet
           </h1>
         </div>
         <SidenavItems />

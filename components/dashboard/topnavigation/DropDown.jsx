@@ -53,7 +53,7 @@ export default function DropdownMenu() {
             <Image
               height={200}
               width={200}
-              alt="cardova"
+              alt="Droplet"
               src={user && user.image ? `${imgURL}/${user.image}` : NoUser}
               className="h-10 mx-auto object-cover rounded-full w-10"
             />

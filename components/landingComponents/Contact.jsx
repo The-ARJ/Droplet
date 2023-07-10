@@ -45,7 +45,7 @@ const Contact = () => {
                         Advanced tools
                       </span>
                       <span className="block mt-1">
-                        Use Cardova thoroughly thought and automated libraries
+                        Use Droplet thoroughly thought and automated libraries
                         to manage your businesses.
                       </span>
                     </span>
@@ -77,7 +77,7 @@ const Contact = () => {
                         Smart dashboards
                       </span>
                       <span className="block mt-1">
-                        Quickly Cardova sample components, copy-paste codes, and
+                        Quickly Droplet sample components, copy-paste codes, and
                         start right off.
                       </span>
                     </span>
@@ -109,7 +109,7 @@ const Contact = () => {
                       </span>
                       <span className="block mt-1">
                         Reduce time and effort on building modern look design
-                        with Cardova only.
+                        with Droplet only.
                       </span>
                     </span>
                   </span>

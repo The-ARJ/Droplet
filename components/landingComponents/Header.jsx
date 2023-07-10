@@ -26,7 +26,7 @@ const Header = () => {
                   className="text-2xl cursor-pointer hover:scale-105  transition-all flex items-center gap-2 justify-center font-semibold  text-gray-700 dark:text-gray-100"
                 >
                   <img src="../assets/logo.png" className="h-10" />
-                  <div className="">Cardova</div>
+                  <div className="">Droplet</div>
                 </div>
               </Link>
               <div className="md:hidden">

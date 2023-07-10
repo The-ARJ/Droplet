@@ -14,7 +14,7 @@ const Hero = () => {
                 <img
                   src="./assets/intext.png"
                   className="h-10 md:h-20 w-auto mr-2"
-                  alt="Cardova"
+                  alt="Droplet"
                 />
               </span>{" "}
               Digital Presence with

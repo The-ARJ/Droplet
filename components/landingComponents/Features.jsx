@@ -9,10 +9,10 @@ const Features = () => {
           {/* Title */}
           <div className="mx-auto max-w-2xl mb-8 lg:mb-14 text-center">
             <h2 className="text-3xl lg:text-4xl text-gray-800 dark:text-white font-bold">
-              Explore the Power of Cardova
+              Explore the Power of Droplet
             </h2>
             <p className="mt-3 text-gray-800 dark:text-white">
-              Unlock the full potential of Cardova with our feature-packed
+              Unlock the full potential of Droplet with our feature-packed
               platform.
             </p>
           </div>

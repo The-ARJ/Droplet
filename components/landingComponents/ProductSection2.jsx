@@ -16,12 +16,12 @@ const ProductSection2 = () => {
             <div className="space-y-6 sm:space-y-8">
               <div className="space-y-2 md:space-y-4">
                 <h2 className="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-white">
-                  Cardova: The Ultimate Card Management Solution
+                  Droplet: The Ultimate Card Management Solution
                 </h2>
                 <p className="text-gray-500 dark:text-gray-400">
-                  Cardova takes care of the challenges faced by start-ups and
+                  Droplet takes care of the challenges faced by start-ups and
                   provides enterprise-grade solutions for common pain points
-                  encountered in various products and projects. With Cardova,
+                  encountered in various products and projects. With Droplet,
                   you can efficiently manage and organize your digital business
                   cards, saving you time and effort.
                 </p>
@@ -51,7 +51,7 @@ const ProductSection2 = () => {
                       Easy &amp; fast designing
                     </span>{" "}
                     : Design and customize your digital business cards
-                    effortlessly with Cardova&apos;s intuitive and user-friendly
+                    effortlessly with Droplet&apos;s intuitive and user-friendly
                     interface.
                   </span>
                 </li>
@@ -110,7 +110,7 @@ const ProductSection2 = () => {
                     <span className="font-bold text-gray-800 dark:text-white">
                       User Experience Design
                     </span>
-                    : Cardova provides a seamless user experience, allowing you
+                    : Droplet provides a seamless user experience, allowing you
                     to create stunning digital business card designs that leave
                     a lasting impression on your contacts.
                   </span>
