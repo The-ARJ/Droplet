@@ -10,12 +10,15 @@ const getAllTemplates = (token) => {
     });
 };
 
-const getTemplateById = (id, token) => {
-    return axios.get(`${TemplateURL}/${id}`, {
-        headers: {
-            Authorization: `bearer ${token}`,
-        },
-    });
+// const getTemplateById = (id, token) => {
+//     return axios.get(`${TemplateURL}/${id}`, {
+//         headers: {
+//             Authorization: `bearer ${token}`,
+//         },
+//     });
+// };
+const getTemplateById = (id) => {
+    return axios.get(`${TemplateURL}/${id}`);
 };
 
 const deleteTemplatebyId = (id, token) => {

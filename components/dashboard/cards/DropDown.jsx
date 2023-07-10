@@ -3,12 +3,13 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/solid";
 
-export default function DropdownMenu({ onDelete }) {
+export default function DropdownMenu({ onDelete, card }) {
+
   return (
     <div className="  w-10 md:w-max ">
       <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className="inline-flex items-center gap-4 w-full justify-center text-gray-700 dark:text-white">
+          <Menu.Button className="  text-gray-700 dark:text-white">
             <EllipsisVerticalIcon className=" h-6 md:h-8" />
           </Menu.Button>
         </div>
@@ -101,7 +102,9 @@ export default function DropdownMenu({ onDelete }) {
               </Menu.Item>
               <Menu.Item>
                 {({ active }) => (
-                  <button
+                  <Link
+                    href={`/card/${card._id}`}
+                    target="_blank"
                     className={`${
                       active
                         ? "bg-violet-500 text-white"
@@ -120,7 +123,7 @@ export default function DropdownMenu({ onDelete }) {
                       />
                     )}
                     Share
-                  </button>
+                  </Link>
                 )}
               </Menu.Item>
             </div>

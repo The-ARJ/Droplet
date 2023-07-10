@@ -23,7 +23,7 @@ const AllCards = () => {
         const cards = res.data.data;
         const templatePromises = cards.map((card) => {
           if (card.isPublished) {
-            return TemplateService.getTemplateById(card.template, token);
+            return TemplateService.getTemplateById(card.template);
           } else {
             return Promise.resolve(null);
           }

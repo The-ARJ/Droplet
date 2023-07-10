@@ -24,7 +24,7 @@ const PublishedCards = () => {
           (card) => card.isPublished === true
         );
         const templatePromises = publishedCards.map((card) => {
-          return TemplateService.getTemplateById(card.template, token);
+          return TemplateService.getTemplateById(card.template);
         });
         Promise.all(templatePromises)
           .then((templateResponses) => {

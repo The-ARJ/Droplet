@@ -26,13 +26,13 @@ import DropdownMenu from "./DropDown";
 
 const CardComponent = ({ card, deleteCard }) => {
   return (
-    <div key={card.id}>
-      <div className="flex flex-row-reverse">
-        <div className=" w-0  z-50">
-          <DropdownMenu onDelete={() => deleteCard(card._id)} />
+    <div key={card.id} className="">
+      <div className="flex flex-row-reverse ">
+        <div className=" w-0   z-50  ">
+          <DropdownMenu card={card} onDelete={() => deleteCard(card._id)} />
         </div>
         <Card
-          className={`w-full  ${
+          className={`w-full  md:w-auto   ${
             card.templateData
               ? `${card.templateData.data.color} `
               : "dark:bg-[#27272a] bg-white"

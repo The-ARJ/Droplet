@@ -10,12 +10,16 @@ const getAllCards = (token) => {
     });
 };
 
-const getCardById = (id, token) => {
-    return axios.get(`${CardURL}/${id}`, {
-        headers: {
-            Authorization: `bearer ${token}`,
-        },
-    });
+// const getCardById = (id, token) => {
+//     return axios.get(`${CardURL}/${id}`, {
+//         headers: {
+//             Authorization: `bearer ${token}`,
+//         },
+//     });
+// };
+
+const getCardById = (id,) => {
+    return axios.get(`${CardURL}/${id}`);
 };
 
 const deleteCardbyId = (id, token) => {
