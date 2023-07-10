@@ -1,16 +1,16 @@
 "use client"
 import DashboardLayout from '../../components/dashboard/Dashboard';
 import ProtectedRoute from '../../utils/Context/ProtectedRoute';
-import CardTabs from '@/components/dashboard/Tabs';
+import DropletTabs from '@/components/dashboard/Tabs';
 
-const Card = () => {
+const Droplet = () => {
     return (
         <>
             <DashboardLayout>
-                <CardTabs />
+                <DropletTabs />
             </DashboardLayout></>
     )
 
 }
 
-export default ProtectedRoute(Card);
+export default ProtectedRoute(Droplet);

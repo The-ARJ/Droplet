@@ -13,7 +13,7 @@ const ProtectedRoute = (WrappedComponent) => {
         } else if (user && (pathname === "/" || pathname === "/signin" || pathname === "/signup")) {
             router.push("/home");
             return <div className={styles.loader}></div>;
-        } else if (!user && (pathname === "/home" || pathname === "/card" || pathname === "/profile" || pathname === "/template" || pathname === "/settings")) {
+        } else if (!user && (pathname === "/home" || pathname === "/droplet" || pathname === "/profile" || pathname === "/template" || pathname === "/settings")) {
             router.push("/");
             return <div className={styles.loader}></div>;
         } else {

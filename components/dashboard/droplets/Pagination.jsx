@@ -5,11 +5,11 @@ import { ArrowRightIcon, ArrowLeftIcon } from "@heroicons/react/24/outline";
 export default function Pagination({
   currentPage,
   setCurrentPage,
-  totalCards,
+  totalDroplets,
 }) {
   const [active, setActive] = useState(currentPage);
-  const pageSize = 4; // Number of cards per page
-  const totalPages = Math.ceil(totalCards / pageSize);
+  const pageSize = 4; // Number of droplets per page
+  const totalPages = Math.ceil(totalDroplets / pageSize);
 
   const next = () => {
     if (active === totalPages) return;

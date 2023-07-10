@@ -1,47 +1,47 @@
 import React, { useEffect, useState } from "react";
-import CardService from "../../../utils/Services/CardServices";
+import DropletService from "../../../utils/Services/DropletServices";
 import TemplateService from "../../../utils/Services/TemplateServices";
 import NoData from "../NoData";
 import Pagination from "./Pagination";
-import CardComponent from "./Cards";
-import deleteCard from "./DeleteCard";
+import DropletComponent from "./Droplets";
+import deleteDroplet from "./DeleteDroplet";
 
-const AllCards = () => {
-  const [cardsData, setCardsData] = useState([]);
+const AllDroplets = () => {
+  const [dropletsData, setDropletsData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
 
-  const pageSize = 4; // Number of cards to display per page
+  const pageSize = 4; // Number of droplets to display per page
   const startIndex = (currentPage - 1) * pageSize;
   const endIndex = startIndex + pageSize;
 
-  const getCards = () => {
+  const getDroplets = () => {
     const token = localStorage.getItem("token");
     const limit = pageSize;
     const offset = (currentPage - 1) * pageSize;
-    CardService.getAllCards(token, limit, offset)
+    DropletService.getAllDroplets(token, limit, offset)
       .then((res) => {
-        const cards = res.data.data;
-        const templatePromises = cards.map((card) => {
-          if (card.isPublished) {
-            return TemplateService.getTemplateById(card.template);
+        const droplets = res.data.data;
+        const templatePromises = droplets.map((droplet) => {
+          if (droplet.isPublished) {
+            return TemplateService.getTemplateById(droplet.template);
           } else {
             return Promise.resolve(null);
           }
         });
         Promise.all(templatePromises)
           .then((templateResponses) => {
-            const cardsWithTemplateData = cards.map((card, index) => {
-              if (card.isPublished) {
+            const dropletsWithTemplateData = droplets.map((droplet, index) => {
+              if (droplet.isPublished) {
                 return {
-                  ...card,
+                  ...droplet,
                   templateData: templateResponses[index]?.data,
                 };
               } else {
-                return card;
+                return droplet;
               }
             });
 
-            setCardsData(cardsWithTemplateData);
+            setDropletsData(dropletsWithTemplateData);
           })
           .catch((err) => {
             console.log(err);
@@ -53,18 +53,18 @@ const AllCards = () => {
   };
 
   useEffect(() => {
-    getCards();
+    getDroplets();
   }, [currentPage]);
 
   return (
     <>
-      {cardsData.length > 0 ? (
+      {dropletsData.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {cardsData.slice(startIndex, endIndex).map((card) => (
-            <CardComponent
-              key={card.id}
-              card={card}
-              deleteCard={() => deleteCard(card._id, getCards)}
+          {dropletsData.slice(startIndex, endIndex).map((droplet) => (
+            <DropletComponent
+              key={droplet.id}
+              droplet={droplet}
+              deleteDroplet={() => deleteDroplet(droplet._id, getDroplets)}
             />
           ))}
         </div>
@@ -74,10 +74,10 @@ const AllCards = () => {
       <Pagination
         currentPage={currentPage}
         setCurrentPage={setCurrentPage}
-        totalCards={cardsData.length}
+        totalDroplets={dropletsData.length}
       />
     </>
   );
 };
 
-export default AllCards;
+export default AllDroplets;

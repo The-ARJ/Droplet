@@ -2,19 +2,38 @@
 import { BiDroplet } from "react-icons/bi";
 import { useState, useEffect } from "react";
 import TemplateService from "../../../utils/Services/TemplateServices";
-import CardService from "../../../utils/Services/CardServices";
-import CardView from "@/components/dashboard/cards/CardView";
+import DropletService from "../../../utils/Services/DropletServices";
+import DropletView from "@/components/dashboard/droplets/DropletView";
 import styles from "../../../app/loading.module.css";
 import Link from "next/link";
 import { Tooltip, Button } from "@material-tailwind/react";
-const ShareCard = ({ params }) => {
-  const [cardData, setCardData] = useState(null);
+const ShareDroplet = ({ params }) => {
+  const [dropletData, setDropletData] = useState(null);
   const [templateData, setTemplateData] = useState(null);
   const [bgColor, setBgColor] = useState("bg-red-200");
   const [brandingVisible, setBrandingVisible] = useState(false);
 
-  const colors = ["bg-white", "bg-red-200", "bg-blue-200", "bg-green-200"];
-  const [dropletColor, setDropletColor] = useState("text-black"); // Set the initial droplet color to black
+  const colors = [
+    "bg-white",
+    "bg-red-200",
+    "bg-blue-200",
+    "bg-green-200",
+    "bg-purple-200",
+    "bg-violet-200",
+    "bg-indigo-200",
+    "bg-fuchsia-200",
+    "bg-orange-200",
+    "bg-amber-200",
+    "bg-lime-200",
+    "bg-emerald-200",
+    "bg-teal-200",
+    "bg-cyan-200",
+    "bg-sky-200",
+    "bg-pink-200",
+    "bg-rose-200",
+  ];
+
+  const [dropletColor, setDropletColor] = useState("text-white");
   const [buttonBorderColor, setButtonBorderColor] = useState("border-gray-200"); // Set the initial button border color
 
   const changeBackgroundColor = () => {
@@ -22,7 +41,6 @@ const ShareCard = ({ params }) => {
     const nextIndex = (currentIndex + 1) % colors.length;
     setBgColor(colors[nextIndex]);
 
-    // Change the droplet color based on the background color
     if (colors[nextIndex] === "bg-white") {
       setDropletColor("text-gray-400");
       setButtonBorderColor("border-gray-400");
@@ -39,10 +57,10 @@ const ShareCard = ({ params }) => {
   };
 
   useEffect(() => {
-    const fetchCardData = async () => {
+    const fetchDropletData = async () => {
       try {
-        const response = await CardService.getCardById(params.id);
-        setCardData(response.data.data);
+        const response = await DropletService.getDropletById(params.id);
+        setDropletData(response.data.data);
         console.log("extracting template id", response.data.data.template);
         const templateId = response.data.data.template;
         const templateResponse = await TemplateService.getTemplateById(
@@ -50,11 +68,11 @@ const ShareCard = ({ params }) => {
         );
         setTemplateData(templateResponse.data.data);
       } catch (error) {
-        console.error("Error fetching card data:", error);
+        console.error("Error fetching droplet data:", error);
       }
     };
 
-    fetchCardData();
+    fetchDropletData();
   }, [params.id]);
 
   useEffect(() => {
@@ -81,7 +99,7 @@ const ShareCard = ({ params }) => {
     };
   }, []);
 
-  if (!cardData) {
+  if (!dropletData) {
     return <div className={styles.loader}></div>;
   }
 
@@ -128,9 +146,9 @@ const ShareCard = ({ params }) => {
           className={`w-8 h-8 rounded-full ${bgColor} border  ${buttonBorderColor}`}
         ></div>
       </button>
-      <CardView cardData={cardData} templateData={templateData} />
+      <DropletView dropletData={dropletData} templateData={templateData} />
     </div>
   );
 };
 
-export default ShareCard;
+export default ShareDroplet;

@@ -3,7 +3,7 @@ import { Fragment } from "react";
 import Link from "next/link";
 import { EllipsisVerticalIcon } from "@heroicons/react/24/solid";
 
-export default function DropdownMenu({ onDelete, card }) {
+export default function DropdownMenu({ onDelete, droplet }) {
 
   return (
     <div className="  w-10 md:w-max ">
@@ -103,7 +103,7 @@ export default function DropdownMenu({ onDelete, card }) {
               <Menu.Item>
                 {({ active }) => (
                   <Link
-                    href={`/card/${card._id}`}
+                    href={`/droplet/${droplet._id}`}
                     target="_blank"
                     className={`${
                       active

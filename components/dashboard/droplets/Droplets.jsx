@@ -24,36 +24,39 @@ import {
 } from "@heroicons/react/24/solid";
 import DropdownMenu from "./DropDown";
 
-const CardComponent = ({ card, deleteCard }) => {
+const DropletComponent = ({ droplet, deleteDroplet }) => {
   return (
-    <div key={card.id} className="">
+    <div key={droplet._id} className="">
       <div className="flex flex-row-reverse ">
-        <div className=" w-0   z-50  ">
-          <DropdownMenu card={card} onDelete={() => deleteCard(card._id)} />
+        <div className="   z-50  ">
+          <DropdownMenu
+            droplet={droplet}
+            onDelete={() => deleteDroplet(droplet._id)}
+          />
         </div>
         <Card
-          className={`w-full  md:w-auto   ${
-            card.templateData
-              ? `${card.templateData.data.color} `
+          className={`w-full md:w-80   ${
+            droplet.templateData
+              ? `${droplet.templateData.data.color} `
               : "dark:bg-[#27272a] bg-white"
           }`}
         >
           <CardHeader
             className={`flex items-center shadow-none justify-center ${
-              card.templateData
-                ? `${card.templateData.data.color}`
+              droplet.templateData
+                ? `${droplet.templateData.data.color}`
                 : "dark:bg-[#27272a] bg-white"
             }shadow-none`}
             floated={false}
           >
-            {card.image ? (
+            {droplet.image ? (
               <img
                 className={` ${
-                  card.templateData
-                    ? `${card.templateData.data.borderRadius} ${card.templateData.data.width} ${card.templateData.data.height} `
+                  droplet.templateData
+                    ? `${droplet.templateData.data.borderRadius} ${droplet.templateData.data.width} ${droplet.templateData.data.height} `
                     : "rounded-xl h-64 w-full"
                 }  object-cover `}
-                src={`${imgURL}/${card.image}`}
+                src={`${imgURL}/${droplet.image}`}
                 alt="participant"
               />
             ) : (
@@ -68,74 +71,74 @@ const CardComponent = ({ card, deleteCard }) => {
             <Typography
               variant="h4"
               className={`mb-2 flex items-center gap-2  ${
-                card.templateData
-                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}`
+                droplet.templateData
+                  ? `${droplet.templateData.data.textcolor} ${droplet.templateData.data.textalignment}`
                   : "text-center dark:text-gray-100 "
               }`}
             >
-              {card.firstName} {card.lastName}
+              {droplet.firstName} {droplet.lastName}
             </Typography>
             <Typography
               variant="h6"
               className={` flex items-center gap-2   ${
-                card.templateData
-                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}  `
+                droplet.templateData
+                  ? `${droplet.templateData.data.textcolor} ${droplet.templateData.data.textalignment}  `
                   : "text-center dark:text-gray-100  "
               }`}
             >
               <BriefcaseIcon className=" h-4 w-4" />
-              {card.jobTitle}
+              {droplet.jobTitle}
             </Typography>
             <Typography
               className={`  flex items-center gap-2
                  ${
-                   card.templateData
-                     ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment} `
+                   droplet.templateData
+                     ? `${droplet.templateData.data.textcolor} ${droplet.templateData.data.textalignment} `
                      : "text-center dark:text-gray-100 "
                  }`}
             >
               <BuildingOffice2Icon className=" h-4 w-4 " />
-              {card.company}
+              {droplet.company}
             </Typography>
             <Typography
               className={` flex items-center gap-2 ${
-                card.templateData
-                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}`
+                droplet.templateData
+                  ? `${droplet.templateData.data.textcolor} ${droplet.templateData.data.textalignment}`
                   : "text-center dark:text-gray-100 "
               }`}
             >
               <EnvelopeIcon className=" h-4 w-4" />
-              {card.email}
+              {droplet.email}
             </Typography>
             <Typography
               className={` flex items-center gap-2 ${
-                card.templateData
-                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}`
+                droplet.templateData
+                  ? `${droplet.templateData.data.textcolor} ${droplet.templateData.data.textalignment}`
                   : "text-center dark:text-gray-100 "
               }`}
             >
               <DevicePhoneMobileIcon className=" h-4 w-4" />
 
-              {card.phone}
+              {droplet.phone}
             </Typography>
             <Typography
               className={`  flex items-center gap-2 ${
-                card.templateData
-                  ? `${card.templateData.data.textcolor} ${card.templateData.data.textalignment}`
+                droplet.templateData
+                  ? `${droplet.templateData.data.textcolor} ${droplet.templateData.data.textalignment}`
                   : "text-center dark:text-gray-100 "
               }`}
             >
               <MapPinIcon className=" h-4 w-4" />
 
-              {card.address}
+              {droplet.address}
             </Typography>
           </CardBody>
           <CardFooter className={`flex gap-7 pt-2 justify-center`}>
-            {card.socialMedia.facebook && (
+            {droplet.socialMedia.facebook && (
               <Tooltip content="Like">
                 <Typography
                   as="a"
-                  href={card.socialMedia.facebook}
+                  href={droplet.socialMedia.facebook}
                   target="_blank"
                   variant="lead"
                   color="blue"
@@ -146,11 +149,11 @@ const CardComponent = ({ card, deleteCard }) => {
                 </Typography>
               </Tooltip>
             )}
-            {card.socialMedia.twitter && (
+            {droplet.socialMedia.twitter && (
               <Tooltip content="Follow">
                 <Typography
                   as="a"
-                  href={card.socialMedia.twitter}
+                  href={droplet.socialMedia.twitter}
                   target="_blank"
                   variant="lead"
                   className="text-blue-400 dark:text-blue-400"
@@ -160,11 +163,11 @@ const CardComponent = ({ card, deleteCard }) => {
                 </Typography>
               </Tooltip>
             )}
-            {card.socialMedia.linkedIn && (
+            {droplet.socialMedia.linkedIn && (
               <Tooltip content="Follow">
                 <Typography
                   as="a"
-                  href={card.socialMedia.linkedIn}
+                  href={droplet.socialMedia.linkedIn}
                   target="_blank"
                   variant="lead"
                   className="text-blue-500 dark:text-blue-500"
@@ -174,11 +177,11 @@ const CardComponent = ({ card, deleteCard }) => {
                 </Typography>
               </Tooltip>
             )}
-            {card.socialMedia.instagram && (
+            {droplet.socialMedia.instagram && (
               <Tooltip content="Follow">
                 <Typography
                   as="a"
-                  href={card.socialMedia.instagram}
+                  href={droplet.socialMedia.instagram}
                   target="_blank"
                   variant="lead"
                   className="text-purple-500 dark:text-purple-500"
@@ -188,11 +191,11 @@ const CardComponent = ({ card, deleteCard }) => {
                 </Typography>
               </Tooltip>
             )}
-            {card.website && (
+            {droplet.website && (
               <Tooltip content="Web">
                 <Typography
                   as="a"
-                  href={card.website}
+                  href={droplet.website}
                   target="_blank"
                   variant="lead"
                   className="text-indigo-500 dark:text-indigo-500"
@@ -209,4 +212,4 @@ const CardComponent = ({ card, deleteCard }) => {
   );
 };
 
-export default CardComponent;
+export default DropletComponent;

@@ -52,7 +52,7 @@ const Settings = () => {
                           Views
                         </label>
                         <p className="text-gray-500">
-                          Get notified when someone views your shared card.
+                          Get notified when someone views your shared droplet.
                         </p>
                       </div>
                     </div>
@@ -73,7 +73,7 @@ const Settings = () => {
                           Shares
                         </label>
                         <p className="text-gray-500">
-                          Get notified when a someone shares you a card.
+                          Get notified when a someone shares you a droplet.
                         </p>
                       </div>
                     </div>

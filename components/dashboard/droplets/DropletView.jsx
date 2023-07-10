@@ -23,8 +23,8 @@ import {
 } from "react-icons/fa";
 import { imgURL } from "../../../utils/Services/UserServices";
 
-const CardView = ({ cardData, templateData }) => {
-    console.log(cardData)
+const DropletView = ({ dropletData, templateData }) => {
+  console.log(dropletData);
   return (
     <>
       <Card
@@ -40,14 +40,14 @@ const CardView = ({ cardData, templateData }) => {
           }shadow-none`}
           floated={false}
         >
-          {cardData.image ? (
+          {dropletData.image ? (
             <img
               className={` ${
                 templateData
                   ? `${templateData.borderRadius} ${templateData.width} ${templateData.height} `
                   : "rounded-xl h-64 w-full"
               }  object-cover `}
-              src={`${imgURL}/${cardData.image}`}
+              src={`${imgURL}/${dropletData.image}`}
               alt="participant"
             />
           ) : (
@@ -67,7 +67,7 @@ const CardView = ({ cardData, templateData }) => {
                 : "text-center dark:text-gray-100 "
             }`}
           >
-            {cardData.firstName} {cardData.lastName}
+            {dropletData.firstName} {dropletData.lastName}
           </Typography>
           <Typography
             variant="h6"
@@ -78,7 +78,7 @@ const CardView = ({ cardData, templateData }) => {
             }`}
           >
             <BriefcaseIcon className=" h-4 w-4" />
-            {cardData.jobTitle}
+            {dropletData.jobTitle}
           </Typography>
           <Typography
             className={`  flex items-center gap-2
@@ -89,7 +89,7 @@ const CardView = ({ cardData, templateData }) => {
                  }`}
           >
             <BuildingOffice2Icon className=" h-4 w-4 " />
-            {cardData.company}
+            {dropletData.company}
           </Typography>
           <Typography
             className={` flex items-center gap-2 ${
@@ -99,7 +99,7 @@ const CardView = ({ cardData, templateData }) => {
             }`}
           >
             <EnvelopeIcon className=" h-4 w-4" />
-            {cardData.email}
+            {dropletData.email}
           </Typography>
           <Typography
             className={` flex items-center gap-2 ${
@@ -110,7 +110,7 @@ const CardView = ({ cardData, templateData }) => {
           >
             <DevicePhoneMobileIcon className=" h-4 w-4" />
 
-            {cardData.phone}
+            {dropletData.phone}
           </Typography>
           <Typography
             className={`  flex items-center gap-2 ${
@@ -121,15 +121,15 @@ const CardView = ({ cardData, templateData }) => {
           >
             <MapPinIcon className=" h-4 w-4" />
 
-            {cardData.address}
+            {dropletData.address}
           </Typography>
         </CardBody>
         <CardFooter className={`flex gap-7 pt-2 justify-center`}>
-          {cardData.socialMedia.facebook && (
+          {dropletData.socialMedia.facebook && (
             <Tooltip content="Like">
               <Typography
                 as="a"
-                href={cardData.socialMedia.facebook}
+                href={dropletData.socialMedia.facebook}
                 target="_blank"
                 variant="lead"
                 color="blue"
@@ -140,11 +140,11 @@ const CardView = ({ cardData, templateData }) => {
               </Typography>
             </Tooltip>
           )}
-          {cardData.socialMedia.twitter && (
+          {dropletData.socialMedia.twitter && (
             <Tooltip content="Follow">
               <Typography
                 as="a"
-                href={cardData.socialMedia.twitter}
+                href={dropletData.socialMedia.twitter}
                 target="_blank"
                 variant="lead"
                 className="text-blue-400 dark:text-blue-400"
@@ -154,11 +154,11 @@ const CardView = ({ cardData, templateData }) => {
               </Typography>
             </Tooltip>
           )}
-          {cardData.socialMedia.linkedIn && (
+          {dropletData.socialMedia.linkedIn && (
             <Tooltip content="Follow">
               <Typography
                 as="a"
-                href={cardData.socialMedia.linkedIn}
+                href={dropletData.socialMedia.linkedIn}
                 target="_blank"
                 variant="lead"
                 className="text-blue-500 dark:text-blue-500"
@@ -168,11 +168,11 @@ const CardView = ({ cardData, templateData }) => {
               </Typography>
             </Tooltip>
           )}
-          {cardData.socialMedia.instagram && (
+          {dropletData.socialMedia.instagram && (
             <Tooltip content="Follow">
               <Typography
                 as="a"
-                href={cardData.socialMedia.instagram}
+                href={dropletData.socialMedia.instagram}
                 target="_blank"
                 variant="lead"
                 className="text-purple-500 dark:text-purple-500"
@@ -182,11 +182,11 @@ const CardView = ({ cardData, templateData }) => {
               </Typography>
             </Tooltip>
           )}
-          {cardData.website && (
+          {dropletData.website && (
             <Tooltip content="Web">
               <Typography
                 as="a"
-                href={cardData.website}
+                href={dropletData.website}
                 target="_blank"
                 variant="lead"
                 className="text-indigo-500 dark:text-indigo-500"
@@ -202,4 +202,4 @@ const CardView = ({ cardData, templateData }) => {
   );
 };
 
-export default CardView;
+export default DropletView;

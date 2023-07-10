@@ -5,7 +5,7 @@ import { ToastContainer } from 'react-toastify';
 
 export const metadata = {
   title: 'Droplet - Revolutionizing Networking Connection',
-  description: 'Unlock Your Digital Presence with Professional Business Cards',
+  description: 'Unlock Your Digital Presence with Professional Business droplets',
   icons: {
     icon: '/assets/logo.png',
   },

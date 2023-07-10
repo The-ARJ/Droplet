@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdAdd, MdEmail, MdPhone, MdLocationOn, MdImage } from "react-icons/md";
-import CardService from "../../../utils/Services/CardServices";
+import DropletService from "../../../utils/Services/DropletServices";
 import { toast } from "react-toastify";
 import {
   Popover,
@@ -17,7 +17,7 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
-const CardForm = ({ updateCardData }) => {
+const DropletForm = ({ updateDropletData }) => {
   const [cardImage, setCardImage] = useState(null);
   const [previewImage, setPreviewImage] = useState(null);
   const [firstName, setFirstName] = useState("");
@@ -52,7 +52,7 @@ const CardForm = ({ updateCardData }) => {
     formData.append("bio", bio);
 
     try {
-      const response = await CardService.createCard(formData);
+      const response = await DropletService.createDroplet(formData);
       toast.success("Card Created Successfully", {
         position: toast.POSITION.TOP_CENTER,
         autoClose: 1000,
@@ -63,7 +63,7 @@ const CardForm = ({ updateCardData }) => {
         progress: undefined,
         theme: "light",
       });
-      updateCardData(response.data.card);
+      updateDropletData(response.data.card);
     } catch (err) {
       alert(err);
       toast.error(
@@ -361,4 +361,4 @@ const CardForm = ({ updateCardData }) => {
   );
 };
 
-export default CardForm;
+export default DropletForm;

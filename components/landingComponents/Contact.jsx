@@ -23,9 +23,9 @@ const Contact = () => {
                 <button
                   type="button"
                   className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl dark:bg-gray-700 dark:text-white"
-                  id="tabs-with-card-item-1"
-                  data-hs-tab="#tabs-with-card-1"
-                  aria-controls="tabs-with-card-1"
+                  id="tabs-with-droplet-item-1"
+                  data-hs-tab="#tabs-with-droplet-1"
+                  aria-controls="tabs-with-droplet-1"
                   role="tab"
                 >
                   <span className="flex">
@@ -54,9 +54,9 @@ const Contact = () => {
                 <button
                   type="button"
                   className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl dark:bg-gray-700 dark:text-white"
-                  id="tabs-with-card-item-2"
-                  data-hs-tab="#tabs-with-card-2"
-                  aria-controls="tabs-with-card-2"
+                  id="tabs-with-droplet-item-2"
+                  data-hs-tab="#tabs-with-droplet-2"
+                  aria-controls="tabs-with-droplet-2"
                   role="tab"
                 >
                   <span className="flex">
@@ -86,9 +86,9 @@ const Contact = () => {
                 <button
                   type="button"
                   className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl dark:bg-gray-700 dark:text-white"
-                  id="tabs-with-card-item-3"
-                  data-hs-tab="#tabs-with-card-3"
-                  aria-controls="tabs-with-card-3"
+                  id="tabs-with-droplet-item-3"
+                  data-hs-tab="#tabs-with-droplet-3"
+                  aria-controls="tabs-with-droplet-3"
                   role="tab"
                 >
                   <span className="flex">

@@ -32,19 +32,19 @@ const DashInfo = ({ title }) => {
           <div className="flex flex-col items-center text-center bg-gray-100 dark:bg-[#3d3d40] p-4 rounded-lg shadow transition-colors duration-500">
             <div className="md:text-2xl font-bold text-indigo-500">5</div>
             <div className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Total Cards
+              Total Droplets
             </div>
           </div>
           <div className="flex flex-col items-center text-center bg-gray-100 dark:bg-[#3d3d40] p-4 rounded-lg shadow transition-colors duration-500">
             <div className="md:text-2xl font-bold text-green-500">3</div>
             <div className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Active Cards
+              Active Droplets
             </div>
           </div>
           <div className="flex flex-col items-center text-center bg-gray-100 dark:bg-[#3d3d40] p-4 rounded-lg shadow transition-colors duration-500">
             <div className="md:text-2xl font-bold text-fuchsia-500">400</div>
             <div className="text-xs md:text-base text-gray-700 dark:text-gray-300">
-              Cards Views
+              Droplets Views
             </div>
           </div>
           <div className="flex flex-col items-center text-center bg-gray-100 dark:bg-[#3d3d40] p-4 rounded-lg shadow transition-colors duration-500">

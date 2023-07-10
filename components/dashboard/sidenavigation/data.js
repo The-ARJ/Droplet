@@ -13,9 +13,9 @@ const data = [
     link: '/home',
   },
   {
-    title: 'Card',
+    title: 'Droplet',
     icon: <CreditsIcon />,
-    link: '/card',
+    link: '/droplet',
   },
   {
     title: 'Shared with me',

@@ -6,7 +6,7 @@ import {
   FaGlobe,
   FaLinkedinIn,
 } from "react-icons/fa";
-import CardService from "../../../utils/Services/CardServices";
+import DropletService from "../../../utils/Services/DropletServices";
 import { imgURL } from "../../../utils/Services/UserServices";
 import {
   Card,
@@ -25,7 +25,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { toast } from "react-toastify";
 
-const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
+const DropletCard = ({ handleTemplateClick, selectedTemplate, latestDroplet }) => {
   const handlePublishClick = () => {
     if (!selectedTemplate) {
       toast.error("Please select a template.", {
@@ -41,14 +41,14 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
       return;
     }
 
-    if (latestCard) {
+    if (latestDroplet) {
       const token = localStorage.getItem("token");
       const requestBody = {
         template: selectedTemplate._id,
         isPublished: true,
       };
 
-      CardService.updateCard(latestCard._id, requestBody, token)
+      DropletService.updateDroplet(latestDroplet._id, requestBody, token)
         .then((res) => {
           toast.success("Card template published successfully", {
             position: toast.POSITION.TOP_CENTER,
@@ -63,7 +63,7 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
         })
         .catch((err) => {
           toast.error(
-            "Error publishing card template:",
+            "Error publishing droplet template:",
             {
               position: "top-center",
               autoClose: 1000,
@@ -81,7 +81,7 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
   };
   return (
     <>
-      {latestCard && (
+      {latestDroplet && (
         <div className="">
           <Card
             className={`w-full ${
@@ -98,14 +98,14 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                   : "dark:bg-[#27272a] bg-white"
               }shadow-none`}
             >
-              {latestCard.image ? (
+              {latestDroplet.image ? (
                 <img
                   className={` ${
                     selectedTemplate
                       ? `${selectedTemplate.borderRadius} ${selectedTemplate.width} ${selectedTemplate.height}`
                       : "rounded-xl h-64 w-full"
                   }  object-cover `}
-                  src={`${imgURL}/${latestCard.image}`}
+                  src={`${imgURL}/${latestDroplet.image}`}
                   alt="participant"
                 />
               ) : (
@@ -125,7 +125,7 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                     : "text-center dark:text-gray-100 "
                 }`}
               >
-                {latestCard.firstName} {latestCard.lastName}
+                {latestDroplet.firstName} {latestDroplet.lastName}
               </Typography>
               <Typography
                 variant="h6"
@@ -136,7 +136,7 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                 }`}
               >
                 <BriefcaseIcon className=" h-4 w-4" />
-                {latestCard.jobTitle}
+                {latestDroplet.jobTitle}
               </Typography>
               <Typography
                 className={`  flex items-center gap-2
@@ -147,7 +147,7 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                  }`}
               >
                 <BuildingOffice2Icon className=" h-4 w-4 " />
-                {latestCard.company}
+                {latestDroplet.company}
               </Typography>
               <Typography
                 className={` flex items-center gap-2 ${
@@ -157,7 +157,7 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                 }`}
               >
                 <EnvelopeIcon className=" h-4 w-4" />
-                {latestCard.email}
+                {latestDroplet.email}
               </Typography>
               <Typography
                 className={` flex items-center gap-2 ${
@@ -168,7 +168,7 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
               >
                 <DevicePhoneMobileIcon className=" h-4 w-4" />
 
-                {latestCard.phone}
+                {latestDroplet.phone}
               </Typography>
               <Typography
                 className={`  flex items-center gap-2 ${
@@ -179,15 +179,15 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
               >
                 <MapPinIcon className=" h-4 w-4" />
 
-                {latestCard.address}
+                {latestDroplet.address}
               </Typography>
             </CardBody>
             <CardFooter className={`flex gap-7 pt-2  justify-center `}>
-              {latestCard.socialMedia.facebook && (
+              {latestDroplet.socialMedia.facebook && (
                 <Tooltip content="Like">
                   <Typography
                     as="a"
-                    href={latestCard.socialMedia.facebook}
+                    href={latestDroplet.socialMedia.facebook}
                     target="_blank"
                     variant="lead"
                     color="blue"
@@ -198,11 +198,11 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                   </Typography>
                 </Tooltip>
               )}
-              {latestCard.socialMedia.twitter && (
+              {latestDroplet.socialMedia.twitter && (
                 <Tooltip content="Follow">
                   <Typography
                     as="a"
-                    href={latestCard.socialMedia.twitter}
+                    href={latestDroplet.socialMedia.twitter}
                     target="_blank"
                     variant="lead"
                     className="text-blue-400 dark:text-blue-400"
@@ -212,11 +212,11 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                   </Typography>
                 </Tooltip>
               )}
-              {latestCard.socialMedia.linkedIn && (
+              {latestDroplet.socialMedia.linkedIn && (
                 <Tooltip content="Follow">
                   <Typography
                     as="a"
-                    href={latestCard.socialMedia.linkedIn}
+                    href={latestDroplet.socialMedia.linkedIn}
                     target="_blank"
                     variant="lead"
                     className="text-blue-500 dark:text-blue-500"
@@ -226,11 +226,11 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                   </Typography>
                 </Tooltip>
               )}
-              {latestCard.socialMedia.instagram && (
+              {latestDroplet.socialMedia.instagram && (
                 <Tooltip content="Follow">
                   <Typography
                     as="a"
-                    href={latestCard.socialMedia.instagram}
+                    href={latestDroplet.socialMedia.instagram}
                     target="_blank"
                     variant="lead"
                     className="text-purple-500 dark:text-purple-500"
@@ -240,11 +240,11 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
                   </Typography>
                 </Tooltip>
               )}
-              {latestCard.website && (
+              {latestDroplet.website && (
                 <Tooltip content="Web">
                   <Typography
                     as="a"
-                    href={latestCard.website}
+                    href={latestDroplet.website}
                     target="_blank"
                     variant="lead"
                     className="text-purple-500 dark:text-purple-500"
@@ -268,4 +268,4 @@ const PreviewCard = ({ handleTemplateClick, selectedTemplate, latestCard }) => {
   );
 };
 
-export default PreviewCard;
+export default DropletCard;

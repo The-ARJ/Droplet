@@ -199,11 +199,11 @@ const Template = () => {
         progress: undefined,
         theme: "light",
       });
-      // updateCardData(response.data.card);
+      // updateDropletData(response.data.droplet);
     } catch (err) {
       alert(err);
       toast.error(
-        "Error Creating Card",
+        "Error Creating Droplet",
         {
           position: "top-center",
           autoClose: 1000,

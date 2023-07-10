@@ -46,7 +46,7 @@ export default function TopNavigation() {
             <a href="#" className="block pr-5">
               <FiShare2 className="h-6 w-6" />
             </a>
-            <Link href="/card" className="block pr-5">
+            <Link href="/droplet" className="block pr-5">
               <MdAddCard className="h-6 w-6" />
             </Link>
             <a href="#" className="block pr-5 relative">

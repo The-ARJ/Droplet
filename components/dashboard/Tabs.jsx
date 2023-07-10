@@ -7,7 +7,7 @@ import {
   Tab,
   TabPanel,
 } from "@material-tailwind/react";
-import CreateCard from "./cards/CreateCard";
+import CreateDroplet from "./droplets/CreateDroplet";
 import {
   Square3Stack3DIcon,
   UserCircleIcon,
@@ -16,27 +16,27 @@ import {
   WalletIcon,
   EyeIcon,
 } from "@heroicons/react/24/solid";
-import AllCards from "./cards/AllCards";
-import PublishedCards from "./cards/PublishedCard";
-export default function CardTabs() {
+import AllDroplets from "./droplets/AllDroplets";
+import PublishedDroplets from "./droplets/PublishedDroplet";
+export default function DropletTabs() {
   const data = [
     {
-      label: "Create Cards",
+      label: "Create Droplets",
       value: "html",
       icon: CreditCardIcon,
-      desc: <CreateCard />,
+      desc: <CreateDroplet />,
     },
     {
-      label: "All Cards",
+      label: "All Droplets",
       value: "react",
       icon: WalletIcon,
-      desc: <AllCards />,
+      desc: <AllDroplets />,
     },
     {
-      label: "Published Cards",
+      label: "Published Droplets",
       value: "vue",
       icon: EyeIcon,
-      desc: <PublishedCards />,
+      desc: <PublishedDroplets />,
     },
     // {
     //   label: "Angular",

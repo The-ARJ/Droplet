@@ -1,30 +1,30 @@
 import React, { useState, useEffect } from "react";
-import PreviewCard from "./PreviewCard";
-import CardForm from "./CardForm";
+import PreviewDroplet from "./PreviewDroplet";
+import DropletForm from "./DropletForm";
 import TemplateList from "../Templates";
-import CardService from "../../../utils/Services/CardServices";
+import DropletService from "../../../utils/Services/DropletServices";
 
-const CreateCard = () => {
+const CreateDroplet = () => {
   const [selectedTemplate, setSelectedTemplate] = useState(null);
 
   const handleTemplateClick = (template) => {
     console.log("Selected Template:", template);
     setSelectedTemplate(template);
   };
-  const [latestCard, setLatestCard] = useState(null);
+  const [latestDroplet, setLatestDroplet] = useState(null);
 
   useEffect(() => {
-    getLatestCard();
+    getLatestDroplet();
   }, []);
 
-  const getLatestCard = () => {
+  const getLatestDroplet = () => {
     const token = localStorage.getItem("token");
-    CardService.getAllCards(token)
+    DropletService.getAllDroplets(token)
       .then((res) => {
-        const cards = res.data.data;
-        if (cards.length > 0) {
-          const latestCard = cards[cards.length - 1];
-          setLatestCard(latestCard);
+        const droplets = res.data.data;
+        if (droplets.length > 0) {
+          const latestDroplet = droplets[droplets.length - 1];
+          setLatestDroplet(latestDroplet);
         }
       })
       .catch((err) => {
@@ -37,13 +37,13 @@ const CreateCard = () => {
       <div className="w-full">
         <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <div className="col-span-1">
-            <CardForm updateCardData={setLatestCard} />
+            <DropletForm updateDropletData={setLatestDroplet} />
           </div>
           <div className="col-span-1">
-            <PreviewCard
+            <PreviewDroplet
               handleTemplateClick={handleTemplateClick}
               selectedTemplate={selectedTemplate}
-              latestCard={latestCard}
+              latestDroplet={latestDroplet}
             />
           </div>
           <div className="col-span-1">
@@ -55,4 +55,4 @@ const CreateCard = () => {
   );
 };
 
-export default CreateCard;
+export default CreateDroplet;
