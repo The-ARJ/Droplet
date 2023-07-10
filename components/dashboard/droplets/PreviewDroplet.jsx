@@ -82,9 +82,9 @@ const DropletCard = ({ handleTemplateClick, selectedTemplate, latestDroplet }) =
   return (
     <>
       {latestDroplet && (
-        <div className="">
+        <div className=" flex justify-center flex-col items-center">
           <Card
-            className={`w-full ${
+            className={` w-full  md:w-60 lg-72 xl:w-80  ${
               selectedTemplate
                 ? `${selectedTemplate.color}`
                 : "dark:bg-[#27272a] bg-white"
