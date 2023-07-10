@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React from "react";
 import ThemeButton from "../dashboard/ThemeButton";
+import { BiSolidDroplet } from 'react-icons/bi';
 
 const Header = () => {
   const scrollToTop = () => {
@@ -25,7 +26,8 @@ const Header = () => {
                   onClick={scrollToTop}
                   className="text-2xl cursor-pointer hover:scale-105  transition-all flex items-center gap-2 justify-center font-semibold  text-gray-700 dark:text-gray-100"
                 >
-                  <img src="../assets/logo.png" className="h-10" />
+                  <BiSolidDroplet/>
+                  {/* <img src="../assets/logo.png" className="h-10" /> */}
                   <div className="">Droplet</div>
                 </div>
               </Link>

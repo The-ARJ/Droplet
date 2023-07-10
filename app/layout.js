@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 
 export const metadata = {
-  title: 'Cardova - Revolutionizing Networking Connection',
+  title: 'Droplet - Revolutionizing Networking Connection',
   description: 'Unlock Your Digital Presence with Professional Business Cards',
   icons: {
     icon: '/assets/logo.png',
