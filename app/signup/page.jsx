@@ -5,8 +5,9 @@ import Image from "next/image";
 import Header from "@/components/landingComponents/Header";
 import UserService from "../../utils/Services/UserServices";
 import { toast } from "react-toastify";
+import ProtectedRoute from "@/utils/Context/ProtectedRoute";
 
-export default function Signup() {
+const SignUp = () => {
   const router = useRouter();
   const [firstName, setFname] = useState("");
   const [lastName, setLname] = useState("");
@@ -48,31 +49,34 @@ export default function Signup() {
   return (
     <>
       <Header />
-      <div className="flex  justify-center px-4">
-        <div className="max-w-md w-full  pt-40">
+      <div className="flex justify-center px-4">
+        <div className="max-w-md w-full pt-40">
           {/* Hero */}
-          <Image
+          {/* <Image
             height={500}
             width={500}
             className="absolute top-16 left-0 z-0 w-full mx-auto object-cover"
             src="/assets/bg.svg"
-            alt="cardova"
-          />
-          <div className="relative overflow-hidden border-2 border-gray-400 shadow-lg rounded-2xl ">
+            alt="Droplet"
+          /> */}
+          <div className="relative overflow-hidden border-2 border-gray-400 dark:border-gray-700 shadow-lg rounded-2xl bg-white dark:bg-[#27272a]">
             <div className="py-12 px-4 sm:px-6">
               <div className="mx-auto">
                 {/* Title */}
-                <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-4xl lg:leading-tight">
+                <h1 className="text-3xl text-gray-800 dark:text-gray-100 font-bold md:text-4xl md:leading-tight lg:text-4xl lg:leading-tight">
                   Sign Up to
-                  <span className="text-purple-900"> Cardova!</span>
+                  <span className="text-purple-900 dark:text-purple-600">
+                    {" "}
+                    Droplet!
+                  </span>
                 </h1>
-                <p className="mt-3 text-base text-gray-500">
+                <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
                   Create your digital business card and unlock your professional
                   presence.
                 </p>
                 {/* End Title */}
                 <form onSubmit={handleRegister} className="mt-8">
-                  <div className=" flex gap-2">
+                  <div className="flex gap-2">
                     <div className="mb-4">
                       <label
                         htmlFor="hs-hero-name-2"
@@ -83,7 +87,7 @@ export default function Signup() {
                       <input
                         type="text"
                         id="fname"
-                        className="py-3 px-4 block w-full  border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                        className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                         placeholder="First name"
                         onChange={(e) => setFname(e.target.value)}
                       />
@@ -98,7 +102,7 @@ export default function Signup() {
                       <input
                         type="text"
                         id="lname"
-                        className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                        className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                         placeholder="Last name"
                         onChange={(e) => setLname(e.target.value)}
                       />
@@ -114,7 +118,7 @@ export default function Signup() {
                     <input
                       type="email"
                       id="email"
-                      className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                      className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Email address"
                       onChange={(e) => setEmail(e.target.value)}
                     />
@@ -128,7 +132,7 @@ export default function Signup() {
                     </label>
                     <input
                       type="password"
-                      className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                      className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Password"
                       onChange={(e) => setPassword(e.target.value)}
                     />
@@ -142,7 +146,7 @@ export default function Signup() {
                     </label>
                     <input
                       type="password"
-                      className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                      className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Confirm Password"
                       onChange={(e) => setConfirmpassword(e.target.value)}
                     />
@@ -164,4 +168,5 @@ export default function Signup() {
       </div>
     </>
   );
-}
+};
+export default ProtectedRoute(SignUp);

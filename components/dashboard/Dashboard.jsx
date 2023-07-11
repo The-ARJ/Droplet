@@ -1,7 +1,7 @@
-import Overlay from './provider/overlay';
-import TopNavigation from './topnavigation';
-import SideNavigation from './sidenavigation';
-import DashboardProvider from './provider/context';
+import Overlay from "./provider/overlay";
+import TopNavigation from "./topnavigation";
+import SideNavigation from "./sidenavigation";
+import DashboardProvider from "./provider/context";
 
 const style = {
   container: `h-screen overflow-hidden relative`,
@@ -13,17 +13,22 @@ export default function DashboardLayout({ children }) {
   return (
     <DashboardProvider>
       <div className={style.container}>
-        <div className="flex items-start">
+        <div className="flex items-start ">
           <Overlay />
           <SideNavigation mobilePosition="left" />
           <div className={style.mainContainer}>
             <TopNavigation />
-            <main className={style.main} style={{
-              // backgroundImage: `url(${backgroundImage})`,
-              backgroundRepeat: "repeat",
-              backgroundSize: "cover",
-              /* Add any additional background-related CSS properties here */
-            }}>{children}</main>
+            <main
+              className={style.main}
+              style={{
+                // backgroundImage: `url(${backgroundImage})`,
+                backgroundRepeat: "repeat",
+                backgroundSize: "cover",
+                /* Add any additional background-related CSS properties here */
+              }}
+            >
+              {children}
+            </main>
           </div>
         </div>
       </div>

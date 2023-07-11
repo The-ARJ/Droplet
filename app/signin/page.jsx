@@ -1,53 +1,103 @@
 "use client";
 import Header from "@/components/landingComponents/Header";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useRouter } from "next/navigation";
 import UserService from "../../utils/Services/UserServices";
 import { toast } from "react-toastify";
+import ProtectedRoute from "@/utils/Context/ProtectedRoute";
+import { UserContext } from "../../utils/Context/UserContext";
 
-export default function SignIn() {
+const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+  const { fetchUser } = useContext(UserContext);
 
   const handleLogin = (e) => {
     e.preventDefault();
     UserService.login({ email, password })
       .then((res) => {
-        toast.success("Signed In Successfully", {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: 1000,
-          hideProgressBar: true,
-          closeOnClick: false,
-          pauseOnHover: false,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
         window.localStorage.setItem(`token`, res.data.token);
-        router.push("/home");
+        fetchUser()
+          .then(() => {
+            toast.success("Signed In Successfully", {
+              position: toast.POSITION.TOP_CENTER,
+              autoClose: 1000,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "light",
+            });
+            router.push("/home");
+          })
+          .catch((err) => {
+            toast.error(err.message, {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            });
+          });
       })
-      .catch((err) => alert("Something went wrong"));
+      .catch((err) => {
+        if (err.response && err.response.status === 401) {
+          toast.error(
+            "Email or password incorrect",
+            {
+              position: "top-center",
+              autoClose: 1000,
+              hideProgressBar: true,
+              closeOnClick: false,
+              pauseOnHover: false,
+              draggable: true,
+              progress: undefined,
+              theme: "dark",
+            },
+            err
+          );
+        } else {
+          toast.error(err.message, {
+            position: "top-center",
+            autoClose: 1000,
+            hideProgressBar: true,
+            closeOnClick: false,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+          });
+        }
+      });
   };
+
   return (
     <>
       <Header />
-      <div className="flex  justify-center px-4">
-        <div className="max-w-md w-full  pt-40">
+      <div className="flex justify-center px-4">
+        <div className="max-w-md w-full pt-40">
           {/* Hero */}
-          <img
+          {/* <img
             className="absolute top-16 left-0 z-0 w-full mx-auto object-cover"
             src="./assets/bg.svg"
-            alt="cardova"
-          />
-          <div className="relative overflow-hidden border-2 border-purple-400 shadow-lg rounded-2xl ">
+            alt="Droplet"
+          /> */}
+          <div className="relative overflow-hidden border-2 border-purple-400 dark:border-gray-700 shadow-lg rounded-2xl bg-white dark:bg-[#27272a]">
             <div className="py-12 px-4 sm:px-6">
               <div className="mx-auto">
-                <h1 className="text-3xl text-gray-800 font-bold md:text-4xl md:leading-tight lg:text-4xl lg:leading-tight">
+                <h1 className="text-3xl text-gray-800 dark:text-gray-100 font-bold md:text-4xl md:leading-tight lg:text-4xl lg:leading-tight">
                   Sign In to
-                  <span className="text-purple-900"> Cardova!</span>
+                  <span className="text-purple-900 dark:text-purple-600">
+                    {" "}
+                    Droplet!
+                  </span>
                 </h1>
-                <p className="mt-3 text-base text-gray-500">
+                <p className="mt-3 text-base text-gray-500 dark:text-gray-400">
                   Create your digital business card and unlock your professional
                   presence.
                 </p>
@@ -63,9 +113,10 @@ export default function SignIn() {
                     <input
                       type="email"
                       id="email"
-                      className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                      className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Email address"
                       onChange={(e) => setEmail(e.target.value)}
+                      required
                     />
                   </div>
                   <div className="mb-4">
@@ -78,9 +129,10 @@ export default function SignIn() {
                     <input
                       type="password"
                       id="hs-hero-password-2"
-                      className="py-3 px-4 block w-full border border-purple-200 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500"
+                      className="py-3 px-4 block w-full border border-purple-200 dark:border-gray-600 rounded-md text-sm focus:border-purple-500 focus:ring-purple-500 dark:focus:border-purple-500 dark:focus:ring-purple-500"
                       placeholder="Password"
                       onChange={(e) => setPassword(e.target.value)}
+                      required
                     />
                   </div>
                   <button
@@ -99,4 +151,5 @@ export default function SignIn() {
       </div>
     </>
   );
-}
+};
+export default ProtectedRoute(SignIn);

@@ -1,35 +1,36 @@
 import React from "react";
 import ContactForm from "./ContactForm";
-
 const Contact = () => {
   return (
     <>
-      {/* Features */}
-      <div id="contact" className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-        <div className="relative p-6 md:p-16">
+      <div
+        id="contact"
+        className="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto "
+      >
+        <div className="relative p-6 md:p-16 dark:text-white">
           {/* Grid */}
           <div className="relative z-10 lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
             <div className="mb-10 lg:mb-0 lg:col-span-6 lg:col-start-8 lg:order-2">
-              <h2 className="text-2xl  font-bold sm:text-3xl">
+              <h2 className="text-2xl font-bold sm:text-3xl text-gray-800 dark:text-white">
                 Fully customizable rules to match your unique needs
               </h2>
               {/* Tab Navs */}
               <nav
-                className="grid gap-4 mt-5 md:mt-10"
+                className="grid gap-4 mt-5 md:mt-10 dark:text-white"
                 aria-label="Tabs"
                 role="tablist"
               >
                 <button
                   type="button"
-                  className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl"
-                  id="tabs-with-card-item-1"
-                  data-hs-tab="#tabs-with-card-1"
-                  aria-controls="tabs-with-card-1"
+                  className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl dark:bg-gray-700 dark:text-white"
+                  id="tabs-with-droplet-item-1"
+                  data-hs-tab="#tabs-with-droplet-1"
+                  aria-controls="tabs-with-droplet-1"
                   role="tab"
                 >
                   <span className="flex">
                     <svg
-                      className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 text-purple-600 "
+                      className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 text-purple-600 dark:text-purple-300"
                       xmlns="http://www.w3.org/2000/svg"
                       width={16}
                       height={16}
@@ -40,11 +41,11 @@ const Contact = () => {
                       <path d="M16 3a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
                     </svg>
                     <span className="grow ml-6">
-                      <span className="block text-lg font-semibold text-purple-600 ">
+                      <span className="block text-lg font-semibold text-purple-600 dark:text-purple-300">
                         Advanced tools
                       </span>
-                      <span className="block mt-1 ">
-                        Use Preline thoroughly thought and automated libraries
+                      <span className="block mt-1">
+                        Use Droplet thoroughly thought and automated libraries
                         to manage your businesses.
                       </span>
                     </span>
@@ -52,32 +53,31 @@ const Contact = () => {
                 </button>
                 <button
                   type="button"
-                  className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl"
-                  id="tabs-with-card-item-2"
-                  data-hs-tab="#tabs-with-card-2"
-                  aria-controls="tabs-with-card-2"
+                  className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl dark:bg-gray-700 dark:text-white"
+                  id="tabs-with-droplet-item-2"
+                  data-hs-tab="#tabs-with-droplet-2"
+                  aria-controls="tabs-with-droplet-2"
                   role="tab"
                 >
                   <span className="flex">
                     <svg
-                      className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 text-purple-600 "
+                      className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 text-purple-600 dark:text-purple-300"
                       xmlns="http://www.w3.org/2000/svg"
                       width={16}
                       height={16}
                       fill="currentColor"
                       viewBox="0 0 16 16"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M0 0h1v15h15v1H0V0Zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07Z"
-                      />
+                      <path d="M9.465 10H12a2 2 0 1 1 0 4H9.465c.34-.588.535-1.271.535-2 0-.729-.195-1.412-.535-2z" />
+                      <path d="M6 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm0 1a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm.535-10a3.975 3.975 0 0 1-.409-1H4a1 1 0 0 1 0-2h2.126c.091-.355.23-.69.41-1H4a2 2 0 1 0 0 4h2.535z" />
+                      <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
                     </svg>
                     <span className="grow ml-6">
-                      <span className="block text-lg font-semibold text-purple-600 ">
+                      <span className="block text-lg font-semibold text-purple-600 dark:text-purple-300">
                         Smart dashboards
                       </span>
-                      <span className="block mt-1 ">
-                        Quickly Preline sample components, copy-paste codes, and
+                      <span className="block mt-1">
+                        Quickly Droplet sample components, copy-paste codes, and
                         start right off.
                       </span>
                     </span>
@@ -85,30 +85,31 @@ const Contact = () => {
                 </button>
                 <button
                   type="button"
-                  className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl"
-                  id="tabs-with-card-item-3"
-                  data-hs-tab="#tabs-with-card-3"
-                  aria-controls="tabs-with-card-3"
+                  className="bg-white shadow-md hover:bg-gray-200 p-4 md:p-5 rounded-xl dark:bg-gray-700 dark:text-white"
+                  id="tabs-with-droplet-item-3"
+                  data-hs-tab="#tabs-with-droplet-3"
+                  aria-controls="tabs-with-droplet-3"
                   role="tab"
                 >
                   <span className="flex">
                     <svg
-                      className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 text-purple-600 "
+                      className="flex-shrink-0 mt-2 h-6 w-6 md:w-7 md:h-7 text-purple-600 dark:text-purple-300"
                       xmlns="http://www.w3.org/2000/svg"
                       width={16}
                       height={16}
                       fill="currentColor"
                       viewBox="0 0 16 16"
                     >
-                      <path d="M5.52.359A.5.5 0 0 1 6 0h4a.5.5 0 0 1 .474.658L8.694 6H12.5a.5.5 0 0 1 .395.807l-7 9a.5.5 0 0 1-.873-.454L6.823 9.5H3.5a.5.5 0 0 1-.48-.641l2.5-8.5zM6.374 1 4.168 8.5H7.5a.5.5 0 0 1 .478.647L6.78 13.04 11.478 7H8a.5.5 0 0 1-.474-.658L9.306 1H6.374z" />
+                      <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 1 0 0-4h2.535z" />
+                      <path d="M14 4a4 4 0 1 1-8 0 4 4 0 0 1 8 0z" />
                     </svg>
                     <span className="grow ml-6">
-                      <span className="block text-lg font-semibold text-purple-600 ">
+                      <span className="block text-lg font-semibold text-purple-600 dark:text-purple-300">
                         Powerful features
                       </span>
-                      <span className="block mt-1 ">
+                      <span className="block mt-1">
                         Reduce time and effort on building modern look design
-                        with Preline only.
+                        with Droplet only.
                       </span>
                     </span>
                   </span>
@@ -160,7 +161,7 @@ const Contact = () => {
           {/* End Grid */}
           {/* Background Color */}
           <div className="absolute inset-0 grid grid-cols-12 w-full h-full">
-            <div className="col-span-full lg:col-span-7 lg:col-start-6 bg-gray-100 w-full h-5/6 rounded-xl sm:h-3/4 lg:h-full" />
+            <div className="col-span-full lg:col-span-7 lg:col-start-6  w-full h-5/6 rounded-xl sm:h-3/4 lg:h-full" />
           </div>
           {/* End Background Color */}
         </div>

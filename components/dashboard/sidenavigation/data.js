@@ -4,6 +4,8 @@ import CreditsIcon from './icons/credits';
 import ArchivesIcon from './icons/archives';
 import SettingsIcon from './icons/settings';
 import { MdLogout } from 'react-icons/md';
+import UserIcon from './icons/user';
+import SharedIcon from './icons/share';
 const data = [
   {
     title: 'Home',
@@ -11,18 +13,18 @@ const data = [
     link: '/home',
   },
   {
-    title: 'Card',
+    title: 'Droplet',
     icon: <CreditsIcon />,
-    link: '/card',
+    link: '/droplet',
   },
   {
     title: 'Shared with me',
-    icon: <ArchivesIcon />,
+    icon: <SharedIcon />,
     link: '/shared',
   },
   {
     title: 'Profile',
-    icon: <StatusIcon />,
+    icon: <UserIcon />,
     link: '/profile',
   },
   {

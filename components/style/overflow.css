@@ -1,0 +1,16 @@
+.customscrollbar {
+  overflow: auto; /* or any other value like 'scroll' */
+}
+
+.customscrollbar::-webkit-scrollbar {
+  width: 8px; /* Adjust the width as needed */
+}
+
+.customscrollbar::-webkit-scrollbar-thumb {
+  background-color: red; /* Set your desired color */
+  border-radius: 4px; /* Adjust the border radius as needed */
+}
+
+.customscrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: blue; /* Set the color for when the thumb is hovered */
+}
