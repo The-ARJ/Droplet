@@ -1,6 +1,7 @@
 
 import axios from "axios";
-export const DropletURL = "http://localhost:3005/cards";
+// export const DropletURL = "http://localhost:3005/cards";
+export const DropletURL = "http://cardova-api-production.up.railway.app/cards";
 
 const getAllDroplets = (token) => {
     return axios.get(`${DropletURL}`, {
