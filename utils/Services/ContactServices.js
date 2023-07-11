@@ -1,5 +1,6 @@
 import axios from "axios";
-export const contactURL = "http://localhost:3005/contacts";
+// export const contactURL = "http://localhost:3005/contacts";
+export const contactURL = "http://cardova-api-production.up.railway.app/contacts";
 
 
 const getAllContact = () => {
