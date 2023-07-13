@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const baseURL = "http://cardova-api-production.up.railway.app/users";
-// const baseURL = "http://localhost:3005/users";
-// export const imgURL = "http://localhost:3005";
-export const imgURL = "http://cardova-api-production.up.railway.app";
+// const baseURL = "http://cardova-api-production.up.railway.app/users";
+const baseURL = "http://localhost:3005/users";
+export const imgURL = "http://localhost:3005";
+// export const imgURL = "http://cardova-api-production.up.railway.app";
 
 const login = (credentials) => {
     return axios.post(`${baseURL}/login/user`, credentials);

@@ -1,7 +1,7 @@
 
 import axios from "axios";
-// export const TemplateURL = "http://localhost:3005/templates";
-export const TemplateURL = "http://cardova-api-production.up.railway.app/templates";
+export const TemplateURL = "http://localhost:3005/templates";
+// export const TemplateURL = "http://cardova-api-production.up.railway.app/templates";
 
 const getAllTemplates = (token) => {
     return axios.get(`${TemplateURL}`, {
